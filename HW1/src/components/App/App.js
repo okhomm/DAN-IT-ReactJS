@@ -3,6 +3,8 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import data from "../../data";
 
+import styles from './App.module.scss'
+
 class App extends React.Component {
 
     state = {
@@ -13,22 +15,28 @@ class App extends React.Component {
     closeModalHandler = () => {
         this.setState({showModal:false})
     }
+
+    closeModalFromBgHandler = (e) => {
+        if(e.target.classList.contains('modal')) {
+            this.setState({showModal:false})
+        }
+    }
     render() {
         const [firstModal,
             secondModal] = data;
         const modalName = this.state.modalName;
 
         return (
-            <div>
+            <div className={styles.container}>
                 <Button
                     id="1"
-                    backgroundColor="red"
+                    backgroundColor="#e74c3c"
                     text="Open first modal"
                     onClick={() => this.setState({modalName: firstModal, showModal: true})}/>
 
                 <Button
                     id="2"
-                    backgroundColor="blue"
+                    backgroundColor="orange"
                     text="Open second modal"
                     onClick={() => this.setState({modalName: secondModal, showModal: true})}/>
 
@@ -37,6 +45,7 @@ class App extends React.Component {
                     closeButton={modalName.closeButton}
                     text={modalName.text}
                     closeModal={this.closeModalHandler}
+                    closeModalFromBg={this.closeModalFromBgHandler}
                     actions={
                         modalName.actions.map(item => {
                             return <Button key={item.id} {...item} onClick={() => this.setState({showModal: false})}/>

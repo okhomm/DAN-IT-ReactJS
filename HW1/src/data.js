@@ -1,18 +1,18 @@
 const data = [
         {
             id: 1,
-            header: 'This is modal 1',
+            header: 'Do you want to delete this file?',
             closeButton: true,
-            text: 'Modal 1 main text',
+            text: 'Once you delete this file, it won\`t be possible to undo this action. Are you sure you want to delete it?',
             actions: [
                 {
                     id: 1,
-                    backgroundColor: 'blue',
+                    backgroundColor: '#b3382c',
                     text: 'Ok'
                 },
                 {
                     id: 2,
-                    backgroundColor: 'red',
+                    backgroundColor: '#b3382c',
                     text: 'Cansel'
                 },
             ]
