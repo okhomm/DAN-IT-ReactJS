@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import data from "../../data";
 
-import styles from './App.module.scss'
+import './App.scss';
 
 class App extends React.Component {
 
@@ -18,7 +18,7 @@ class App extends React.Component {
 
     closeModalFromBgHandler = (e) => {
         e.preventDefault();
-        if(e.target.classList.contains('modal')) {
+        if(e.target.classList.contains('close')) {
             this.closeModalHandler();
         }
     }
@@ -28,7 +28,7 @@ class App extends React.Component {
         const modalName = this.state.modalName;
 
         return (
-            <div className={styles.container}>
+            <div className="container">
                 <Button
                     id="1"
                     backgroundColor="#e74c3c"
@@ -45,6 +45,7 @@ class App extends React.Component {
                     header={modalName.header}
                     closeButton={modalName.closeButton}
                     text={modalName.text}
+                    modalBackground={modalName.background}
                     closeModal={this.closeModalHandler}
                     closeModalFromBg={this.closeModalFromBgHandler}
                     actions={

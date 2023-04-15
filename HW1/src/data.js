@@ -4,6 +4,7 @@ const data = [
             header: 'Do you want to delete this file?',
             closeButton: true,
             text: 'Once you delete this file, it won\`t be possible to undo this action. Are you sure you want to delete it?',
+            background: '#e74c3c',
             actions: [
                 {
                     id: 1,
@@ -20,8 +21,9 @@ const data = [
         {
             id: 2,
             header: 'This is modal 2',
-            closeButton: true,
+            closeButton: false,
             text: 'Modal 2 main text',
+            background: 'orange',
             actions: [
                 {
                     id: 1,
