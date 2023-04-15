@@ -17,8 +17,9 @@ class App extends React.Component {
     }
 
     closeModalFromBgHandler = (e) => {
+        e.preventDefault();
         if(e.target.classList.contains('modal')) {
-            this.setState({showModal:false})
+            this.closeModalHandler();
         }
     }
     render() {
