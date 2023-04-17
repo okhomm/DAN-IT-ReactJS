@@ -4,7 +4,6 @@ const data = [
             header: 'Do you want to delete this file?',
             closeButton: true,
             text: 'Once you delete this file, it won\`t be possible to undo this action. Are you sure you want to delete it?',
-            background: '#e74c3c',
             actions: [
                 {
                     id: 1,
@@ -20,22 +19,19 @@ const data = [
         },
         {
             id: 2,
-            header: 'This is modal 2',
+            header: 'Do you like React.js?',
             closeButton: false,
-            text: 'Modal 2 main text',
-            background: 'orange',
+            text: 'Tell me, do you like studying  React.js?',
             actions: [
                 {
                     id: 1,
-                    backgroundColor: 'pink',
-                    text: 'Ok',
-                    onClick: '1'
+                    backgroundColor: '#666666',
+                    text: 'Yes',
                 },
                 {
                     id: 2,
-                    backgroundColor: 'gray',
-                    text: 'Cansel',
-                    onClick: '2'
+                    backgroundColor: '#666666',
+                    text: 'Yes, I like!',
                 },
             ]
         }

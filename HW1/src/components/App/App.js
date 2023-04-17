@@ -50,7 +50,10 @@ class App extends React.Component {
                     closeModalFromBg={this.closeModalFromBgHandler}
                     actions={
                         modalName.actions.map(item => {
-                            return <Button key={item.id} {...item} onClick={() => this.setState({showModal: false})}/>
+                            return <Button
+                                key={item.id}
+                                {...item}
+                                onClick={() => this.setState({showModal: false})}/>
                         })
                     }/>}
             </div>
