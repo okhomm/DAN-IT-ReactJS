@@ -55,7 +55,8 @@ class App extends React.Component {
                                 {...item}
                                 onClick={() => this.setState({showModal: false})}/>
                         })
-                    }/>}
+                    }
+                />}
             </div>
         )
     }

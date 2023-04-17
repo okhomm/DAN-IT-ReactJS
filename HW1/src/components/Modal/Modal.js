@@ -1,12 +1,11 @@
 import React from "react";
 import "./Modal.scss"
-import { TfiClose } from 'react-icons/tfi';
+import {TfiClose} from 'react-icons/tfi';
 
 class Modal extends React.Component {
     render() {
         const {header, text, actions, closeButton, closeModal, closeModalFromBg} = this.props;
         return (
-
             <div className="modal close" onClick={closeModalFromBg}>
                 <div className="modal__active">
                     <div className="modal__window">
@@ -22,9 +21,9 @@ class Modal extends React.Component {
                         </div>
                     </div>
                 </div>
-
             </div>
         )
     }
 }
+
 export default Modal;

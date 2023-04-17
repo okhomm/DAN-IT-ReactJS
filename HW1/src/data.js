@@ -30,7 +30,7 @@ const data = [
                 },
                 {
                     id: 2,
-                    backgroundColor: '#666666',
+                    backgroundColor: '#333333',
                     text: 'Yes, I like!',
                 },
             ]
