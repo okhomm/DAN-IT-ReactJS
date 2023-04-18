@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    max-width: 1200px;
+    margin: auto;
+
+}
+
+.container {
+    padding: 38px 0;
+    display: flex;
+}
