@@ -1,60 +1,42 @@
 import React from 'react';
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
-import data from "../../data";
 
 import './App.scss';
 
 class App extends React.Component {
 
     state = {
-        showModal: false,
-        modalName: null
+        showFirstModal: false
     }
 
-    closeModalHandler = () => {
-        this.setState({showModal:false})
+    showFirstModalHandler = () => {
+        this.setState({showFirstModal: true})
     }
 
-    closeModalFromBgHandler = (e) => {
-        e.preventDefault();
-        if(e.target.classList.contains('close')) {
-            this.closeModalHandler();
-        }
+    closeFirstModalHandler = () => {
+        this.setState({showFirstModal: false})
     }
+
     render() {
-        const [firstModal,
-            secondModal] = data;
-        const modalName = this.state.modalName;
 
         return (
             <div className="container">
                 <Button
-                    id="1"
                     backgroundColor="#e74c3c"
                     text="Open first modal"
-                    onClick={() => this.setState({modalName: firstModal, showModal: true})}/>
+                    onClick={() => this.showFirstModalHandler()}/>
 
-                <Button
-                    id="2"
-                    backgroundColor="orange"
-                    text="Open second modal"
-                    onClick={() => this.setState({modalName: secondModal, showModal: true})}/>
-
-                {this.state.showModal && <Modal
-                    header={modalName.header}
-                    closeButton={modalName.closeButton}
-                    text={modalName.text}
-                    modalBackground={modalName.background}
-                    closeModal={this.closeModalHandler}
-                    closeModalFromBg={this.closeModalFromBgHandler}
+                {this.state.showFirstModal && <Modal
+                    header="Do you want to delete this file?"
+                    closeButton={true}
+                    text="Once you delete this file, it won't be possible to undo this action. Are you sure you want to delete it?"
+                    closeModal={this.closeFirstModalHandler}
                     actions={
-                        modalName.actions.map(item => {
-                            return <Button
-                                key={item.id}
-                                {...item}
-                                onClick={() => this.setState({showModal: false})}/>
-                        })
+                        <>
+                            <Button backgroundColor="#b3382c" text="Ok" onClick={() => this.closeFirstModalHandler()}/>
+                            <Button backgroundColor="#b3382c" text="Cancel" onClick={() => this.closeFirstModalHandler()}/>
+                        </>
                     }
                 />}
             </div>

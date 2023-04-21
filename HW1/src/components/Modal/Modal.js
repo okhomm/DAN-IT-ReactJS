@@ -6,7 +6,7 @@ class Modal extends React.Component {
     render() {
         const {header, text, actions, closeButton, closeModal, closeModalFromBg} = this.props;
         return (
-            <div className="modal close" onClick={closeModalFromBg}>
+            <div className="modal close" onClick={closeModal}>
                 <div className="modal__active">
                     <div className="modal__window">
                         <div className="modal__header">
