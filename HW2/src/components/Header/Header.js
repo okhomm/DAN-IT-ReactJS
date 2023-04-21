@@ -1,8 +1,10 @@
 import React from 'react';
+
 import TopMenu from "../TopMenu/TopMenu";
 import Search from "../Search/Search";
 import FavoriteProducts from "../FavoriteProducts/FavoriteProducts";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
+
 import styles from "./Header.module.css";
 import logo from "./logo.png";
 class Header extends React.Component {
@@ -11,14 +13,14 @@ class Header extends React.Component {
             <header className={styles.header}>
                 <TopMenu/>
                 <div className={styles.container}>
-                    <img src={logo} alt="logo"/>
+                    <a href="/">
+                        <img src={logo} alt="logo"/>
+                    </a>
                         <Search/>
                         <FavoriteProducts/>
                         <ShoppingCart/>
                 </div>
-
             </header>
-
         )
     }
 }
