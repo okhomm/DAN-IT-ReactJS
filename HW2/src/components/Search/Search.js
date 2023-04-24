@@ -1,8 +1,14 @@
 import React from "react";
+import styles from './Search.module.css';
 
 class Search extends React.Component {
     render() {
-        return <h2>Search</h2>
+        return (
+            <div className={styles.box}>
+                <input type="text" placeholder="Enter the name of the product"/>
+                <button>Search</button>
+            </div>
+        )
     }
 }
 

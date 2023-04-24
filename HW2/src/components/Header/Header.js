@@ -13,12 +13,16 @@ class Header extends React.Component {
             <header className={styles.header}>
                 <TopMenu/>
                 <div className={styles.container}>
-                    <a href="/">
-                        <img src={logo} alt="logo"/>
-                    </a>
+                    <div className={styles.leftBox}>
+                        <a href="/">
+                            <img src={logo} alt="logo"/>
+                        </a>
                         <Search/>
+                    </div>
+                    <div className={styles.rightBox}>
                         <FavoriteProducts/>
                         <ShoppingCart/>
+                    </div>
                 </div>
             </header>
         )
