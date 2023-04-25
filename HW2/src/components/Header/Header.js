@@ -10,9 +10,9 @@ import logo from "./logo.png";
 class Header extends React.Component {
     render() {
         return (
-            <header className={styles.header}>
+            <header className={styles.container}>
                 <TopMenu/>
-                <div className={styles.container}>
+                <div className={styles.content}>
                     <div className={styles.leftBox}>
                         <a href="/">
                             <img src={logo} alt="logo"/>
