@@ -1,0 +1,81 @@
+{
+    "products": [
+        {
+            "name": "Acer Aspire 5 A515-56-73AP Laptop",
+            "price": 939,
+            "image": "https://m.media-amazon.com/images/I/71FZX5wl5GL._AC_SL1500_.jpg",
+            "article": "983722",
+            "color": "Silver"
+        },
+        {
+            "name": "Lenovo IdeaPad 3 15ITL6 Laptop",
+            "price": 572,
+            "image": "https://m.media-amazon.com/images/I/61QGMX0Qy6L._AC_SL1352_.jpg",
+            "article": "872116",
+            "color": "Black"
+        },
+        {
+            "name": "HP Pavilion Gaming 15-ec1017ua Laptop",
+            "price": 899,
+            "image": "https://m.media-amazon.com/images/I/81wJf1orTAL._AC_SL1500_.jpg",
+            "article": "191384",
+            "color": "Red"
+        },
+        {
+            "name": "Dell Inspiron 3501 Laptop",
+            "price": 535,
+            "image": "https://m.media-amazon.com/images/I/51if47n2aPL._AC_SL1000_.jpg",
+            "article": "330924",
+            "color": "Grey"
+        },
+        {
+            "name": "ASUS VivoBook 15 F515EA Laptop",
+            "price": 799,
+            "image": "https://m.media-amazon.com/images/I/61TpX7qw9gL._AC_SL1500_.jpg",
+            "article": "872222",
+            "color": "Blue"
+        },
+        {
+            "name": "Acer Nitro 5 AN515-45-R9Q2 Laptop",
+            "price": 700,
+            "image": "https://m.media-amazon.com/images/I/71qcTTrp1vL._AC_SL1500_.jpg",
+            "article": "749319",
+            "color": "Black"
+        },
+        {
+            "name": "HP 250 G8 Laptop",
+            "price": 517,
+            "image": "https://m.media-amazon.com/images/I/61iRt8zXe+L._AC_SL1500_.jpg",
+            "article": "192837",
+            "color": "Grey"
+        },
+        {
+            "name": "Lenovo IdeaPad 5 14ALC6 Laptop",
+            "price": 749,
+            "image": "https://m.media-amazon.com/images/I/51lA0TRS-ZL._AC_SL1001_.jpg",
+            "article": "882643",
+            "color": "Silver"
+        },
+        {
+            "name": "ASUS TUF Gaming F15 FX506LU-HN147 Laptop",
+            "price": 949,
+            "image": "https://m.media-amazon.com/images/I/81M8GzQqKkL._AC_SL1500_.jpg",
+            "article": "111333",
+            "color": "Black"
+        },
+        {
+            "name": "Dell G3 15 3500 Laptop",
+            "price": 1288,
+            "image": "https://m.media-amazon.com/images/I/81mCXWHK-nL._AC_SL1500_.jpg",
+            "article": "227455",
+            "color": "Grey"
+        },
+        {
+            "name": "Apple 2021 MacBook Pro",
+            "price": 3658,
+            "image": "https://m.media-amazon.com/images/I/51fU4On8AgL._AC_SL1200_.jpg",
+            "article": "554433",
+            "color": "Blue"
+        }
+	]
+}
