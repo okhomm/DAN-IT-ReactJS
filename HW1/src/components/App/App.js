@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 
 import './App.scss';
 
-class App extends React.Component {
+class App extends Component {
 
     state = {
         showFirstModal: false,

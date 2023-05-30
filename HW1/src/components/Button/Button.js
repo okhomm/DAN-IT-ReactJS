@@ -1,6 +1,6 @@
-import React from "react";
+import React, {Component} from "react";
 import "./Button.scss";
-class Button extends React.Component {
+class Button extends Component {
 
     render() {
         const {text, backgroundColor, onClick} = this.props;
