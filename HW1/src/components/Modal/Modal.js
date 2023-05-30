@@ -1,8 +1,8 @@
-import React from "react";
+import React, {Component} from "react";
 import "./Modal.scss"
 import {TfiClose} from 'react-icons/tfi';
 
-class Modal extends React.Component {
+class Modal extends Component {
     render() {
         const {header, text, actions, closeButton, closeModal, closeModalFromBg} = this.props;
         return (
