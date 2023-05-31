@@ -1,0 +1,12 @@
+.button {
+  min-width: 100px;
+  margin: 0 5px;
+  padding: 10px 28px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  /*font-family: 'Helvetica 55 Roman', sans-serif;*/
+  color: #fff;
+}
+
