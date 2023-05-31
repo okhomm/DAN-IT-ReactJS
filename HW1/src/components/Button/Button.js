@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./Button.scss";
+
 class Button extends Component {
 
     render() {
@@ -9,7 +10,8 @@ class Button extends Component {
                 type="button"
                 className="button"
                 style={{backgroundColor: backgroundColor}}
-                onClick={onClick}>{text}
+                onClick={onClick}>
+                {text}
             </button>
         )
     }

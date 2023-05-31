@@ -6,7 +6,8 @@ import './App.scss';
 class App extends Component {
 
     state = {
-
+        currentModalData: null,
+        modalIsOpen: false,
         modalData: [
             {
                 id: 1,
@@ -44,10 +45,7 @@ class App extends Component {
                     }
                 ]
             }
-        ],
-
-        currentModalData: null,
-        modalIsOpen: false,
+        ]
     }
 
     showModalHandler = (id) => {
@@ -69,7 +67,6 @@ class App extends Component {
     }
 
     render() {
-
         return (
             <div className="container">
                 <Button
@@ -95,8 +92,7 @@ class App extends Component {
                                     key={button.id}
                                     backgroundColor={button.backgroundColor}
                                     text={button.text}
-                                    onClick={() => this.closeModalHandler()}
-                                />
+                                    onClick={() => this.closeModalHandler()}/>
                             })}
                         </>
                     }

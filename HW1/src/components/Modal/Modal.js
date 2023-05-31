@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import BackDrop from "../backDrop/backDrop";
-import "./Modal.scss"
 import {TfiClose} from 'react-icons/tfi';
+import "./Modal.scss"
 
 class Modal extends Component {
     render() {
