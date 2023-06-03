@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
-import Button from "../Button/Button";
-import Modal from "../Modal/Modal";
-import styles from './App.module.css'
+import sendRequest from '../../services/sendRequest';
+import Header from "../Header/Header";
+import ProductList from "../ProductList/ProductList";
+import Button from "../utilits/Button/Button";
+import Modal from "../utilits/Modal/Modal";
+import styles from './App.module.css';
+import {logDOM} from "@testing-library/react";
 
 class App extends Component {
 
@@ -67,7 +71,31 @@ class App extends Component {
     //     })
     // }
 
+    // componentDidMount() {
+        // fetch('/data/data.json').then(res => res.json()).then(res => this.setState({productsList: res}))
+        // fetch('data.json')
+        //     .then(res => res.json())
+        //     .then(res => console.log(res))
+        // return result;
+    // }
+
+    state = {
+        items: [],
+    }
+
+    componentDidMount() {
+        sendRequest('data.json')
+            .then(data => {
+                this.setState({
+                    items: data
+                })
+            })
+    }
+
+
     render() {
+        const products = this.state.items
+
         return (
             //     <div className={styles.container}>
             //         <Button
@@ -100,11 +128,8 @@ class App extends Component {
             //         />}
             //     </div>
             <>
-                <h1>Shop</h1>
-                <Button
-                    backgroundColor="#e74c3c"
-                    text="Open first modal"
-                    onClick={() => this.showModalHandler(1)}/>
+                <Header/>
+                <ProductList products={products}/>
             </>
         )
     }

@@ -1,0 +1,32 @@
+.box {
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    color: #DCDCDC;
+
+}
+
+.box input {
+    width: 480px;
+    padding: 10px;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px 0px 0px 5px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.box input::placeholder {
+    color: #DCDCDC;
+}
+
+.box button {
+    padding: 10px;
+    background: #F4CF87;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    font-size: 20px;
+    line-height: 27px;
+    color: #282828;
+}
