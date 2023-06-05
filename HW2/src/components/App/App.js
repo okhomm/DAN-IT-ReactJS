@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import sendRequest from '../../services/sendRequest';
 import Header from "../Header/Header";
 import ProductList from "../ProductList/ProductList";
+import Footer from "../Footer/Footer";
 import Button from "../utilits/Button/Button";
 import Modal from "../utilits/Modal/Modal";
 import styles from './App.module.css';
@@ -130,6 +131,7 @@ class App extends Component {
             <>
                 <Header/>
                 <ProductList products={products}/>
+                <Footer/>
             </>
         )
     }

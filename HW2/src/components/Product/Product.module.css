@@ -2,30 +2,41 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
-    padding: 10px;
+    position: relative;
+    /*margin: 10px;*/
+    /*padding: 10px;*/
+    padding: 35px 15px 15px 15px;
+    /*padding-left: 15px;*/
+    /*padding-right: 15px;*/
     border: 1px solid #DCDCDC;
     border-radius: 5px;
 
 }
 
 .container:hover {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+
+.title {
+    min-height: 70px;
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
 
 .container h3 {
-    padding-top: 20px;
     text-align: center;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 25px;
     color: #282828;
+    cursor: pointer;
 }
 
-.image img {
+.image img{
     /*width: 250px;*/
-    height: 170px;
+    cursor: pointer;
+    height: 150px;
     position: relative;
 }
 
@@ -37,6 +48,18 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+    z-index: 1000;
+    height: 30px;
+    width: 30px;
+}
+
+.favorite svg:hover {
+    fill: #f4ce88;
+}
+
+.container button {
+    margin: 0;
+    padding: 0;
 }
 
 .price {
@@ -58,7 +81,7 @@
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 5px;
 }
 
 .shoppingCart {

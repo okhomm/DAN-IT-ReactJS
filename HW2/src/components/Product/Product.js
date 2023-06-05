@@ -6,13 +6,15 @@ class Product extends React.Component {
         const {name, price, image, article, color} = this.props;
         return (
             <div className={styles.container}>
-                <div className={styles.image}>
+                <div>
                     <div className={styles.image}><img src={image} alt=""/></div>
-                    <button className={styles.favorite}>
-                        <MdFavoriteBorder/>
-                    </button>
                 </div>
-                <h3>{name}</h3>
+                <button className={styles.favorite} title="add to favorite">
+                    <MdFavoriteBorder/>
+                </button>
+                <div className={styles.title}>
+                    <h3>{name}</h3>
+                </div>
                 <div className={styles.footer}>
                     <span className={styles.price}>{price}</span>
                     <button className={styles.shoppingCart}>
