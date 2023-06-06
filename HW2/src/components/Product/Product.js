@@ -4,13 +4,15 @@ import styles from './Product.module.css';
 class Product extends React.Component {
     render () {
         const {name, price, image, article, color} = this.props;
+        const addItemToFavorite = this.props.addItemToFavorite;
+
         return (
             <div className={styles.container}>
                 <div>
                     <div className={styles.image}><img src={image} alt=""/></div>
                 </div>
                 <button className={styles.favorite} title="add to favorite">
-                    <MdFavoriteBorder/>
+                    <MdFavoriteBorder onClick={() => addItemToFavorite(article)}/>
                 </button>
                 <div className={styles.title}>
                     <h3>{name}</h3>
@@ -23,8 +25,6 @@ class Product extends React.Component {
                 </div>
             </div>
             )
-
-
     }
 }
 

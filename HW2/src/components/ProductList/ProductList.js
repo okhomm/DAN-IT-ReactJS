@@ -6,6 +6,8 @@ import product from "../Product/Product";
 class ProductList extends Component {
     render() {
         const products = this.props.products;
+        const addItemToFavorite = this.props.addItemToFavorite;
+
         return (
             <main className={styles.container}>
                 <h2>Laptops</h2>
@@ -19,7 +21,9 @@ class ProductList extends Component {
                                 price={price}
                                 image={image}
                                 article={article}
-                                color={color}/>
+                                color={color}
+                                addItemToFavorite={addItemToFavorite}
+                            />
                         )
                     })}
                 </div>
