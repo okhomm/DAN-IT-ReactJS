@@ -5,7 +5,7 @@ class Footer extends Component {
     render() {
         return (
             <div className={styles.container}>
-
+                <p className={styles.text}>LaptopStore. All right reserved &copy;</p>
             </div>
         )
     }

@@ -9,22 +9,29 @@ import styles from "./Header.module.css";
 import logo from "./logo.png";
 class Header extends Component {
     render() {
+        const favoriteItems = this.props.favoriteItems;
         return (
-            <header className={styles.container}>
+            <div>
                 <TopMenu/>
-                <div className={styles.content}>
-                    <div className={styles.leftBox}>
-                        <a href="/">
-                            <img src={logo} alt="logo"/>
-                        </a>
-                        <Search/>
+                <header className={styles.container}>
+
+                    <div className={styles.content}>
+                        <div className={styles.leftBox}>
+                            <a href="/">
+                                <img src={logo} alt="logo"/>
+                            </a>
+                            <Search/>
+                        </div>
+                        <div className={styles.rightBox}>
+                            <FavoriteProducts
+                                favoriteItems={favoriteItems}
+                            />
+                            <ShoppingCart/>
+                        </div>
                     </div>
-                    <div className={styles.rightBox}>
-                        <FavoriteProducts/>
-                        <ShoppingCart/>
-                    </div>
-                </div>
-            </header>
+                </header>
+            </div>
+
         )
     }
 }

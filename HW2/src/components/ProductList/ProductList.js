@@ -6,7 +6,11 @@ import product from "../Product/Product";
 class ProductList extends Component {
     render() {
         const products = this.props.products;
-        const addItemToFavorite = this.props.addItemToFavorite;
+        const {addItemToFavorite, isItemInFavorites} = this.props;
+
+        if (products.length === 0) {
+            return <div>Loading...</div>;
+        }
 
         return (
             <main className={styles.container}>
@@ -23,6 +27,7 @@ class ProductList extends Component {
                                 article={article}
                                 color={color}
                                 addItemToFavorite={addItemToFavorite}
+                                isItemInFavorites={isItemInFavorites}
                             />
                         )
                     })}
