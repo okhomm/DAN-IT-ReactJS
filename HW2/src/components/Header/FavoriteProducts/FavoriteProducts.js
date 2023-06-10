@@ -1,9 +1,9 @@
-import React from "react";
+import React, {Component} from "react";
 import { MdFavoriteBorder } from "react-icons/md";
 
 import styles from "./FavoriteProducts.module.css";
 
-class FavoriteProducts extends React.Component{
+class FavoriteProducts extends Component{
     render() {
         const favoriteItems = this.props.favoriteItems;
         return (

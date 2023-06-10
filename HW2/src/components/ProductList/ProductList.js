@@ -6,7 +6,7 @@ import product from "../Product/Product";
 class ProductList extends Component {
     render() {
         const products = this.props.products;
-        const {addItemToFavorite, isItemInFavorites} = this.props;
+        const {addItemToFavorite, isItemInFavorites, openCartModal} = this.props;
 
         if (products.length === 0) {
             return <div>Loading...</div>;
@@ -28,6 +28,7 @@ class ProductList extends Component {
                                 color={color}
                                 addItemToFavorite={addItemToFavorite}
                                 isItemInFavorites={isItemInFavorites}
+                                openCartModal={openCartModal}
                             />
                         )
                     })}

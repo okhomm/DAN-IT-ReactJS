@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import sendRequest from '../../services/sendRequest';
 import Header from "../Header/Header";
 import ProductList from "../ProductList/ProductList";
 import Footer from "../Footer/Footer";
+import Modal from "../utilits/Modal/Modal";
+import Button from "../utilits/Button/Button";
 import styles from './App.module.css';
 
 class App extends Component {
     state = {
         items: [],
         favoriteItems: [],
+        shoppingCart: [],
+        modalIsOpen: false
     };
 
     componentDidMount() {
@@ -48,7 +52,7 @@ class App extends Component {
     };
 
     addItemToFavoriteHandler = article => {
-        const { favoriteItems, items } = this.state;
+        const {favoriteItems, items} = this.state;
         const isAlreadyAdded = favoriteItems.some(item => item.article === article);
 
         if (isAlreadyAdded) {
@@ -78,8 +82,26 @@ class App extends Component {
         }
     };
 
+    showModalHandler = () => {
+        this.setState({
+            modalIsOpen: true
+        })
+    }
+
+    closeModalHandler = () => {
+        this.setState({
+            modalIsOpen: false
+        })
+    }
+
+
+    // addItemToShoppingCartHandler = article => {
+    //     const {shoppingCart, item} = this.state;
+    //     const isAlreadyAdded = favoriteItems.some(item => item.article === article);
+    // }
+
     isItemInFavorites = article => {
-        const { favoriteItems } = this.state;
+        const {favoriteItems} = this.state;
         return favoriteItems.some(item => item.article === article);
     };
 
@@ -88,13 +110,36 @@ class App extends Component {
 
         return (
             <>
-                <Header favoriteItems={this.state.favoriteItems} />
+                <Header favoriteItems={this.state.favoriteItems}/>
                 <ProductList
                     products={products}
                     addItemToFavorite={this.addItemToFavoriteHandler}
                     isItemInFavorites={this.isItemInFavorites}
+                    openCartModal={this.showModalHandler}
                 />
-                <Footer />
+                <Footer/>
+                {this.state.modalIsOpen && <Modal
+                    header="Confirm adding the product to the cart"
+                    closeButton={true}
+                    text="Are you sure you want to add this item to your cart?"
+                    closeModal={this.closeModalHandler}
+                    isOpen={this.state.modalIsOpen}
+                    actions={
+                        <>
+                            <Button
+                                backgroundColor="#9f9f9f"
+                                text="No"
+                                onClick={() => this.closeModalHandler()}
+                            />
+                            <Button
+                                backgroundColor="#f4ce88"
+                                text="Yes"
+                                onClick={() => this.closeModalHandler()}
+                            />
+
+                        </>
+                    }
+                />}
             </>
         );
     }

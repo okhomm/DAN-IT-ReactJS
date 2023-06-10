@@ -1,9 +1,9 @@
-import React from "react";
+import React, {Component} from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
 import styles from './ShoppingCart.module.css';
 
-class ShoppingCart extends React.Component{
+class ShoppingCart extends Component{
     render() {
         return (
             <div className={styles.box}>

@@ -1,7 +1,7 @@
-import React from "react";
+import React, {Component} from "react";
 import styles from './Search.module.css';
 
-class Search extends React.Component {
+class Search extends Component {
     render() {
         return (
             <div className={styles.box}>

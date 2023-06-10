@@ -8,7 +8,7 @@
     border-radius: 5px;
     /*background-color: rgb(255, 255, 255);*/
     cursor: default;
-    background-color: #e74c3c;
+    background-color: #fff;
     overflow: hidden;
     z-index: 1000;
 }
@@ -25,14 +25,14 @@
     justify-content: space-between;
     width: 100%;
     padding: 25px 30px;
-    background-color: #d44637;
+    background-color: #f4ce88;
 }
 
 .title {
     margin: 0;
     padding: 0;
     font-size: 22px;
-    /*font-family: 'Helvetica 65 Medium', sans-serif;*/
+    font-family: 'Helvetica 65 Medium', sans-serif;
 }
 
 .close_icon {
@@ -44,7 +44,7 @@
     padding: 30px 0;
     line-height: 30px;
     text-align: center;
-    /*font-family: 'Helvetica 55 Roman', sans-serif;*/
+    font-family: 'Helvetica 55 Roman', sans-serif;
     font-size: 15px;
 }
 

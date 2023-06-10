@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { MdOutlineShoppingCart, MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import styles from './Product.module.css';
-class Product extends React.Component {
+class Product extends Component {
     render () {
         const {name, price, image, article, color} = this.props;
-        const {addItemToFavorite, isItemInFavorites} = this.props;
+        const {addItemToFavorite, isItemInFavorites, openCartModal} = this.props;
 
         return (
             <div className={styles.container}>
@@ -19,7 +19,7 @@ class Product extends React.Component {
                 </div>
                 <div className={styles.footer}>
                     <span className={styles.price}>{price}</span>
-                    <button className={styles.shoppingCart}>
+                    <button className={styles.shoppingCart} onClick={() => openCartModal()}>
                         <MdOutlineShoppingCart/>
                     </button>
                 </div>
