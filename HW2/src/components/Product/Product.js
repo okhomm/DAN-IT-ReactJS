@@ -19,7 +19,7 @@ class Product extends Component {
                 </div>
                 <div className={styles.footer}>
                     <span className={styles.price}>{price}</span>
-                    <button className={styles.shoppingCart} onClick={() => openCartModal()}>
+                    <button className={styles.shoppingCart} onClick={() => openCartModal(article)}>
                         <MdOutlineShoppingCart/>
                     </button>
                 </div>

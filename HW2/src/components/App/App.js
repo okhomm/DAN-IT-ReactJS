@@ -12,7 +12,8 @@ class App extends Component {
         items: [],
         favoriteItems: [],
         shoppingCart: [],
-        modalIsOpen: false
+        modalIsOpen: false,
+        article: null
     };
 
     componentDidMount() {
@@ -82,9 +83,10 @@ class App extends Component {
         }
     };
 
-    showModalHandler = () => {
+    showModalHandler = (article) => {
         this.setState({
-            modalIsOpen: true
+            modalIsOpen: true,
+            article: article
         })
     }
 
@@ -100,10 +102,16 @@ class App extends Component {
     //     const isAlreadyAdded = favoriteItems.some(item => item.article === article);
     // }
 
+    testingHandler = () => {
+        alert(this.state.article)
+    }
+
     isItemInFavorites = article => {
         const {favoriteItems} = this.state;
         return favoriteItems.some(item => item.article === article);
     };
+
+
 
     render() {
         const products = this.state.items;
@@ -134,7 +142,7 @@ class App extends Component {
                             <Button
                                 backgroundColor="#f4ce88"
                                 text="Yes"
-                                onClick={() => this.closeModalHandler()}
+                                onClick={() => this.testingHandler()}
                             />
 
                         </>
