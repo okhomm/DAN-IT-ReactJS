@@ -1,3 +1,13 @@
 .container {
 
 }
+
+.popup {
+    position: absolute;
+    top: 155px;
+    right: 217px;
+    background-color: red;
+    width: 302px;
+    height: 200px;
+    z-index: 2000;
+}

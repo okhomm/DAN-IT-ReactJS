@@ -9,7 +9,7 @@ import styles from "./Header.module.css";
 import logo from "./logo.png";
 class Header extends Component {
     render() {
-        const favoriteItems = this.props.favoriteItems;
+        const {favoriteItems, shoppingCartItems, showShoppingCartPopup} = this.props;
         return (
             <div>
                 <TopMenu/>
@@ -26,7 +26,10 @@ class Header extends Component {
                             <FavoriteProducts
                                 favoriteItems={favoriteItems}
                             />
-                            <ShoppingCart/>
+                            <ShoppingCart
+                                shoppingCartItems={shoppingCartItems}
+                                showShoppingCartPopup={showShoppingCartPopup}
+                            />
                         </div>
                     </div>
                 </header>

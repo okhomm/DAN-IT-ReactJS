@@ -1,19 +1,22 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import sendRequest from '../../services/sendRequest';
 import Header from "../Header/Header";
 import ProductList from "../ProductList/ProductList";
 import Footer from "../Footer/Footer";
 import Modal from "../utilits/Modal/Modal";
 import Button from "../utilits/Button/Button";
+import backDrop from "../utilits/backDrop/backDrop";
 import styles from './App.module.css';
+import BackDrop from "../utilits/backDrop/backDrop";
 
 class App extends Component {
     state = {
         items: [],
         favoriteItems: [],
-        shoppingCart: [],
+        shoppingCartItems: [],
         modalIsOpen: false,
-        article: null
+        addToCartArticle: null,
+        showShoppingCart: false
     };
 
     componentDidMount() {
@@ -25,6 +28,7 @@ class App extends Component {
                     },
                     () => {
                         this.restoreFavoriteItemsFromLocalStorage();
+                        this.restoreShoppingCartItemsFromLocalStorage(); // Move it here
                     }
                 );
             })
@@ -36,6 +40,9 @@ class App extends Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevState.favoriteItems !== this.state.favoriteItems) {
             this.saveFavoriteItemsToLocalStorage();
+        }
+        if (prevState.shoppingCartItems !== this.state.shoppingCartItems) {
+            this.saveShoppingCartItemsToLocalStorage();
         }
     }
 
@@ -52,8 +59,21 @@ class App extends Component {
         }
     };
 
+    restoreShoppingCartItemsFromLocalStorage = () => {
+        const shoppingCartItems = localStorage.getItem('shoppingCartItems');
+        if (shoppingCartItems) {
+            this.setState({
+                shoppingCartItems: JSON.parse(shoppingCartItems),
+            });
+        }
+    };
+
+    saveShoppingCartItemsToLocalStorage = () => {
+        localStorage.setItem('shoppingCartItems', JSON.stringify(this.state.shoppingCartItems));
+    };
+
     addItemToFavoriteHandler = article => {
-        const {favoriteItems, items} = this.state;
+        const { favoriteItems, items } = this.state;
         const isAlreadyAdded = favoriteItems.some(item => item.article === article);
 
         if (isAlreadyAdded) {
@@ -83,71 +103,108 @@ class App extends Component {
         }
     };
 
-    showModalHandler = (article) => {
+    showModalHandler = article => {
         this.setState({
             modalIsOpen: true,
-            article: article
+            addToCartArticle: article,
+        });
+    };
+
+    showShoppingCartHandler = () => {
+        this.setState({
+            showShoppingCart: true
         })
     }
 
+    closeShoppingCartHandler = () => {
+        this.setState({
+            showShoppingCart: false
+        })
+    };
     closeModalHandler = () => {
         this.setState({
-            modalIsOpen: false
-        })
-    }
+            modalIsOpen: false,
+        });
+    };
 
+    addItemToShoppingCartHandler = () => {
+        const { shoppingCartItems, items, addToCartArticle } = this.state;
+        const isAlreadyAdded = shoppingCartItems.some(item => item.article === addToCartArticle);
 
-    // addItemToShoppingCartHandler = article => {
-    //     const {shoppingCart, item} = this.state;
-    //     const isAlreadyAdded = favoriteItems.some(item => item.article === article);
-    // }
+        if (isAlreadyAdded) {
+            alert('This item is already in your cart.');
+        } else {
+            const selectedItem = items.find(item => item.article === addToCartArticle);
 
-    testingHandler = () => {
-        alert(this.state.article)
-    }
+            if (selectedItem) {
+                this.setState(
+                    prevState => ({
+                        shoppingCartItems: [...prevState.shoppingCartItems, selectedItem],
+                    }),
+                    () => {
+                        this.saveShoppingCartItemsToLocalStorage();
+                    }
+                );
+            }
+        }
 
-    isItemInFavorites = article => {
-        const {favoriteItems} = this.state;
-        return favoriteItems.some(item => item.article === article);
+        this.closeModalHandler();
     };
 
 
+    isItemInFavorites = article => {
+        const { favoriteItems } = this.state;
+        return favoriteItems.some(item => item.article === article);
+    };
 
     render() {
         const products = this.state.items;
 
         return (
             <>
-                <Header favoriteItems={this.state.favoriteItems}/>
+                <Header
+                    favoriteItems={this.state.favoriteItems}
+                    shoppingCartItems={this.state.shoppingCartItems}
+                    showShoppingCartPopup={this.showShoppingCartHandler}
+                />
+                {this.state.showShoppingCart &&
+                    <>
+                        <div className={styles.popup}></div>
+                        <BackDrop onClick={() => this.closeShoppingCartHandler()}/>
+                    </>
+                }
+
                 <ProductList
                     products={products}
                     addItemToFavorite={this.addItemToFavoriteHandler}
                     isItemInFavorites={this.isItemInFavorites}
+                    shoppingCartItems={this.state.shoppingCartItems} // Fix here
                     openCartModal={this.showModalHandler}
                 />
-                <Footer/>
-                {this.state.modalIsOpen && <Modal
-                    header="Confirm adding the product to the cart"
-                    closeButton={true}
-                    text="Are you sure you want to add this item to your cart?"
-                    closeModal={this.closeModalHandler}
-                    isOpen={this.state.modalIsOpen}
-                    actions={
-                        <>
-                            <Button
-                                backgroundColor="#9f9f9f"
-                                text="No"
-                                onClick={() => this.closeModalHandler()}
-                            />
-                            <Button
-                                backgroundColor="#f4ce88"
-                                text="Yes"
-                                onClick={() => this.testingHandler()}
-                            />
-
-                        </>
-                    }
-                />}
+                <Footer />
+                {this.state.modalIsOpen && (
+                    <Modal
+                        header="Confirm adding the product to the cart"
+                        closeButton={true}
+                        text="Are you sure you want to add this item to your cart?"
+                        closeModal={this.closeModalHandler}
+                        isOpen={this.state.modalIsOpen}
+                        actions={
+                            <>
+                                <Button
+                                    backgroundColor="#9f9f9f"
+                                    text="No"
+                                    onClick={() => this.closeModalHandler()}
+                                />
+                                <Button
+                                    backgroundColor="#f4ce88"
+                                    text="Yes"
+                                    onClick={() => this.addItemToShoppingCartHandler()}
+                                />
+                            </>
+                        }
+                    />
+                )}
             </>
         );
     }

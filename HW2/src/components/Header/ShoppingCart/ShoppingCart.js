@@ -5,10 +5,12 @@ import styles from './ShoppingCart.module.css';
 
 class ShoppingCart extends Component{
     render() {
+        const {shoppingCartItems, showShoppingCartPopup} = this.props;
         return (
             <div className={styles.box}>
-                <MdOutlineShoppingCart/>
-                <div className={styles.counter}>1</div>
+                <MdOutlineShoppingCart onClick={() => showShoppingCartPopup()}/>
+                <div className={styles.counter}>{shoppingCartItems.length}</div>
+
             </div>
         )
     }
