@@ -5,9 +5,7 @@ import ProductList from "../ProductList/ProductList";
 import Footer from "../Footer/Footer";
 import Modal from "../utilits/Modal/Modal";
 import Button from "../utilits/Button/Button";
-import backDrop from "../utilits/backDrop/backDrop";
 import styles from './App.module.css';
-import BackDrop from "../utilits/backDrop/backDrop";
 
 class App extends Component {
     state = {
@@ -151,6 +149,14 @@ class App extends Component {
         this.closeModalHandler();
     };
 
+    removeItemFromCartHandler = (article) => {
+        this.setState(prevState => ({
+            shoppingCartItems: prevState.shoppingCartItems.filter(item => item.article !== article),
+        }), () => {
+            this.saveShoppingCartItemsToLocalStorage();
+        });
+    }
+
 
     isItemInFavorites = article => {
         const { favoriteItems } = this.state;
@@ -166,19 +172,16 @@ class App extends Component {
                     favoriteItems={this.state.favoriteItems}
                     shoppingCartItems={this.state.shoppingCartItems}
                     showShoppingCartPopup={this.showShoppingCartHandler}
+                    closeShoppingCart={this.closeShoppingCartHandler}
+                    showShoppingCart={this.state.showShoppingCart}
+                    removeItemFromCart={this.removeItemFromCartHandler}
                 />
-                {this.state.showShoppingCart &&
-                    <>
-                        <div className={styles.popup}></div>
-                        <BackDrop onClick={() => this.closeShoppingCartHandler()}/>
-                    </>
-                }
 
                 <ProductList
                     products={products}
                     addItemToFavorite={this.addItemToFavoriteHandler}
                     isItemInFavorites={this.isItemInFavorites}
-                    shoppingCartItems={this.state.shoppingCartItems} // Fix here
+                    shoppingCartItems={this.state.shoppingCartItems}
                     openCartModal={this.showModalHandler}
                 />
                 <Footer />

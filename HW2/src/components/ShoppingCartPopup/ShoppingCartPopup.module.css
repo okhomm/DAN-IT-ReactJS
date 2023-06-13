@@ -1,0 +1,92 @@
+.popup {
+    position: absolute;
+    top: 100px;
+    right: 0px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 502px;
+    min-height: 80px;
+    z-index: 2000;
+    font-family: 'Helvetica 65 Medium', sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 15px;
+    background-color: #f4ce88;
+}
+
+.header h2 {
+    font-size: 22px;
+    /*font-family: 'Helvetica 65 Medium', sans-serif;*/
+}
+
+.close_icon {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.itemsList {
+    padding: 25px 15px 0 15px;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: left;*/
+    /*align-items: center;*/
+
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.item img {
+    width: 50px;
+    height: 40px;
+}
+
+.item span {
+    display: inline-block;
+}
+
+.name {
+    min-width: 300px;
+    max-width: 300px;
+}
+
+/*.name h3 {*/
+/*    font-family: 'Helvetica 65 Medium', sans-serif;*/
+/*}*/
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 180px;
+}
+
+.empty span {
+    /*font-family: 'Helvetica 65 Medium', sans-serif;*/
+    font-size: 32px;
+    color: #999;
+}
+
+.emptyIcon {
+    font-size: 86px;
+    color: #999;
+}
+
+.deleteIcon {
+    font-size: 20px;
+    color: #a8a8a8;
+    cursor: pointer;
+}
+
+.deleteIcon:hover {
+    fill: red;
+}
