@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import sendRequest from '../../services/sendRequest';
 import Header from "../Header/Header";
 import ProductList from "../ProductList/ProductList";
 import Footer from "../Footer/Footer";
 import Modal from "../utilits/Modal/Modal";
 import Button from "../utilits/Button/Button";
-import styles from './App.module.css';
 import NotificationPopup from "../utilits/NotificationPopup/NoficationPopup";
+import styles from './App.module.css';
 
 class App extends Component {
     state = {
@@ -28,7 +28,7 @@ class App extends Component {
                     },
                     () => {
                         this.restoreFavoriteItemsFromLocalStorage();
-                        this.restoreShoppingCartItemsFromLocalStorage(); // Move it here
+                        this.restoreShoppingCartItemsFromLocalStorage();
                     }
                 );
             })
@@ -73,7 +73,7 @@ class App extends Component {
     };
 
     addItemToFavoriteHandler = article => {
-        const { favoriteItems, items } = this.state;
+        const {favoriteItems, items} = this.state;
         const isAlreadyAdded = favoriteItems.some(item => item.article === article);
 
         if (isAlreadyAdded) {
@@ -104,11 +104,10 @@ class App extends Component {
     };
 
     showModalHandler = article => {
-        const { shoppingCartItems, items, addToCartArticle } = this.state;
+        const {shoppingCartItems, items, addToCartArticle} = this.state;
         const isAlreadyAdded = shoppingCartItems.some(item => item.article === article);
 
         if (isAlreadyAdded) {
-            // this.closeModalHandler();
             this.showModalNotificationPopupHandler();
 
         } else {
@@ -139,14 +138,9 @@ class App extends Component {
     };
 
     showModalNotificationPopupHandler = () => {
-
         this.setState({
             modalItemAlreadyInCart: true
         });
-
-        // setTimeout(() => {
-        //     this.closeModalNotificationPopupHandler()
-        // }, 8000);
     }
 
     closeModalNotificationPopupHandler = () => {
@@ -156,13 +150,10 @@ class App extends Component {
     }
 
     addItemToShoppingCartHandler = () => {
-        const { shoppingCartItems, items, addToCartArticle } = this.state;
+        const {shoppingCartItems, items, addToCartArticle} = this.state;
         const isAlreadyAdded = shoppingCartItems.some(item => item.article === addToCartArticle);
 
-
         if (isAlreadyAdded) {
-            // this.closeModalHandler();
-
 
 
         } else {
@@ -191,41 +182,48 @@ class App extends Component {
         });
     }
 
-
     isItemInFavorites = article => {
-        const { favoriteItems } = this.state;
+        const {favoriteItems} = this.state;
         return favoriteItems.some(item => item.article === article);
     };
 
     render() {
         const products = this.state.items;
+        const {
+            favoriteItems,
+            modalIsOpen,
+            shoppingCartItems,
+            showShoppingCart,
+            addToCartArticle
+        } = this.state;
 
         return (
             <>
                 <Header
-                    favoriteItems={this.state.favoriteItems}
-                    shoppingCartItems={this.state.shoppingCartItems}
+                    favoriteItems={favoriteItems}
+                    shoppingCartItems={shoppingCartItems}
+                    showShoppingCart={showShoppingCart}
                     showShoppingCartPopup={this.showShoppingCartHandler}
                     closeShoppingCart={this.closeShoppingCartHandler}
-                    showShoppingCart={this.state.showShoppingCart}
                     removeItemFromCart={this.removeItemFromCartHandler}
                 />
 
                 <ProductList
                     products={products}
+                    shoppingCartItems={shoppingCartItems}
                     addItemToFavorite={this.addItemToFavoriteHandler}
                     isItemInFavorites={this.isItemInFavorites}
-                    shoppingCartItems={this.state.shoppingCartItems}
                     openCartModal={this.showModalHandler}
                 />
-                <Footer />
+                <Footer/>
+
                 {this.state.modalIsOpen && (
                     <Modal
                         header="Confirm adding the product to the cart"
-                        closeButton={true}
                         text="Are you sure you want to add this item to your cart?"
+                        closeButton={true}
+                        isOpen={modalIsOpen}
                         closeModal={this.closeModalHandler}
-                        isOpen={this.state.modalIsOpen}
                         actions={
                             <>
                                 <Button
@@ -244,11 +242,10 @@ class App extends Component {
                 )}
 
                 {this.state.modalItemAlreadyInCart && (
-                        <NotificationPopup
-                            addToCartArticle={this.state.addToCartArticle}
-                            closeModalItemAlreadyInCart={this.closeModalNotificationPopupHandler}
-                            addToCartArticle={this.state.addToCartArticle}
-                        />
+                    <NotificationPopup
+                        addToCartArticle={addToCartArticle}
+                        closeModalItemAlreadyInCart={this.closeModalNotificationPopupHandler}
+                    />
                 )}
             </>
         );
