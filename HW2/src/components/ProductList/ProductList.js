@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
 import Product from "../Product/Product";
 import styles from './ProductList.module.css'
-import product from "../Product/Product";
-
 
 class ProductList extends Component {
     render() {
         const products = this.props.products;
         const {addItemToFavorite, isItemInFavorites, openCartModal} = this.props;
-
-        if (products.length === 0) {
-            return <div>Loading...</div>;
-        }
 
         return (
             <main className={styles.container}>

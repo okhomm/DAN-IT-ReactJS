@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import { MdFavoriteBorder } from "react-icons/md";
-
 import styles from "./FavoriteProducts.module.css";
 
 class FavoriteProducts extends Component{

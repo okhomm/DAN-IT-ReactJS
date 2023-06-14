@@ -1,12 +1,11 @@
 .active {
-    position: absolute;
+    position: fixed;
     width: 460px;
     min-height: 120px;
     top: calc(50% - 160px);
     left: calc(50% - 260px);
     padding: 0 30px;
     border-radius: 5px;
-    /*background-color: rgb(255, 255, 255);*/
     cursor: default;
     background-color: #fff;
     overflow: hidden;
@@ -47,10 +46,6 @@
     font-family: 'Helvetica 55 Roman', sans-serif;
     font-size: 15px;
 }
-
-/*p {*/
-/*    margin: 0;*/
-/*}*/
 
 .footer {
     padding-bottom: 25px;

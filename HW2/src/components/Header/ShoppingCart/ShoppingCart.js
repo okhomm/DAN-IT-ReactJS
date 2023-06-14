@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
-
 import styles from './ShoppingCart.module.css';
 
 class ShoppingCart extends Component{
@@ -10,7 +9,6 @@ class ShoppingCart extends Component{
             <div className={styles.box}>
                 <MdOutlineShoppingCart onClick={() => showShoppingCartPopup()}/>
                 <div className={styles.counter}>{shoppingCartItems.length}</div>
-
             </div>
         )
     }

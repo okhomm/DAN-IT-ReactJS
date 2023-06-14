@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import Modal from "../utilits/Modal/Modal";
 import Button from "../utilits/Button/Button";
 import styles from './App.module.css';
+import NotificationPopup from "../utilits/NotificationPopup/NoficationPopup";
 
 class App extends Component {
     state = {
@@ -13,8 +14,9 @@ class App extends Component {
         favoriteItems: [],
         shoppingCartItems: [],
         modalIsOpen: false,
+        modalItemAlreadyInCart: false,
         addToCartArticle: null,
-        showShoppingCart: false
+        showShoppingCart: false,
     };
 
     componentDidMount() {
@@ -102,13 +104,24 @@ class App extends Component {
     };
 
     showModalHandler = article => {
-        this.setState({
-            modalIsOpen: true,
-            addToCartArticle: article,
-        });
+        const { shoppingCartItems, items, addToCartArticle } = this.state;
+        const isAlreadyAdded = shoppingCartItems.some(item => item.article === article);
+
+        if (isAlreadyAdded) {
+            // this.closeModalHandler();
+            this.showModalNotificationPopupHandler();
+
+        } else {
+            this.closeModalNotificationPopupHandler();
+            this.setState({
+                modalIsOpen: true,
+                addToCartArticle: article,
+            });
+        }
     };
 
     showShoppingCartHandler = () => {
+        this.closeModalNotificationPopupHandler();
         this.setState({
             showShoppingCart: true
         })
@@ -125,12 +138,33 @@ class App extends Component {
         });
     };
 
+    showModalNotificationPopupHandler = () => {
+
+        this.setState({
+            modalItemAlreadyInCart: true
+        });
+
+        // setTimeout(() => {
+        //     this.closeModalNotificationPopupHandler()
+        // }, 8000);
+    }
+
+    closeModalNotificationPopupHandler = () => {
+        this.setState({
+            modalItemAlreadyInCart: false,
+        });
+    }
+
     addItemToShoppingCartHandler = () => {
         const { shoppingCartItems, items, addToCartArticle } = this.state;
         const isAlreadyAdded = shoppingCartItems.some(item => item.article === addToCartArticle);
 
+
         if (isAlreadyAdded) {
-            alert('This item is already in your cart.');
+            // this.closeModalHandler();
+
+
+
         } else {
             const selectedItem = items.find(item => item.article === addToCartArticle);
 
@@ -207,6 +241,14 @@ class App extends Component {
                             </>
                         }
                     />
+                )}
+
+                {this.state.modalItemAlreadyInCart && (
+                        <NotificationPopup
+                            addToCartArticle={this.state.addToCartArticle}
+                            closeModalItemAlreadyInCart={this.closeModalNotificationPopupHandler}
+                            addToCartArticle={this.state.addToCartArticle}
+                        />
                 )}
             </>
         );

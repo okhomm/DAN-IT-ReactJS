@@ -1,7 +1,7 @@
 .popup {
     position: absolute;
     top: 100px;
-    right: 0px;
+    right: 0;
     background-color: #fff;
     border-radius: 5px;
     overflow: hidden;
@@ -20,7 +20,6 @@
 
 .header h2 {
     font-size: 22px;
-    /*font-family: 'Helvetica 65 Medium', sans-serif;*/
 }
 
 .close_icon {
@@ -29,12 +28,7 @@
 }
 
 .itemsList {
-    padding: 25px 15px 0 15px;
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*justify-content: left;*/
-    /*align-items: center;*/
-
+    padding: 25px 15px 25px 15px;
 }
 
 .item {
@@ -58,26 +52,20 @@
     max-width: 300px;
 }
 
-/*.name h3 {*/
-/*    font-family: 'Helvetica 65 Medium', sans-serif;*/
-/*}*/
-
 .empty {
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
-    height: 180px;
 }
 
 .empty span {
-    /*font-family: 'Helvetica 65 Medium', sans-serif;*/
     font-size: 32px;
     color: #999;
 }
 
 .emptyIcon {
-    font-size: 86px;
+    font-size: 74px;
     color: #999;
 }
 

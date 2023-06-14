@@ -1,17 +1,23 @@
 import React, {Component} from 'react';
-import { MdOutlineShoppingCart, MdFavoriteBorder, MdFavorite } from "react-icons/md";
+import {MdOutlineShoppingCart, MdFavoriteBorder, MdFavorite} from "react-icons/md";
 import styles from './Product.module.css';
+
 class Product extends Component {
-    render () {
+    render() {
         const {name, price, image, article, color} = this.props;
         const {addItemToFavorite, isItemInFavorites, openCartModal} = this.props;
 
         return (
             <div className={styles.container}>
                 <div>
-                    <div className={styles.image}><img src={image} alt=""/></div>
+                    <div className={styles.image}>
+                        <img src={image} alt=""/>
+                    </div>
                 </div>
-                <button className={styles.favorite} onClick={() => addItemToFavorite(article)} title="add to favorite">
+                <button
+                    className={styles.favorite}
+                    onClick={() => addItemToFavorite(article)}
+                    title="add to favorite">
                     {isItemInFavorites(article) ? <MdFavorite/> : <MdFavoriteBorder/>}
                 </button>
                 <div className={styles.title}>
@@ -19,12 +25,15 @@ class Product extends Component {
                 </div>
                 <div className={styles.footer}>
                     <span className={styles.price}>{price}</span>
-                    <button className={styles.shoppingCart} onClick={() => openCartModal(article)} title="Add to cart">
+                    <button
+                        className={styles.shoppingCart}
+                        onClick={() => openCartModal(article)}
+                        title="Add to cart">
                         <MdOutlineShoppingCart/>
                     </button>
                 </div>
             </div>
-            )
+        )
     }
 }
 

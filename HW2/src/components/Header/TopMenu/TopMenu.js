@@ -1,9 +1,7 @@
 import React, {Component} from "react";
-
 import {AiOutlineMenu} from "react-icons/ai";
 import {HiPhone} from "react-icons/hi";
 import {FaUser} from "react-icons/fa";
-
 import styled from "./TopMenu.module.css";
 
 class TopMenu extends Component {
