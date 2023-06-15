@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import TopMenu from "./TopMenu/TopMenu";
 import Search from "./Search/Search";
 import FavoriteProducts from "./FavoriteProducts/FavoriteProducts";
@@ -8,6 +9,16 @@ import styles from "./Header.module.css";
 import logo from "./logo.png";
 
 class Header extends Component {
+
+    static propTypes = {
+        favoriteItems: PropTypes.array,
+        shoppingCartItems: PropTypes.array,
+        showShoppingCartPopup: PropTypes.func,
+        showShoppingCart: PropTypes.bool,
+        closeShoppingCart: PropTypes.func,
+        removeItemFromCart: PropTypes.func
+    };
+
     render() {
         const {
             favoriteItems,

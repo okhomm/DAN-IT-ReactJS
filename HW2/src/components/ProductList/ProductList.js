@@ -1,11 +1,19 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 import Product from "../Product/Product";
 import styles from './ProductList.module.css'
 
 class ProductList extends Component {
+
+    static propTypes = {
+        addItemToFavorite: PropTypes.func,
+        isItemInFavorites: PropTypes.func,
+        openCartModal: PropTypes.func,
+        products: PropTypes.array
+    }
+
     render() {
-        const products = this.props.products;
-        const {addItemToFavorite, isItemInFavorites, openCartModal} = this.props;
+        const {addItemToFavorite, isItemInFavorites, openCartModal, products} = this.props;
 
         return (
             <main className={styles.container}>

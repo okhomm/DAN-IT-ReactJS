@@ -1,11 +1,37 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 import {MdOutlineShoppingCart, MdFavoriteBorder, MdFavorite} from "react-icons/md";
 import styles from './Product.module.css';
 
 class Product extends Component {
+
+    static propTypes = {
+        addItemToFavorite: PropTypes.func,
+        isItemInFavorites: PropTypes.func,
+        openCartModal: PropTypes.func,
+        name: PropTypes.string,
+        price: PropTypes.number,
+        image: PropTypes.string,
+        article: PropTypes.string,
+        color: PropTypes.string
+    }
+
+    static defaultProps = {
+        // prop1: defaultValue1,
+        // prop2: defaultValue2,
+    }
+
     render() {
-        const {name, price, image, article, color} = this.props;
-        const {addItemToFavorite, isItemInFavorites, openCartModal} = this.props;
+        const {
+            addItemToFavorite,
+            isItemInFavorites,
+            openCartModal,
+            name,
+            price,
+            image,
+            article,
+            color
+        } = this.props;
 
         return (
             <div className={styles.container}>

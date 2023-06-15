@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 import {TfiClose} from 'react-icons/tfi';
 import {GiShoppingCart} from "react-icons/gi";
 import {TiDelete} from "react-icons/ti";
@@ -6,6 +7,13 @@ import BackDrop from "../utilits/backDrop/backDrop";
 import styles from './ShoppingCartPopup.module.css';
 
 class ShoppingCartPopup extends Component {
+
+    static propTypes = {
+        closeShoppingCart: PropTypes.func,
+        shoppingCartItems: PropTypes.array,
+        removeItemFromCart: PropTypes.func
+    }
+
     render() {
         const {closeShoppingCart, shoppingCartItems, removeItemFromCart} = this.props;
         return (
