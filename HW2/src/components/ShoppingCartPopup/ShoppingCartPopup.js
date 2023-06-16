@@ -9,9 +9,9 @@ import styles from './ShoppingCartPopup.module.css';
 class ShoppingCartPopup extends Component {
 
     static propTypes = {
-        closeShoppingCart: PropTypes.func,
-        shoppingCartItems: PropTypes.array,
-        removeItemFromCart: PropTypes.func
+        closeShoppingCart: PropTypes.func.isRequired,
+        shoppingCartItems: PropTypes.array.isRequired,
+        removeItemFromCart: PropTypes.func.isRequired
     }
 
     render() {

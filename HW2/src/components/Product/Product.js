@@ -6,9 +6,9 @@ import styles from './Product.module.css';
 class Product extends Component {
 
     static propTypes = {
-        addItemToFavorite: PropTypes.func,
-        isItemInFavorites: PropTypes.func,
-        openCartModal: PropTypes.func,
+        addItemToFavorite: PropTypes.func.isRequired,
+        isItemInFavorites: PropTypes.func.isRequired,
+        openCartModal: PropTypes.func.isRequired,
         name: PropTypes.string,
         price: PropTypes.number,
         image: PropTypes.string,
@@ -17,8 +17,11 @@ class Product extends Component {
     }
 
     static defaultProps = {
-        // prop1: defaultValue1,
-        // prop2: defaultValue2,
+        name: 'Product name',
+        price: 'Product price',
+        image: 'Product image',
+        article: 'Product article',
+        color: 'Product color'
     }
 
     render() {

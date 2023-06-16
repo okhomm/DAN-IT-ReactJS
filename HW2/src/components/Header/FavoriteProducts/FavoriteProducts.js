@@ -6,7 +6,7 @@ import styles from "./FavoriteProducts.module.css";
 class FavoriteProducts extends Component{
 
     static propTypes = {
-        favoriteItems: PropTypes.array
+        favoriteItems: PropTypes.array.isRequired
     }
 
     render() {

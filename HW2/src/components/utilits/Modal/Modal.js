@@ -7,17 +7,17 @@ import styles from "./Modal.module.css";
 class Modal extends Component {
 
     static propTypes = {
+        actions: PropTypes.node.isRequired,
+        closeButton: PropTypes.bool.isRequired,
+        closeModal: PropTypes.func.isRequired,
+        isOpen: PropTypes.bool.isRequired,
         header: PropTypes.string,
-        text: PropTypes.string,
-        actions: PropTypes.node,
-        closeButton: PropTypes.bool,
-        closeModal: PropTypes.func,
-        isOpen: PropTypes.bool
+        text: PropTypes.string
     }
 
     static defaultProps = {
-        // prop1: defaultValue1,
-        // prop2: defaultValue2,
+        header: 'Modal header text',
+        text: 'Modal message text'
     }
 
     render() {

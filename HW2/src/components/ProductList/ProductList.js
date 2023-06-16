@@ -6,10 +6,10 @@ import styles from './ProductList.module.css'
 class ProductList extends Component {
 
     static propTypes = {
-        addItemToFavorite: PropTypes.func,
-        isItemInFavorites: PropTypes.func,
-        openCartModal: PropTypes.func,
-        products: PropTypes.array
+        addItemToFavorite: PropTypes.func.isRequired,
+        isItemInFavorites: PropTypes.func.isRequired,
+        openCartModal: PropTypes.func.isRequired,
+        products: PropTypes.array.isRequired
     }
 
     render() {

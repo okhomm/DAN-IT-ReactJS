@@ -5,14 +5,14 @@ import styles from "./Button.module.css";
 class Button extends Component {
 
     static propTypes = {
-        text: PropTypes.string,
+        onClick: PropTypes.func.isRequired,
         backgroundColor: PropTypes.string,
-        onClick: PropTypes.func
+        text: PropTypes.string
     }
 
     static defaultProps = {
-        // prop1: defaultValue1,
-        // prop2: defaultValue2,
+        backgroundColor: '#ccc',
+        text: 'Button text'
     }
 
     render() {

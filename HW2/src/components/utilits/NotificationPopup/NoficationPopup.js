@@ -7,8 +7,12 @@ import styles from './NotificationPopup.module.css';
 class NotificationPopup extends Component {
 
     static propTypes = {
-        addToCartArticle: PropTypes.string,
-        closeModalItemAlreadyInCart: PropTypes.func
+        closeModalItemAlreadyInCart: PropTypes.func.isRequired,
+        addToCartArticle: PropTypes.string
+    }
+
+    static defaultProps = {
+        addToCartArticle: 'Product article'
     }
 
     render() {

@@ -11,12 +11,12 @@ import logo from "./logo.png";
 class Header extends Component {
 
     static propTypes = {
-        favoriteItems: PropTypes.array,
-        shoppingCartItems: PropTypes.array,
-        showShoppingCartPopup: PropTypes.func,
-        showShoppingCart: PropTypes.bool,
-        closeShoppingCart: PropTypes.func,
-        removeItemFromCart: PropTypes.func
+        favoriteItems: PropTypes.array.isRequired,
+        shoppingCartItems: PropTypes.array.isRequired,
+        showShoppingCartPopup: PropTypes.func.isRequired,
+        showShoppingCart: PropTypes.bool.isRequired,
+        closeShoppingCart: PropTypes.func.isRequired,
+        removeItemFromCart: PropTypes.func.isRequired
     };
 
     render() {
