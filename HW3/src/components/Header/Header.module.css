@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content {
+    position: relative;
+    padding: 38px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftBox {
+    display: flex;
+    align-items: center;
+}
+
+.rightBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 95px;
+    padding-right: 10px;
+    font-size: 40px;
+}

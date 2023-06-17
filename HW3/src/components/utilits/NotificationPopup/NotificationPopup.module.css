@@ -1,0 +1,29 @@
+.active {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 540px;
+    min-height: 80px;
+    top: calc(50% - 74px);
+    left: calc(50% - 260px);
+    padding: 0 30px;
+    border-radius: 5px;
+    cursor: default;
+    background-color: #ffaf56;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.active h2 {
+    font-family: 'Helvetica 65 Medium', sans-serif;
+    font-size: 18px;
+}
+
+.closeBtn {
+    cursor: pointer;
+}
+
+.closeBtn:hover {
+    color: red;
+}

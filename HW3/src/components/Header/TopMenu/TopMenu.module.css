@@ -1,0 +1,63 @@
+.bg {
+    height: 60px;
+    background-color: #282828;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.leftBox {
+    display: flex;
+}
+
+.rightBox {
+    display: flex;
+}
+
+.catalog {
+    display: flex;
+    align-items: center;
+    min-width: 230px;
+    background-color: #F4CF87;
+    padding: 18px;
+}
+
+.catalogText {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    color: #282828;
+}
+
+.catalogIcon {
+    font-size: 24px;
+    color: #282828;
+    padding-right: 18px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    color: #ffffff;
+    font-size: 19px;
+}
+
+.itemPhone{
+    display: flex;
+    align-items: center;
+    margin-left: 120px;
+    font-size: 22px;
+}
+
+.itemIcon{
+    padding-right: 10px;
+}

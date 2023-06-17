@@ -1,0 +1,96 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 35px 15px 15px 15px;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+}
+
+.container:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+
+.title {
+    min-height: 70px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.container h3 {
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 25px;
+    color: #282828;
+    cursor: pointer;
+}
+
+.image img{
+    cursor: pointer;
+    height: 150px;
+    position: relative;
+}
+
+.favorite {
+    position: absolute;
+    font-size: 30px;
+    top:15px;
+    right:15px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 99;
+    height: 30px;
+    width: 30px;
+}
+
+.favorite svg:hover {
+    fill: #f4ce88;
+}
+
+.container button {
+    margin: 0;
+    padding: 0;
+}
+
+.price {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 41px;
+    color: #282828;
+}
+
+.price::before {
+    content: '$';
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.shoppingCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    background: #F4CF87;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.shoppingCart:hover {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
