@@ -1,32 +1,29 @@
-import React, {Component} from "react";
 import PropTypes from "prop-types";
 import styles from "./Button.module.css";
 
-class Button extends Component {
+const Button = (props) => {
+    const {text, backgroundColor, onClick} = props;
 
-    static propTypes = {
-        onClick: PropTypes.func.isRequired,
-        backgroundColor: PropTypes.string,
-        text: PropTypes.string
-    }
+    return (
+        <button
+            type="button"
+            className={styles.button}
+            style={{backgroundColor: backgroundColor}}
+            onClick={onClick}>
+            {text}
+        </button>
+    )
+}
 
-    static defaultProps = {
-        backgroundColor: '#ccc',
-        text: 'Button text'
-    }
+Button.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    backgroundColor: PropTypes.string,
+    text: PropTypes.string
+}
 
-    render() {
-        const {text, backgroundColor, onClick} = this.props;
-        return (
-            <button
-                type="button"
-                className={styles.button}
-                style={{backgroundColor: backgroundColor}}
-                onClick={onClick}>
-                {text}
-            </button>
-        )
-    }
+Button.defaultProps = {
+    backgroundColor: '#ccc',
+    text: 'Button text'
 }
 
 export default Button;

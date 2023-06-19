@@ -78,3 +78,9 @@
 .deleteIcon:hover {
     fill: red;
 }
+
+.buttonsBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import sendRequest from '../../services/sendRequest';
 import Header from "../Header/Header";
 import ProductList from "../ProductList/ProductList";
@@ -8,248 +8,199 @@ import Button from "../utilits/Button/Button";
 import NotificationPopup from "../utilits/NotificationPopup/NoficationPopup";
 import styles from './App.module.css';
 
-class App extends Component {
-    state = {
-        items: [],
-        favoriteItems: [],
-        shoppingCartItems: [],
-        modalIsOpen: false,
-        modalItemAlreadyInCart: false,
-        addToCartArticle: null,
-        showShoppingCart: false,
-    };
+const App = () => {
+    const [items, setItems] = useState([]);
+    const [favoriteItems, setFavoriteItems] = useState(() => {
+        const storedFavoriteItems = localStorage.getItem('favoriteItems');
+        return storedFavoriteItems ? JSON.parse(storedFavoriteItems) : [];
+    });
+    const [shoppingCartItems, setShoppingCartItems] = useState(() => {
+        const storedShoppingCartItems = localStorage.getItem('shoppingCartItems');
+        return storedShoppingCartItems ? JSON.parse(storedShoppingCartItems) : [];
+    });
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalItemAlreadyInCart, setModalItemAlreadyInCart] = useState(false);
+    const [addToCartArticle, setAddToCartArticle] = useState(null);
+    const [showShoppingCart, setShowShoppingCart] = useState(false);
 
-    componentDidMount() {
+    useEffect(() => {
         sendRequest('data.json')
             .then(data => {
-                this.setState(
-                    {
-                        items: data,
-                    },
-                    () => {
-                        this.restoreFavoriteItemsFromLocalStorage();
-                        this.restoreShoppingCartItemsFromLocalStorage();
-                    }
-                );
+                setItems(data);
             })
             .catch(error => {
                 console.log('Error:', error);
             });
-    }
+    }, []);
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.favoriteItems !== this.state.favoriteItems) {
-            this.saveFavoriteItemsToLocalStorage();
-        }
-        if (prevState.shoppingCartItems !== this.state.shoppingCartItems) {
-            this.saveShoppingCartItemsToLocalStorage();
-        }
-    }
+    useEffect(() => {
+        const restoreDataFromLocalStorage = () => {
+            const favoriteItems = localStorage.getItem('favoriteItems');
+            const shoppingCartItems = localStorage.getItem('shoppingCartItems');
 
-    saveFavoriteItemsToLocalStorage = () => {
-        localStorage.setItem('favoriteItems', JSON.stringify(this.state.favoriteItems));
+            if (favoriteItems) {
+                setFavoriteItems(JSON.parse(favoriteItems));
+            }
+
+            if (shoppingCartItems) {
+                setShoppingCartItems(JSON.parse(shoppingCartItems));
+            }
+        };
+
+        restoreDataFromLocalStorage();
+    }, []);
+
+    useEffect(() => {
+        const saveDataToLocalStorage = () => {
+            localStorage.setItem('favoriteItems', JSON.stringify(favoriteItems));
+            localStorage.setItem('shoppingCartItems', JSON.stringify(shoppingCartItems));
+        };
+
+        saveDataToLocalStorage();
+    }, [favoriteItems, shoppingCartItems]);
+
+    const saveFavoriteItemsToLocalStorage = () => {
+        localStorage.setItem('favoriteItems', JSON.stringify(favoriteItems));
     };
 
-    restoreFavoriteItemsFromLocalStorage = () => {
-        const favoriteItems = localStorage.getItem('favoriteItems');
-        if (favoriteItems) {
-            this.setState({
-                favoriteItems: JSON.parse(favoriteItems),
-            });
-        }
+    const restoreFavoriteItemsFromLocalStorage = () => {
+        const favoriteItems = JSON.parse(localStorage.getItem('favoriteItems')) || [];
+        setFavoriteItems(favoriteItems);
     };
 
-    restoreShoppingCartItemsFromLocalStorage = () => {
-        const shoppingCartItems = localStorage.getItem('shoppingCartItems');
-        if (shoppingCartItems) {
-            this.setState({
-                shoppingCartItems: JSON.parse(shoppingCartItems),
-            });
-        }
+    const restoreShoppingCartItemsFromLocalStorage = () => {
+        const shoppingCartItems = JSON.parse(localStorage.getItem('shoppingCartItems')) || [];
+        setShoppingCartItems(shoppingCartItems);
     };
 
-    saveShoppingCartItemsToLocalStorage = () => {
-        localStorage.setItem('shoppingCartItems', JSON.stringify(this.state.shoppingCartItems));
+    const saveShoppingCartItemsToLocalStorage = () => {
+        localStorage.setItem('shoppingCartItems', JSON.stringify(shoppingCartItems));
     };
 
-    addItemToFavoriteHandler = article => {
-        const {favoriteItems, items} = this.state;
+    const addItemToFavoriteHandler = article => {
         const isAlreadyAdded = favoriteItems.some(item => item.article === article);
 
         if (isAlreadyAdded) {
             const updatedFavoriteItems = favoriteItems.filter(item => item.article !== article);
-
-            this.setState(
-                {
-                    favoriteItems: updatedFavoriteItems,
-                },
-                () => {
-                    this.saveFavoriteItemsToLocalStorage();
-                }
-            );
+            setFavoriteItems(updatedFavoriteItems);
         } else {
             const selectedItem = items.find(item => item.article === article);
 
             if (selectedItem) {
-                this.setState(
-                    prevState => ({
-                        favoriteItems: [...prevState.favoriteItems, selectedItem],
-                    }),
-                    () => {
-                        this.saveFavoriteItemsToLocalStorage();
-                    }
-                );
+                setFavoriteItems(prevState => [...prevState, selectedItem]);
             }
         }
     };
 
-    showModalHandler = article => {
-        const {shoppingCartItems, items, addToCartArticle} = this.state;
+    const showModalHandler = article => {
         const isAlreadyAdded = shoppingCartItems.some(item => item.article === article);
 
         if (isAlreadyAdded) {
-            this.showModalNotificationPopupHandler();
-
+            showModalNotificationPopupHandler();
         } else {
-            this.closeModalNotificationPopupHandler();
-            this.setState({
-                modalIsOpen: true,
-                addToCartArticle: article,
-            });
+            closeModalNotificationPopupHandler();
+            setModalIsOpen(true);
+            setAddToCartArticle(article);
         }
     };
 
-    showShoppingCartHandler = () => {
-        this.closeModalNotificationPopupHandler();
-        this.setState({
-            showShoppingCart: true
-        })
-    }
-
-    closeShoppingCartHandler = () => {
-        this.setState({
-            showShoppingCart: false
-        })
-    };
-    closeModalHandler = () => {
-        this.setState({
-            modalIsOpen: false,
-        });
+    const showShoppingCartHandler = () => {
+        closeModalNotificationPopupHandler();
+        setShowShoppingCart(true);
     };
 
-    showModalNotificationPopupHandler = () => {
-        this.setState({
-            modalItemAlreadyInCart: true
-        });
-    }
+    const closeShoppingCartHandler = () => {
+        setShowShoppingCart(false);
+    };
 
-    closeModalNotificationPopupHandler = () => {
-        this.setState({
-            modalItemAlreadyInCart: false,
-        });
-    }
+    const closeModalHandler = () => {
+        setModalIsOpen(false);
+    };
 
-    addItemToShoppingCartHandler = () => {
-        const {shoppingCartItems, items, addToCartArticle} = this.state;
+    const showModalNotificationPopupHandler = () => {
+        setModalItemAlreadyInCart(true);
+    };
+
+    const closeModalNotificationPopupHandler = () => {
+        setModalItemAlreadyInCart(false);
+    };
+
+    const addItemToShoppingCartHandler = () => {
         const isAlreadyAdded = shoppingCartItems.some(item => item.article === addToCartArticle);
 
-        if (isAlreadyAdded) {
-
-
-        } else {
+        if (!isAlreadyAdded) {
             const selectedItem = items.find(item => item.article === addToCartArticle);
 
             if (selectedItem) {
-                this.setState(
-                    prevState => ({
-                        shoppingCartItems: [...prevState.shoppingCartItems, selectedItem],
-                    }),
-                    () => {
-                        this.saveShoppingCartItemsToLocalStorage();
-                    }
-                );
+                setShoppingCartItems(prevState => [...prevState, selectedItem]);
             }
         }
 
-        this.closeModalHandler();
+        closeModalHandler();
     };
 
-    removeItemFromCartHandler = (article) => {
-        this.setState(prevState => ({
-            shoppingCartItems: prevState.shoppingCartItems.filter(item => item.article !== article),
-        }), () => {
-            this.saveShoppingCartItemsToLocalStorage();
-        });
-    }
+    const removeItemFromCartHandler = article => {
+        setShoppingCartItems(prevState =>
+            prevState.filter(item => item.article !== article)
+        );
+    };
 
-    isItemInFavorites = article => {
-        const {favoriteItems} = this.state;
+    const isItemInFavorites = article => {
         return favoriteItems.some(item => item.article === article);
     };
 
-    render() {
-        const products = this.state.items;
-        const {
-            favoriteItems,
-            modalIsOpen,
-            shoppingCartItems,
-            showShoppingCart,
-            addToCartArticle
-        } = this.state;
+    return (
+        <>
+            <Header
+                favoriteItems={favoriteItems}
+                shoppingCartItems={shoppingCartItems}
+                showShoppingCart={showShoppingCart}
+                showShoppingCartPopup={showShoppingCartHandler}
+                closeShoppingCart={closeShoppingCartHandler}
+                removeItemFromCart={removeItemFromCartHandler}
+            />
 
-        return (
-            <>
-                <Header
-                    favoriteItems={favoriteItems}
-                    shoppingCartItems={shoppingCartItems}
-                    showShoppingCart={showShoppingCart}
-                    showShoppingCartPopup={this.showShoppingCartHandler}
-                    closeShoppingCart={this.closeShoppingCartHandler}
-                    removeItemFromCart={this.removeItemFromCartHandler}
+            <ProductList
+                products={items}
+                shoppingCartItems={shoppingCartItems}
+                addItemToFavorite={addItemToFavoriteHandler}
+                isItemInFavorites={isItemInFavorites}
+                openCartModal={showModalHandler}
+            />
+            <Footer/>
+
+            {modalIsOpen && (
+                <Modal
+                    header="Confirm adding the product to the cart"
+                    text="Are you sure you want to add this item to your cart?"
+                    closeButton={true}
+                    isOpen={modalIsOpen}
+                    closeModal={closeModalHandler}
+                    actions={
+                        <>
+                            <Button
+                                backgroundColor="#9f9f9f"
+                                text="No"
+                                onClick={() => closeModalHandler()}
+                            />
+                            <Button
+                                backgroundColor="#f4ce88"
+                                text="Yes"
+                                onClick={() => addItemToShoppingCartHandler()}
+                            />
+                        </>
+                    }
                 />
+            )}
 
-                <ProductList
-                    products={products}
-                    shoppingCartItems={shoppingCartItems}
-                    addItemToFavorite={this.addItemToFavoriteHandler}
-                    isItemInFavorites={this.isItemInFavorites}
-                    openCartModal={this.showModalHandler}
+            {modalItemAlreadyInCart && (
+                <NotificationPopup
+                    addToCartArticle={addToCartArticle}
+                    closeModalItemAlreadyInCart={closeModalNotificationPopupHandler}
                 />
-                <Footer/>
-
-                {this.state.modalIsOpen && (
-                    <Modal
-                        header="Confirm adding the product to the cart"
-                        text="Are you sure you want to add this item to your cart?"
-                        closeButton={true}
-                        isOpen={modalIsOpen}
-                        closeModal={this.closeModalHandler}
-                        actions={
-                            <>
-                                <Button
-                                    backgroundColor="#9f9f9f"
-                                    text="No"
-                                    onClick={() => this.closeModalHandler()}
-                                />
-                                <Button
-                                    backgroundColor="#f4ce88"
-                                    text="Yes"
-                                    onClick={() => this.addItemToShoppingCartHandler()}
-                                />
-                            </>
-                        }
-                    />
-                )}
-
-                {this.state.modalItemAlreadyInCart && (
-                    <NotificationPopup
-                        addToCartArticle={addToCartArticle}
-                        closeModalItemAlreadyInCart={this.closeModalNotificationPopupHandler}
-                    />
-                )}
-            </>
-        );
-    }
-}
+            )}
+        </>
+    );
+};
 
 export default App;

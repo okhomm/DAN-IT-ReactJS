@@ -1,4 +1,3 @@
-import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import TopMenu from "./TopMenu/TopMenu";
 import Search from "./Search/Search";
@@ -8,56 +7,53 @@ import ShoppingCartPopup from "../ShoppingCartPopup/ShoppingCartPopup";
 import styles from "./Header.module.css";
 import logo from "./logo.png";
 
-class Header extends Component {
+const Header = (props) => {
+    const {
+        favoriteItems,
+        shoppingCartItems,
+        showShoppingCartPopup,
+        showShoppingCart,
+        closeShoppingCart,
+        removeItemFromCart
+    } = props;
 
-    static propTypes = {
-        favoriteItems: PropTypes.array.isRequired,
-        shoppingCartItems: PropTypes.array.isRequired,
-        showShoppingCartPopup: PropTypes.func.isRequired,
-        showShoppingCart: PropTypes.bool.isRequired,
-        closeShoppingCart: PropTypes.func.isRequired,
-        removeItemFromCart: PropTypes.func.isRequired
-    };
-
-    render() {
-        const {
-            favoriteItems,
-            shoppingCartItems,
-            showShoppingCartPopup,
-            showShoppingCart,
-            closeShoppingCart,
-            removeItemFromCart
-        } = this.props;
-
-        return (
-            <div>
-                <TopMenu/>
-                <header className={styles.container}>
-                    <div className={styles.content}>
-                        {showShoppingCart &&
-                            <ShoppingCartPopup
-                                closeShoppingCart={closeShoppingCart}
-                                shoppingCartItems={shoppingCartItems}
-                                removeItemFromCart={removeItemFromCart}
-                            />}
-                        <div className={styles.leftBox}>
-                            <a href="/">
-                                <img src={logo} alt="logo"/>
-                            </a>
-                            <Search/>
-                        </div>
-                        <div className={styles.rightBox}>
-                            <FavoriteProducts favoriteItems={favoriteItems}/>
-                            <ShoppingCart
-                                shoppingCartItems={shoppingCartItems}
-                                showShoppingCartPopup={showShoppingCartPopup}
-                            />
-                        </div>
+    return (
+        <div>
+            <TopMenu/>
+            <header className={styles.container}>
+                <div className={styles.content}>
+                    {showShoppingCart &&
+                        <ShoppingCartPopup
+                            closeShoppingCart={closeShoppingCart}
+                            shoppingCartItems={shoppingCartItems}
+                            removeItemFromCart={removeItemFromCart}
+                        />}
+                    <div className={styles.leftBox}>
+                        <a href="/">
+                            <img src={logo} alt="logo"/>
+                        </a>
+                        <Search/>
                     </div>
-                </header>
-            </div>
-        )
-    }
+                    <div className={styles.rightBox}>
+                        <FavoriteProducts favoriteItems={favoriteItems}/>
+                        <ShoppingCart
+                            shoppingCartItems={shoppingCartItems}
+                            showShoppingCartPopup={showShoppingCartPopup}
+                        />
+                    </div>
+                </div>
+            </header>
+        </div>
+    )
+}
+
+Header.propTypes = {
+    favoriteItems: PropTypes.array.isRequired,
+    shoppingCartItems: PropTypes.array.isRequired,
+    showShoppingCartPopup: PropTypes.func.isRequired,
+    showShoppingCart: PropTypes.bool.isRequired,
+    closeShoppingCart: PropTypes.func.isRequired,
+    removeItemFromCart: PropTypes.func.isRequired
 }
 
 export default Header;
