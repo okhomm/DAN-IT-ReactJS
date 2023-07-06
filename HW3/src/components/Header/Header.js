@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TopMenu from "./TopMenu/TopMenu";
 import Search from "./Search/Search";
@@ -29,9 +30,9 @@ const Header = (props) => {
                             removeItemFromCart={removeItemFromCart}
                         />}
                     <div className={styles.leftBox}>
-                        <a href="/">
+                        <Link to="/">
                             <img src={logo} alt="logo"/>
-                        </a>
+                        </Link>
                         <Search/>
                     </div>
                     <div className={styles.rightBox}>

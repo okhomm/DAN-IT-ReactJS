@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import FavoriteProductsPage from '../../pages/FavoriteProductsPage/FavoriteProductsPage';
+import ShoppingCartPage from '../../pages/ShoppingCartPage/ShoppingCartPage';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import sendRequest from '../../services/sendRequest';
 import Header from "../Header/Header";
 import ProductList from "../ProductList/ProductList";
@@ -6,7 +9,6 @@ import Footer from "../Footer/Footer";
 import Modal from "../utilits/Modal/Modal";
 import Button from "../utilits/Button/Button";
 import NotificationPopup from "../utilits/NotificationPopup/NoficationPopup";
-import styles from './App.module.css';
 
 const App = () => {
     const [items, setItems] = useState([]);
@@ -151,6 +153,8 @@ const App = () => {
 
     return (
         <>
+            
+
             <Header
                 favoriteItems={favoriteItems}
                 shoppingCartItems={shoppingCartItems}
@@ -160,13 +164,24 @@ const App = () => {
                 removeItemFromCart={removeItemFromCartHandler}
             />
 
-            <ProductList
-                products={items}
-                shoppingCartItems={shoppingCartItems}
-                addItemToFavorite={addItemToFavoriteHandler}
-                isItemInFavorites={isItemInFavorites}
-                openCartModal={showModalHandler}
-            />
+            <Routes>
+                <Route 
+                    path="/" 
+                    element={
+                        <ProductList
+                            products={items}
+                            shoppingCartItems={shoppingCartItems}
+                            addItemToFavorite={addItemToFavoriteHandler}
+                            isItemInFavorites={isItemInFavorites}
+                            openCartModal={showModalHandler}
+                        />
+                    } 
+                />
+                <Route path="/favorite" element={<FavoriteProductsPage text="test text"/>}/>
+                <Route path="/cart" element={<ShoppingCartPage/>} />
+
+            </Routes>
+
             <Footer/>
 
             {modalIsOpen && (

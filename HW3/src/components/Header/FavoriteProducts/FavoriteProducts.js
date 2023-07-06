@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { MdFavoriteBorder } from "react-icons/md";
 import styles from "./FavoriteProducts.module.css";
@@ -7,7 +8,7 @@ const FavoriteProducts = (props) => {
 
         return (
             <div className={styles.box}>
-                <MdFavoriteBorder/>
+                <Link to='/favorite'><MdFavoriteBorder/></Link>
                 <div className={styles.counter}>{favoriteItems.length}</div>
             </div>
         )

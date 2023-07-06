@@ -1,7 +1,9 @@
 import styles from './FavoriteProductsPage.module.css';
+
 const FavoriteProductsPage = (props) => {
+    const {text} = props;
     return (
-        <h2>FavoriteProductsPage</h2>
+        <h2>{text}</h2>
     )
 }
 

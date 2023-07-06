@@ -5,6 +5,8 @@ import {TiDelete} from "react-icons/ti";
 import BackDrop from "../utilits/backDrop/backDrop";
 import Button from "../utilits/Button/Button";
 import styles from './ShoppingCartPopup.module.css';
+import OpenShoppingCartPageHandler from '../utilits/OpenShoppingCartPageHandler/OpenShoppingCartPageHandler';
+
 
 const ShoppingCartPopup = (props) => {
     const {closeShoppingCart, shoppingCartItems, removeItemFromCart} = props;
@@ -40,13 +42,7 @@ const ShoppingCartPopup = (props) => {
                                     text="Close"
                                     onClick={() => closeShoppingCart()}
                                 />
-                                <Button
-                                    backgroundColor={'#f4cd88'}
-                                    text="View cart"
-                                    onClick={() => {
-                                        console.log('Open')
-                                    }}
-                                />
+                                <OpenShoppingCartPageHandler closeShoppingCart={closeShoppingCart}/>
                             </div>
 
                         </>
