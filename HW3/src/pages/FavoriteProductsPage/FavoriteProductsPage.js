@@ -1,9 +1,9 @@
 import styles from './FavoriteProductsPage.module.css';
+import PageTitle from "../../components/utilits/PageTitle/PageTitle";
 
-const FavoriteProductsPage = (props) => {
-    const {text} = props;
+const FavoriteProductsPage = () => {
     return (
-        <h2>{text}</h2>
+        <PageTitle title="Favorite products"/>
     )
 }
 

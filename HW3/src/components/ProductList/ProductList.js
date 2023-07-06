@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import Product from "../Product/Product";
+import PageTitle from "../utilits/PageTitle/PageTitle";
 import styles from './ProductList.module.css'
 
 const ProductList = (props) => {
     const {addItemToFavorite, isItemInFavorites, openCartModal, products} = props;
 
     return (
-        <main className={styles.container}>
-            <h2>Laptops</h2>
-            <hr/>
+        <main>
+            <PageTitle title="Laptops"/>
             <div className={styles.grid}>
                 {products.map(({name, price, image, article, color, ...others}) => {
                     return (

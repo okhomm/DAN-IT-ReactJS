@@ -2,16 +2,19 @@ import {AiOutlineMenu} from "react-icons/ai";
 import {HiPhone} from "react-icons/hi";
 import {FaUser} from "react-icons/fa";
 import styled from "./TopMenu.module.css";
+import {Link} from "react-router-dom";
 
 const TopMenu = () => {
     return (
         <div className={styled.bg}>
             <div className={styled.container}>
                 <div className={styled.leftBox}>
-                    <nav className={styled.catalog}>
-                        <AiOutlineMenu className={styled.catalogIcon}/>
-                        <span className={styled.catalogText}>Catalog</span>
-                    </nav>
+                    <Link to="/">
+                        <nav className={styled.catalog}>
+                            <AiOutlineMenu className={styled.catalogIcon}/>
+                            <span className={styled.catalogText}>Catalog</span>
+                        </nav>
+                    </Link>
                     <span className={styled.item}>Information</span>
                     <span className={styled.itemPhone}>
                             <HiPhone className={styled.itemIcon}/>
