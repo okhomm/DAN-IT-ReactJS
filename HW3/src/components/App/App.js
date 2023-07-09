@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import FavoriteProductsPage from '../../pages/FavoriteProductsPage/FavoriteProductsPage';
 import ShoppingCartPage from '../../pages/ShoppingCartPage/ShoppingCartPage';
-import { Routes, Route } from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import sendRequest from '../../services/sendRequest';
 import Header from "../Header/Header";
 import ProductList from "../ProductList/ProductList";
@@ -9,6 +9,8 @@ import Footer from "../Footer/Footer";
 import Modal from "../utilits/Modal/Modal";
 import Button from "../utilits/Button/Button";
 import NotificationPopup from "../utilits/NotificationPopup/NoficationPopup";
+import PageNotFound from "../../pages/pageNotFound/PageNotFound";
+
 import styled from './App.module.css';
 
 const App = () => {
@@ -152,9 +154,17 @@ const App = () => {
         return favoriteItems.some(item => item.article === article);
     };
 
+    const totalSumOfItemsInCartHandler = (items) => {
+        let sum = 0;
+        items.map(item => {
+            sum += parseInt(item.price);
+        });
+        return `$${sum}`;
+    }
+
     return (
         <>
-            
+
 
             <Header
                 favoriteItems={favoriteItems}
@@ -179,8 +189,26 @@ const App = () => {
                             />
                         }
                     />
-                    <Route path="/favorite" element={<FavoriteProductsPage text="test text"/>}/>
-                    <Route path="/cart" element={<ShoppingCartPage/>} />
+                    <Route path="/favorite" element={
+                        <FavoriteProductsPage
+                            favoriteItems={favoriteItems}
+                            addItemToFavorite={addItemToFavoriteHandler}
+                            isItemInFavorites={isItemInFavorites}
+                            openCartModal={showModalHandler}
+                        />
+                    }
+                    />
+                    <Route
+                        path="/cart"
+                        element={
+                            <ShoppingCartPage
+                                shoppingCartItems={shoppingCartItems}
+                                removeItemFromCart={removeItemFromCartHandler}
+                                totalSumOfItemsInCart={totalSumOfItemsInCartHandler}
+                            />
+                        }
+                    />
+                    <Route path="*" element={<PageNotFound/>}/>
 
                 </Routes>
             </main>

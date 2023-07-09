@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.title {
+
+}
+
+.container img{
+    width: 80px;
+}
+
+.container table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.container table {
+
+}
+
+.container table td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.container table th {
+    padding: 10px;
+    border-top: 1px solid #282828;
+    border-bottom: 1px solid #282828;
+    background-color: #282828;
+    color: white;
+}
+
+.container table tfoot {
+    padding-top: 20px;
+    border-top: 1px solid #282828;
+    font-weight: bold;
+}
+

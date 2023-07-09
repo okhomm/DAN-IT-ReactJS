@@ -36,7 +36,9 @@ const Header = (props) => {
                         <Search/>
                     </div>
                     <div className={styles.rightBox}>
-                        <FavoriteProducts favoriteItems={favoriteItems}/>
+                        <FavoriteProducts
+                            favoriteItems={favoriteItems}
+                        />
                         <ShoppingCart
                             shoppingCartItems={shoppingCartItems}
                             showShoppingCartPopup={showShoppingCartPopup}

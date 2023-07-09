@@ -1,0 +1,13 @@
+.name {
+    text-align: left;
+}
+
+.deleteIcon {
+    font-size: 20px;
+    color: #a8a8a8;
+    cursor: pointer;
+}
+
+.deleteIcon:hover {
+    fill: red;
+}
