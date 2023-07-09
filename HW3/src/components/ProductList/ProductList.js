@@ -7,7 +7,7 @@ const ProductList = (props) => {
     const {addItemToFavorite, isItemInFavorites, openCartModal, products} = props;
 
     return (
-        <main>
+        <>
             <PageTitle title="Laptops"/>
             <div className={styles.grid}>
                 {products.map(({name, price, image, article, color, ...others}) => {
@@ -26,7 +26,7 @@ const ProductList = (props) => {
                     )
                 })}
             </div>
-        </main>
+        </>
     )
 }
 

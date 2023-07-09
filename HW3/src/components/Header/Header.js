@@ -19,9 +19,9 @@ const Header = (props) => {
     } = props;
 
     return (
-        <div>
+        <header>
             <TopMenu/>
-            <header className={styles.container}>
+            <div className={styles.container}>
                 <div className={styles.content}>
                     {showShoppingCart &&
                         <ShoppingCartPopup
@@ -45,8 +45,8 @@ const Header = (props) => {
                         />
                     </div>
                 </div>
-            </header>
-        </div>
+            </div>
+        </header>
     )
 }
 
