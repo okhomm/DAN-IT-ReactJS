@@ -22,14 +22,23 @@ const ModalBg = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `
 
-const ModalWrapper = ({children, modalHandler}) => {
+
+
+const ModalWrapper = ({children, closeModal}) => {
+
+const closeModalForomBg = (e) => {
+  e.preventDefault()
+  if(e.target.classList.contains('modal-bg'))
+  closeModal()
+}
+
   return (
-    <ModalBg className="modal-bg" onClick={(e) => modalHandler(e)}>
-      <MainModalWrapper className="modal-wrapper">
+    <ModalBg className="modal-bg" onClick={closeModalForomBg}>
+      <MainModalWrapper>
         {children}
       </MainModalWrapper>
     </ModalBg>
-  );
-};
+  )
+}
 
-export default ModalWrapper;
+export default ModalWrapper

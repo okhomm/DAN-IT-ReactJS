@@ -1,7 +1,16 @@
-import {useState} from 'react'
-import styled from "styled-components"
-import Button from "./components/Button"
-import Modal from "./components/Modal"
+import { useState } from 'react'
+import styled from 'styled-components'
+import Button from './components/Button'
+import Modal from './components/Modal/Modal'
+import ModalImage from './components/Modal/ModalImage'
+import ModalText from './components/Modal/ModalText'
+import {
+  ModalWrapper,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalClose,
+} from './components/Modal/components'
 
 const PageWrapper = styled.div`
   position: relative;
@@ -19,52 +28,81 @@ const ButtonBlock = styled.div`
 `
 
 function App() {
-  const [isModalImageOpen, setModalImageOpen] = useState(false)
-  const [isModalTextOpen, setModalTextOpen] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpenImage, setModalOpenImage] = useState(false)
+  const [modalOpenText, setModalOpenText] = useState(false)
 
-  const modalHandler = (e) => {
-    e.preventDefault(); 
+  const closeModalHandler = () => {
+    setModalOpen(false)
+  }
 
-    if (e.target.classList.contains('first-button')) {
-      setModalImageOpen(true)
-    }
-    if (e.target.classList.contains('second-button')) {
-      setModalTextOpen(true) 
-    }
-    if (e.target.classList.contains('close-btn') || e.target.classList.contains('modal-bg')) {
-      setModalImageOpen(false)
-      setModalTextOpen(false) 
-    }
+  const closeModalTextHandler = () => {
+    setModalOpenText(false)
+  }
+
+  const closeModalImageHandler = () => {
+    setModalOpenImage(false)
   }
 
   return (
     <PageWrapper>
       <ButtonBlock>
-        <Button type="button" classNames="first-button" onClick={(e) => modalHandler(e)}>Open first modal</Button>
-        <Button type="button" classNames="second-button" onClick={(e) => modalHandler(e)}>Open second modal</Button>
+        <Button type="button" onClick={() => setModalOpen(true)}>
+          Open Modal
+        </Button>
+        <Button type="button" onClick={() => setModalOpenImage(true)}>
+          Open Modal Image
+        </Button>
+        <Button type="button" onClick={() => setModalOpenText(true)}>
+          Open Modal Text
+        </Button>
       </ButtonBlock>
 
-      {isModalImageOpen && (
-        <Modal 
-          img="https://images.pexels.com/photos/63690/pexels-photo-63690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          title="Product Delete!"
-          text="By clicking the “Yes, Delete” button, PRODUCT NAME will be deleted."
-          firstBtnText="No, cansel"
-          secondBtnText="Yes, delete"
-          firstBtnOnClick={() => console.log('This is first modal button #1')}
-          secondBtnOnClick={() => console.log('This is second modal button #2')}
-          modalHandler={(e) => modalHandler(e)}
-      />
+      {modalOpen && (
+        <Modal>
+          <ModalWrapper closeModal={closeModalHandler}>
+            <ModalHeader>Default Modal</ModalHeader>
+            <ModalBody>Text in default Modal</ModalBody>
+            <ModalFooter firstText="Close" firstClick={closeModalHandler} />
+          </ModalWrapper>
+        </Modal>
       )}
 
-      {isModalTextOpen && (
-        <Modal 
-          title="Add Product “NAME”"
-          text="Description for you product"
-          firstBtnText="Add to favorite"
-          firstBtnOnClick={() => console.log('This is second modal button #1')}
-          modalHandler={(e) => modalHandler(e)}
-      />
+      {modalOpenText && (
+        <ModalText>
+          <ModalWrapper closeModal={closeModalTextHandler}>
+            <ModalClose onClick={closeModalTextHandler} />
+            <ModalHeader>Add Product “NAME”</ModalHeader>
+            <ModalBody>Description for you product</ModalBody>
+            <ModalFooter
+              firstText="Add to favorite"
+              firstClick={closeModalTextHandler}
+            />
+          </ModalWrapper>
+        </ModalText>
+      )}
+
+      {modalOpenImage && (
+        <ModalImage>
+          <ModalWrapper closeModal={closeModalImageHandler}>
+            <ModalClose onClick={closeModalImageHandler} />
+            <img
+              src="https://images.pexels.com/photos/63690/pexels-photo-63690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              alt="product-image"
+            />
+            <ModalHeader>Product Delete!</ModalHeader>
+            <ModalBody>
+              By clicking the “Yes, Delete” button, PRODUCT NAME will be
+              deleted.
+            </ModalBody>
+            <ModalFooter
+              firstText="No, cancel"
+              firstClick={closeModalImageHandler}
+              secondaryText="Yes, delete"
+              secondaryClick={closeModalImageHandler}
+            />
+          </ModalWrapper>
+        </ModalImage>
       )}
     </PageWrapper>
   )

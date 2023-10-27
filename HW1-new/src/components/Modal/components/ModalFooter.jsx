@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Button from "../Button"
+import Button from "../../Button"
 
 const Footer = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const ModalFooter = (props) => {
       {firstText && <Button type="button" classNames="button-footer" onClick={firstClick}>{firstText}</Button>}
       {secondaryText && <Button type="button" classNames="button-footer" onClick={secondaryClick}>{secondaryText}</Button>}
     </Footer>
-  );
-};
+  )
+}
 
-export default ModalFooter;
+export default ModalFooter
