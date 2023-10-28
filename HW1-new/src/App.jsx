@@ -1,16 +1,9 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import Button from './components/Button'
-import Modal from './components/Modal/Modal'
+import ModalBasic from './components/Modal/ModalBasic'
 import ModalImage from './components/Modal/ModalImage'
 import ModalText from './components/Modal/ModalText'
-import {
-  ModalWrapper,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  ModalClose,
-} from './components/Modal/components'
 
 const PageWrapper = styled.div`
   position: relative;
@@ -28,81 +21,68 @@ const ButtonBlock = styled.div`
 `
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false)
-  const [modalOpenImage, setModalOpenImage] = useState(false)
-  const [modalOpenText, setModalOpenText] = useState(false)
+  const [openBasicModal, setOpenBasicModal] = useState(false)
+  const [OpenModalImage, setOpenModalImage] = useState(false)
+  const [openTextModal, setOpenTextModal] = useState(false)
 
-  const closeModalHandler = () => {
-    setModalOpen(false)
+  const closeBasicModalHandler = () => {
+    setOpenBasicModal(false)
   }
 
   const closeModalTextHandler = () => {
-    setModalOpenText(false)
+    setOpenTextModal(false)
   }
 
   const closeModalImageHandler = () => {
-    setModalOpenImage(false)
+    setOpenModalImage(false)
   }
 
   return (
     <PageWrapper>
       <ButtonBlock>
-        <Button type="button" onClick={() => setModalOpen(true)}>
-          Open Modal
+        <Button type="button" onClick={() => setOpenBasicModal(true)}>
+          Open Basic Modal
         </Button>
-        <Button type="button" onClick={() => setModalOpenImage(true)}>
+        <Button type="button" onClick={() => setOpenModalImage(true)}>
           Open Modal Image
         </Button>
-        <Button type="button" onClick={() => setModalOpenText(true)}>
+        <Button type="button" onClick={() => setOpenTextModal(true)}>
           Open Modal Text
         </Button>
       </ButtonBlock>
 
-      {modalOpen && (
-        <Modal>
-          <ModalWrapper closeModal={closeModalHandler}>
-            <ModalHeader>Default Modal</ModalHeader>
-            <ModalBody>Text in default Modal</ModalBody>
-            <ModalFooter firstText="Close" firstClick={closeModalHandler} />
-          </ModalWrapper>
-        </Modal>
+      {openBasicModal && (
+        <ModalBasic
+          title="Basic modal"
+          text="Text in basic modal"
+          buttonText="Close"
+          buttonClick={closeBasicModalHandler}
+          closeModal={closeBasicModalHandler}
+        />
       )}
 
-      {modalOpenText && (
-        <ModalText>
-          <ModalWrapper closeModal={closeModalTextHandler}>
-            <ModalClose onClick={closeModalTextHandler} />
-            <ModalHeader>Add Product “NAME”</ModalHeader>
-            <ModalBody>Description for you product</ModalBody>
-            <ModalFooter
-              firstText="Add to favorite"
-              firstClick={closeModalTextHandler}
-            />
-          </ModalWrapper>
-        </ModalText>
+      {openTextModal && (
+        <ModalText
+          title="Add Product “NAME”"
+          text="Description for you product"
+          buttonText="Add to favorite"
+          buttonClick={closeModalTextHandler}
+          closeModal={closeModalTextHandler}
+        />
       )}
 
-      {modalOpenImage && (
-        <ModalImage>
-          <ModalWrapper closeModal={closeModalImageHandler}>
-            <ModalClose onClick={closeModalImageHandler} />
-            <img
-              src="https://images.pexels.com/photos/63690/pexels-photo-63690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt="product-image"
-            />
-            <ModalHeader>Product Delete!</ModalHeader>
-            <ModalBody>
-              By clicking the “Yes, Delete” button, PRODUCT NAME will be
-              deleted.
-            </ModalBody>
-            <ModalFooter
-              firstText="No, cancel"
-              firstClick={closeModalImageHandler}
-              secondaryText="Yes, delete"
-              secondaryClick={closeModalImageHandler}
-            />
-          </ModalWrapper>
-        </ModalImage>
+      {OpenModalImage && (
+        <ModalImage
+          title="Product Delete!"
+          text="By clicking the “Yes, Delete” button, PRODUCT NAME will be
+              deleted."
+          image="https://images.pexels.com/photos/63690/pexels-photo-63690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          firstButtonText="No, cancel"
+          firstButtonClick={closeModalImageHandler}
+          secondButtonText="Yes, delete"
+          secondButtonClick={closeModalImageHandler}
+          closeModal={closeModalImageHandler}
+        />
       )}
     </PageWrapper>
   )
