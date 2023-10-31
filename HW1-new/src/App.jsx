@@ -25,17 +25,18 @@ function App() {
   const [OpenModalImage, setOpenModalImage] = useState(false)
   const [openTextModal, setOpenTextModal] = useState(false)
 
-  const closeBasicModalHandler = () => {
-    setOpenBasicModal(false)
+  const basicModalHandler = () => {
+    setOpenBasicModal(!openBasicModal)
   }
 
-  const closeModalTextHandler = () => {
-    setOpenTextModal(false)
+  const modalImageHandler = () => {
+    setOpenModalImage(!OpenModalImage)
   }
 
-  const closeModalImageHandler = () => {
-    setOpenModalImage(false)
-  }
+    const modalTextHandler = () => {
+      setOpenTextModal(!openTextModal)
+    }
+
 
   return (
     <PageWrapper>
@@ -56,8 +57,8 @@ function App() {
           title="Basic modal"
           text="Text in basic modal"
           buttonText="Close"
-          buttonClick={closeBasicModalHandler}
-          closeModal={closeBasicModalHandler}
+          buttonClick={basicModalHandler}
+          closeModal={basicModalHandler}
         />
       )}
 
@@ -66,8 +67,8 @@ function App() {
           title="Add Product “NAME”"
           text="Description for you product"
           buttonText="Add to favorite"
-          buttonClick={closeModalTextHandler}
-          closeModal={closeModalTextHandler}
+          buttonClick={modalTextHandler}
+          closeModal={modalTextHandler}
         />
       )}
 
@@ -78,10 +79,10 @@ function App() {
               deleted."
           image="https://images.pexels.com/photos/63690/pexels-photo-63690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           firstButtonText="No, cancel"
-          firstButtonClick={closeModalImageHandler}
+          firstButtonClick={modalImageHandler}
           secondButtonText="Yes, delete"
-          secondButtonClick={closeModalImageHandler}
-          closeModal={closeModalImageHandler}
+          secondButtonClick={modalImageHandler}
+          closeModal={modalImageHandler}
         />
       )}
     </PageWrapper>
