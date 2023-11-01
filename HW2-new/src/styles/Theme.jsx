@@ -14,36 +14,18 @@ const Global = createGlobalStyle`
 `
 
 const theme = {
-  colorsStyles: {
+  colorStyles: {
     primaryColor: '#3C4242',
     secondaryColor: '#807D7E',
     shadowColor: '#F6F6F6',
     LightColor: '#FFFFFF',
     activeColor: '#8A33FD',
-  },
-
-  buttonColors: {
-    primaryButtonEnabled: '#8A33FD',
-    primaryButtonHover: '#6620C1',
-    primaryButtonFocused: '#6620C1',
-    primaryButtonDisabled: '#EAEAEA',
-
-    secondaryButtonEnabled: '#FFFFFF',
-    secondaryButtonHover: '#FAF8FC',
-    secondaryButtonFocused: '#FAF8FC',
-    secondaryButtonDisabled: '#EAEAEA',
-
-    textButtonEnabled: '#FFFFFF',
-    textButtonHover: '#FAF8FC',
-    textButtonFocused: '#FAF8FC',
-    textButtonDisabled: '#FFFFFF',
-
-    elevatedButtonEnabled: '#FFFFFF',
-    elevatedButtonHover: '#FAF8FC',
-    elevatedButtonFocused: '#FAF8FC',
-    elevatedButtonDisabled: '#EAEAEA',
+    hoverColor: '#6620C1',
+    disabledColor: '#EAEAEA',
+    offColor: '#FAF8FC',
   },
 }
+
 
 const Theme = ({ children }) => {
   return (

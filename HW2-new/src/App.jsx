@@ -100,7 +100,7 @@ import Theme from './styles/Theme'
 const PageWrapper = styled.div`
   width: 1440px;
   /* background-color: gray; */
-  background-color: ${({ theme }) => theme.colorsStyles.title};
+  background-color: ${({ theme }) => theme.colorStyles.title};
 `
 
 const App = () => {

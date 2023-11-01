@@ -3,7 +3,8 @@ import SearchBar from './SearchBar';
 import Button from '../UI/Button/Button';
 import BannerSlider from './BannerSlider';
 
-import Logo from '../../assets/svg/logo.svg';
+// import Logo from '../../assets/svg/logo.svg';
+import Logo from '../../assets/svg/logo.svg?react'
 
 import Flex from '../../styles/Flex';
 import styled from 'styled-components';
@@ -14,8 +15,7 @@ const StyledHeader = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: green;
-  /* background-color: ${({ theme }) => theme.colorsStyles.title}; */
+  /* background-color: green; */
 `
 
 const TopMenuBlock = styled.div`
@@ -33,11 +33,15 @@ const Header = (props) => {
     <StyledHeader>
       <TopMenuBlock>
         <Flex $align="center" $justify="space-between">
-          <LogoImage src={Logo} alt="Logo" />
+          <Logo />
           <TopMenu />
           <SearchBar />
-          <Button>Favorite</Button>
-          <Button>Cart</Button>
+          <Button $buttonType="primaryButton">
+            Favorite
+          </Button>
+          <Button $buttonType="secondaryButton">
+            Cart
+          </Button>
         </Flex>
       </TopMenuBlock>
       <BannerSlider />
