@@ -1,7 +1,7 @@
 import { StyledButton } from './ButtonStyles'
 
 const Button = (props) => {
-  const { children, onClick, disabled, $buttonType, $size } = props;
+  const { children, onClick, disabled, $buttonType, $size } = props
   return (
     <div>
       <StyledButton
@@ -17,4 +17,4 @@ const Button = (props) => {
   )
 }
 
-export default Button;
+export default Button

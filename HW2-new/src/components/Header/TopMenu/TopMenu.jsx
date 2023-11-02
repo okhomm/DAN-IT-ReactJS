@@ -1,15 +1,25 @@
-
+import { ItemList } from './TopMenuStyles'
 
 const TopMenu = () => {
   return (
-    <ul>
-      <li>Shop</li>
-      <li>Man</li>
-      <li>Woman</li>
-      <li>Combos</li>
-      <li>Joggers</li>
-    </ul>
-  );
-};
+    <ItemList>
+      <li>
+        <a href="/">Shop</a>
+      </li>
+      <li>
+        <a href="/">Man</a>
+      </li>
+      <li>
+        <a href="/">Woman</a>
+      </li>
+      <li>
+        <a href="/">Combos</a>
+      </li>
+      <li>
+        <a href="/">Joggers</a>
+      </li>
+    </ItemList>
+  )
+}
 
-export default TopMenu;
+export default TopMenu

@@ -1,14 +1,21 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-  /* min-width: 192px; */
-  min-width: ${({$size}) => {
+  text-align: center;
+  font-family: 'Causten', sans-serif;
+  font-weight: 700;
+  box-sizing: border-box;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  
+  min-width: ${({ $size }) => {
     switch ($size) {
       case 's':
         return '44px'
       case 'l':
         return '250px'
-      default: 
+      default:
         return '44px'
 
     }
@@ -18,17 +25,14 @@ export const StyledButton = styled.button`
     switch ($size) {
       case 's':
         return '12px'
-      case 'l': 
+      case 'l':
         return '16px'
       default:
         return '12px'
     }
   }};
-  /* padding: 16px 45px; */
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  /* font-size: 16px; */
-  font-size: ${({$size}) => {
+
+  font-size: ${({ $size }) => {
     switch ($size) {
       case 's':
         return '14px'
@@ -38,12 +42,6 @@ export const StyledButton = styled.button`
         return '14px'
     }
   }};
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  border-radius: 8px;
-  box-sizing: border-box;
 
   box-shadow: ${({ $buttonType }) => {
     switch ($buttonType) {
@@ -59,11 +57,12 @@ export const StyledButton = styled.button`
       case 'primaryButton':
         return theme.colorStyles.activeColor
       case 'secondaryButton':
-        return theme.colorStyles.LightColor
+      case 'standartButton':
       case 'textButton':
-        return theme.colorStyles.LightColor
       case 'elevatedButton':
-        return theme.colorStyles.LightColor
+        return theme.colorStyles.lightColor
+      case 'contentButton':
+        return theme.colorStyles.shadowColor
       default:
         return theme.colorStyles.activeColor
     }
@@ -72,15 +71,16 @@ export const StyledButton = styled.button`
   color: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
       case 'primaryButton':
-        return theme.colorStyles.LightColor
+        return theme.colorStyles.lightColor
       case 'secondaryButton':
-        return theme.colorStyles.activeColor
       case 'textButton':
-        return theme.colorStyles.activeColor
       case 'elevatedButton':
         return theme.colorStyles.activeColor
+      case 'contentButton':
+      case 'standartButton':
+        return theme.colorStyles.primaryColor
       default:
-        return theme.colorStyles.LightColor
+        return theme.colorStyles.lightColor
     }
   }};
 
@@ -93,17 +93,40 @@ export const StyledButton = styled.button`
       case 'textButton':
         return `1px solid transparent`
       case 'elevatedButton':
-        return `1px solid ${theme.colorStyles.LightColor}`
+        return `1px solid ${theme.colorStyles.lightColor}`
+      case 'standartButton':
+        return `1px solid transparent`
+      case 'contentButton':
+        return `1px solid ${theme.colorStyles.shadowColor}`
       default:
         return `1px solid ${theme.colorStyles.activeColor}`
     }
   }};
 
   &:hover {
+   svg {
+    & path {
+      fill: ${({ theme }) => theme.colorStyles.hoverColor};
+      stroke: ${({ theme }) => theme.colorStyles.hoverColor};
+  }
+  }
+
+    color: ${({ $buttonType, theme }) => {
+    switch ($buttonType) {
+      case 'contentButton':
+      case 'standartButton':
+      default:
+        return theme.colorStyles.lightColor
+    }
+  }};
+
     background-color: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
       case 'primaryButton':
+      case 'standartButton':
         return theme.colorStyles.hoverColor
+      case 'contentButton':
+        return theme.colorStyles.shadowColor
       case 'secondaryButton':
       case 'textButton':
       case 'elevatedButton':
@@ -116,13 +139,16 @@ export const StyledButton = styled.button`
     border: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
       case 'primaryButton':
-        return `1px solid ${theme.colorStyles.hoverColor}`
+      case 'standartButton':
+        return `1px solid transparent`
       case 'secondaryButton':
         return `1px solid ${theme.colorStyles.primaryColor}`
+      case 'textButton':
       case 'elevatedButton':
         return `1px solid ${theme.colorStyles.offColor}`
+      case 'contentButton':
       default:
-        return theme.colorStyles.hoverColor
+        return `1px solid ${theme.colorStyles.hoverColor}`
     }
   }};
 
@@ -138,14 +164,30 @@ export const StyledButton = styled.button`
   }
 
   &:focus {
+    svg {
+    & path {
+      fill: ${({ theme }) => theme.colorStyles.hoverColor};
+      stroke: ${({ theme }) => theme.colorStyles.hoverColor};
+  }
+  }
     background-color: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
       case 'primaryButton':
+      case 'standartButton':
         return theme.colorStyles.hoverColor
       case 'secondaryButton':
       case 'textButton':
       case 'elevatedButton':
         return theme.colorStyles.offColor
+      default:
+        return theme.colorStyles.disabledColor
+    }
+  }};
+
+      color: ${({ $buttonType, theme }) => {
+    switch ($buttonType) {
+      case 'standartButton':
+        return theme.colorStyles.lightColor
       default:
         return theme.colorStyles.hoverColor
     }

@@ -98,6 +98,11 @@ import Flex from './styles/Flex'
 import Theme from './styles/Theme'
 
 const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
   width: 1440px;
   /* background-color: gray; */
   background-color: ${({ theme }) => theme.colorStyles.title};
@@ -107,12 +112,10 @@ const App = () => {
   return (
     <Theme>
       <Flex $direction="column" $justify="center" $align="center">
-        <PageWrapper>
-          <Flex $direction="column" $justify="center" $align="center">
+        <PageWrapper>       
             <Header />
             <Content />
             <Footer />
-          </Flex>
         </PageWrapper>
       </Flex>
     </Theme>

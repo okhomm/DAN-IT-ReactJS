@@ -69,6 +69,16 @@ const Global = createGlobalStyle`
     width: 100%;
     margin: auto;
   }
+
+  input:focus {
+  outline: none;
+  border:  none;
+  }
+
+  :focus {
+  outline: none;
+  border: 1px solid #6620C1;
+}
 `
 
 const theme = {
@@ -76,7 +86,7 @@ const theme = {
     primaryColor: '#3C4242',
     secondaryColor: '#807D7E',
     shadowColor: '#F6F6F6',
-    LightColor: '#FFFFFF',
+    lightColor: '#FFFFFF',
     activeColor: '#8A33FD',
     hoverColor: '#6620C1',
     disabledColor: '#EAEAEA',
