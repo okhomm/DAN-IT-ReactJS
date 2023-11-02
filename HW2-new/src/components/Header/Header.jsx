@@ -36,11 +36,14 @@ const Header = (props) => {
           <Logo />
           <TopMenu />
           <SearchBar />
-          <Button $buttonType="primaryButton">
+          <Button $buttonType="primaryButton" >
             Favorite
           </Button>
-          <Button $buttonType="secondaryButton">
+          <Button $buttonType="secondaryButton" $size="l">
             Cart
+          </Button>
+          <Button $buttonType="secondaryButton" $size="s">
+            x
           </Button>
         </Flex>
       </TopMenuBlock>

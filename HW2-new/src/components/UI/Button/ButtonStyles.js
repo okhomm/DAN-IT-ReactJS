@@ -1,11 +1,43 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-  min-width: 192px;
-  padding: 16px 45px;
+  /* min-width: 192px; */
+  min-width: ${({$size}) => {
+    switch ($size) {
+      case 's':
+        return '44px'
+      case 'l':
+        return '250px'
+      default: 
+        return '44px'
+
+    }
+  }};
+
+    padding: ${({ $size }) => {
+    switch ($size) {
+      case 's':
+        return '12px'
+      case 'l': 
+        return '16px'
+      default:
+        return '12px'
+    }
+  }};
+  /* padding: 16px 45px; */
   text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  /* font-size: 16px; */
+  font-size: ${({$size}) => {
+    switch ($size) {
+      case 's':
+        return '14px'
+      case 'l':
+        return '24px'
+      default:
+        return '14px'
+    }
+  }};
   font-weight: 500;
   text-transform: uppercase;
   transition: background-color 0.3s ease;
