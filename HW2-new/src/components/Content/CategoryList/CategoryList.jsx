@@ -4,7 +4,6 @@ import CategoryItem from '../CategoryItem'
 const StyledCategoryList = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
   gap: 50px;
   padding-top: 70px;
   padding-bottom: 100px;
