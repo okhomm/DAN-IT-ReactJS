@@ -1,6 +1,6 @@
 import TopMenu from './TopMenu'
 import SearchBar from './SearchBar'
-import ButtonsBlock from './ButtonsBlock/ButtonsBlock'
+import ButtonsBlock from './ButtonsBlock'
 import BannerSlider from './BannerSlider'
 import { StyledHeader, TopMenuBlock } from './HeaderStyles'
 import Logo from '../../assets/svg/logo.svg?react'
