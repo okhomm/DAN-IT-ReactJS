@@ -31,6 +31,8 @@ export const StyledButton = styled.button`
 
     padding: ${({ $size }) => {
     switch ($size) {
+      case 'xs':
+        return '0'
       case 's':
         return '10px'
       case 'l':

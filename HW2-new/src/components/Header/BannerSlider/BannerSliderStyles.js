@@ -2,9 +2,13 @@ import styled from "styled-components";
 import slide1 from '../../../assets/img/slide-1.jpg'
 
 export const StyledBannerSlider = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
   background-image: url(${slide1});
+  background-size:cover;
 `
 
 export const StyledBannerText = styled.div`
