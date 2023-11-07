@@ -9,11 +9,15 @@ import {
   FavoriteButtonBox,
 } from './ProductItemStyles'
 
-const ProductItem = ({ img, name, brand, price }) => {
+const ProductItem = ({ img, name, brand, price, article, openModalCart }) => {
   return (
     <StyledProductItem>
       <FavoriteButtonBox>
-        <Button $buttonType="circleButton" $size="s">
+        <Button
+          $buttonType="circleButton"
+          $size="s"
+          onClick={() => console.log(`Add to favorite item ${article}`)}
+        >
           <Heart />
         </Button>
       </FavoriteButtonBox>
@@ -29,7 +33,11 @@ const ProductItem = ({ img, name, brand, price }) => {
             <span>{`${brand}'s Brand`}</span>
           </StyledBrandLink>
         </div>
-        <Button $buttonType="contentButton" $size="s">
+        <Button
+          $buttonType="contentButton"
+          $size="s"
+          onClick={() => openModalCart(img, name, price, article)}
+        >
           <StyledButtonText>{`$${price}`}</StyledButtonText>
         </Button>
       </StyledCartBox>

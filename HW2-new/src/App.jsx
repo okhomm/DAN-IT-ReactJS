@@ -5,6 +5,7 @@ import Content from './components/Content'
 import Footer from './components/Footer/Footer'
 import Flex from './styles/Flex'
 import Theme from './styles/Theme'
+import ModalCart from './components/UI/Modal/ModalCart'
 import { PageWrapper } from './AppStyles'
 
 const App = () => {
@@ -12,6 +13,8 @@ const App = () => {
   const [categoriesForWonen, setCategoriesForWomen] = useState([])
   const [topBrands, setTopBrands] = useState([])
   const [productList, setProductList] = useState([])
+  const [openModalCart, setOpenModalCart] = useState(false)
+  const [productInfoForModalCart, setProductInfoForModalCart] = useState({})
 
   const fetchData = (url, setData) => {
     sendRequest(url)
@@ -39,6 +42,25 @@ const App = () => {
     fetchData('data.json', setProductList)
   }, [])
 
+  const modalCartHandler = (img, name, price, article) => {
+    setOpenModalCart(!openModalCart)
+    showProductInModalCart(img, name, price)
+  }
+
+  const showProductInModalCart = (img, name, price) => {
+    setProductInfoForModalCart({
+      img,
+      name,
+      price,
+    })
+  }
+
+  const {
+    img: productImage,
+    name: productName,
+    price: productPrice,
+  } = productInfoForModalCart
+
   return (
     <Theme>
       <Flex $direction="column" $justify="center" $align="center">
@@ -49,10 +71,24 @@ const App = () => {
             categoriesForWonen={categoriesForWonen}
             topBrands={topBrands}
             productList={productList}
+            openModalCart={modalCartHandler}
           />
           <Footer />
         </PageWrapper>
       </Flex>
+
+      {openModalCart && (
+        <ModalCart
+          title="Add this product to your cart?"
+          text={`${productName} - $${productPrice}`}
+          image={productImage}
+          firstButtonText="Yes, add"
+          firstButtonClick={modalCartHandler}
+          secondButtonText="No, cancel"
+          secondButtonClick={modalCartHandler}
+          closeModal={modalCartHandler}
+        />
+      )}
     </Theme>
   )
 }

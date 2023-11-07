@@ -10,15 +10,14 @@ import {
 } from './components/index'
 
 const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  width: 276px;
+
+ 
+
   height: 140px;
-  margin-bottom: 85px;
+
 `
 
-const ModalImage = ({
+const ModalCart = ({
   title,
   text,
   image,
@@ -33,10 +32,10 @@ const ModalImage = ({
       <Modal>
         <ModalHeader>
           <ModalClose onClick={closeModal} />
-          <Image src={image} alt="product-image" />
         </ModalHeader>
         <ModalBody>
           <TitleInModal>{title}</TitleInModal>
+          {image && <Image src={image} alt="product-image" />}
           <TextInModal>{text}</TextInModal>
         </ModalBody>
         <ModalFooter
@@ -50,4 +49,4 @@ const ModalImage = ({
   )
 }
 
-export default ModalImage
+export default ModalCart

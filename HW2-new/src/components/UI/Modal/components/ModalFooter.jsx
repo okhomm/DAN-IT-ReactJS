@@ -13,8 +13,16 @@ const ModalFooter = (props) => {
   const {firstText, secondaryText, firstClick, secondaryClick} = props
   return (
     <Footer>
-      {firstText && <Button type="button" classNames="button-footer" onClick={firstClick}>{firstText}</Button>}
-      {secondaryText && <Button type="button" classNames="button-footer" onClick={secondaryClick}>{secondaryText}</Button>}
+      {firstText && (
+        <Button $buttonType="primaryButton" $size="m" onClick={firstClick}>
+          {firstText}
+        </Button>
+      )}
+      {secondaryText && (
+        <Button $buttonType="secondaryButton" $size="m" onClick={secondaryClick}>
+          {secondaryText}
+        </Button>
+      )}
     </Footer>
   )
 }

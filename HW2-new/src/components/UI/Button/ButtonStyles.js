@@ -7,6 +7,7 @@ export const StyledButton = styled.button`
   box-sizing: border-box;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  text-transform: uppercase;
 
     border-radius: ${({ $buttonType }) => {
     switch ($buttonType) {
@@ -21,6 +22,8 @@ export const StyledButton = styled.button`
     switch ($size) {
       case 's':
         return '44px'
+      case 'm':
+        return '192px'
       case 'l':
         return '250px'
       default:
@@ -35,6 +38,8 @@ export const StyledButton = styled.button`
         return '0'
       case 's':
         return '10px'
+      case 'm':
+        return '16px 46px'
       case 'l':
         return '16px'
       default:
@@ -46,6 +51,8 @@ export const StyledButton = styled.button`
     switch ($size) {
       case 's':
         return '14px'
+      case 'm':
+        return '16px'
       case 'l':
         return '24px'
       default:
@@ -128,6 +135,7 @@ export const StyledButton = styled.button`
     switch ($buttonType) {
       case 'contentButton':
       case 'circleButton':
+      case 'secondaryButton':
         return theme.colorStyles.hoverColor
       case 'standartButton':
       default:

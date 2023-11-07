@@ -9,13 +9,25 @@ const StyledProductList = styled.div`
   padding-bottom: 100px;
 `
 
-const ProductList = ({ data }) => {
+const ProductList = (props) => {
+  const data = props.data;
+  const openModalCart = props.openModalCart;
 
   const productsGrid = data.map((product, index) => {
-    const { name, brand, price, image, ...rest } = product
-    return <ProductItem key={index} img={image} price={price} name={name} brand={brand} />
+    const { name, brand, price, article, image, ...rest } =
+      product
+    return (
+        <ProductItem
+          key={index}
+          img={image}
+          price={price}
+          name={name}
+          brand={brand}
+          article={article}
+          openModalCart={openModalCart}
+        />
+    )
   })
-
   return <StyledProductList>{productsGrid}</StyledProductList>
 }
 
