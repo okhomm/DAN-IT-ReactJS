@@ -1,5 +1,4 @@
-import sendRequest from '../../helpers/sendRequest'
-import { useEffect, useState } from 'react'
+
 import styled from 'styled-components'
 import ContentTitle from './ContentTitle'
 import CategoryList from './CategoryList'
@@ -12,37 +11,13 @@ const StyledMain = styled.main`
   padding: 100px;
 `
 
-const Content = () => {
-  const [categoriesForMen, setCategoriesForMen] = useState([])
-  const [categoriesForWonen, setCategoriesForWomen] = useState([])
-  const [topBrands, setTopBrands] = useState([])
-  const [productList, setProductList] = useState([])
+const Content = ({
+  categoriesForMen,
+  categoriesForWonen,
+  topBrands,
+  productList,
+}) => {
 
-  const fetchData = (url, setData) => {
-    sendRequest(url)
-      .then((data) => {
-        setData(data)
-      })
-      .catch((error) => {
-        console.log('Error:', error)
-      })
-  }
-
-  useEffect(() => {
-    fetchData('data-categories-men.json', setCategoriesForMen)
-  }, [])
-
-  useEffect(() => {
-    fetchData('data-categories-women.json', setCategoriesForWomen)
-  }, [])
-
-  useEffect(() => {
-    fetchData('top-brands.json', setTopBrands)
-  }, [])
-
-  useEffect(() => {
-    fetchData('data.json', setProductList)
-  }, [])
 
   const topBransImages = topBrands.map(({ image }, index) => {
     return (

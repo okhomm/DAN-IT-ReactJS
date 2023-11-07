@@ -5,10 +5,18 @@ export const StyledButton = styled.button`
   font-family: 'Causten', sans-serif;
   font-weight: 700;
   box-sizing: border-box;
-  border-radius: 8px;
   transition: background-color 0.3s ease;
   cursor: pointer;
-  
+
+    border-radius: ${({ $buttonType }) => {
+    switch ($buttonType) {
+      case 'circleButton':
+        return '50px'
+      default:
+        return '8px'
+    }
+  }};
+
   min-width: ${({ $size }) => {
     switch ($size) {
       case 's':
@@ -24,11 +32,11 @@ export const StyledButton = styled.button`
     padding: ${({ $size }) => {
     switch ($size) {
       case 's':
-        return '12px'
+        return '10px'
       case 'l':
         return '16px'
       default:
-        return '12px'
+        return '10px'
     }
   }};
 
@@ -62,6 +70,7 @@ export const StyledButton = styled.button`
       case 'elevatedButton':
         return theme.colorStyles.lightColor
       case 'contentButton':
+      case 'circleButton':
         return theme.colorStyles.shadowColor
       default:
         return theme.colorStyles.activeColor
@@ -77,6 +86,7 @@ export const StyledButton = styled.button`
       case 'elevatedButton':
         return theme.colorStyles.activeColor
       case 'contentButton':
+      case 'circleButton':
       case 'standartButton':
         return theme.colorStyles.primaryColor
       default:
@@ -97,6 +107,7 @@ export const StyledButton = styled.button`
       case 'standartButton':
         return `1px solid transparent`
       case 'contentButton':
+      case 'circleButton':
         return `1px solid ${theme.colorStyles.shadowColor}`
       default:
         return `1px solid ${theme.colorStyles.activeColor}`
@@ -114,6 +125,8 @@ export const StyledButton = styled.button`
     color: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
       case 'contentButton':
+      case 'circleButton':
+        return theme.colorStyles.hoverColor
       case 'standartButton':
       default:
         return theme.colorStyles.lightColor
@@ -126,6 +139,7 @@ export const StyledButton = styled.button`
       case 'standartButton':
         return theme.colorStyles.hoverColor
       case 'contentButton':
+      case 'circleButton':
         return theme.colorStyles.shadowColor
       case 'secondaryButton':
       case 'textButton':
@@ -147,6 +161,7 @@ export const StyledButton = styled.button`
       case 'elevatedButton':
         return `1px solid ${theme.colorStyles.offColor}`
       case 'contentButton':
+      case 'circleButton':
       default:
         return `1px solid ${theme.colorStyles.hoverColor}`
     }

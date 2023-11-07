@@ -65,6 +65,14 @@ const Global = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
   #root {
     width: 100%;
     margin: auto;

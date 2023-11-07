@@ -1,36 +1,40 @@
-import styled from "styled-components";
+import Button from '../../UI/Button/Button'
+import Heart from '../../../assets/svg/heart.svg?react'
+import {
+  StyledProductItem,
+  StyledCartBox,
+  StyledBrandLink,
+  StyledProductTitleLink,
+  StyledButtonText,
+  FavoriteButtonBox,
+} from './ProductItemStyles'
 
-const StyledProductItem = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  padding-top: 70px;
-  padding-bottom: 100px;
-`
-
-const StyledProductCart = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  & img {
-    max-height: 370px;
-
-    border-radius: 12px;
-  }
-`
-
-const ProductItem = ({img, name, price}) => {
+const ProductItem = ({ img, name, brand, price }) => {
   return (
     <StyledProductItem>
-      <StyledProductCart>
-        <img src={img} alt={name} />
-        <h6>{name}</h6>
-        <button>{price}</button>
-      </StyledProductCart>
+      <FavoriteButtonBox>
+        <Button $buttonType="circleButton" $size="s">
+          <Heart />
+        </Button>
+      </FavoriteButtonBox>
+
+      <img src={img} alt={name} />
+
+      <StyledCartBox>
+        <div>
+          <StyledProductTitleLink href="">
+            <h6>{name}</h6>
+          </StyledProductTitleLink>
+          <StyledBrandLink href="/">
+            <span>{`${brand}'s Brand`}</span>
+          </StyledBrandLink>
+        </div>
+        <Button $buttonType="contentButton" $size="s">
+          <StyledButtonText>{`$${price}`}</StyledButtonText>
+        </Button>
+      </StyledCartBox>
     </StyledProductItem>
   )
-};
+}
 
-export default ProductItem;
+export default ProductItem
