@@ -18,6 +18,8 @@ const Content = ({
   topBrands,
   productList,
   openModalCart,
+  addToFavorite,
+  isItemInFavorites,
 }) => {
   const topBransImages = topBrands.map(({ image }, index) => {
     return (
@@ -44,7 +46,12 @@ const Content = ({
           </Flex>
         </TopBrands>
         <ContentTitle>In The Limelight</ContentTitle>
-        <ProductList data={productList} openModalCart={openModalCart} />
+        <ProductList
+          data={productList}
+          openModalCart={openModalCart}
+          addToFavorite={addToFavorite}
+          isItemInFavorites={isItemInFavorites}
+        />
       </StyledMain>
     </Container>
   )

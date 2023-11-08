@@ -7,17 +7,21 @@ import {
   CartItemsIndicator,
 } from './ButtonsBlockStyled'
 
-const ButtonsBlock = () => {
+const ButtonsBlock = ({ favoriteItems, shoppingCartItems }) => {
   return (
     <StyledButtonsBlock>
       <Button $buttonType="contentButton" $size="s">
         <Favorite />
       </Button>
-      <FavoriteItemsIndicator>8</FavoriteItemsIndicator>
+      {favoriteItems.length > 0 && (
+        <FavoriteItemsIndicator>{favoriteItems.length}</FavoriteItemsIndicator>
+      )}
       <Button $buttonType="contentButton" $size="s">
         <Cart />
       </Button>
-      <CartItemsIndicator>10</CartItemsIndicator>
+      {shoppingCartItems.length > 0 && (
+        <CartItemsIndicator>{shoppingCartItems.length}</CartItemsIndicator>
+      )}
     </StyledButtonsBlock>
   )
 }

@@ -14,16 +14,16 @@ const StyledSocialIcons = styled.div`
 const SocialIcons = () => {
   return (
     <StyledSocialIcons>
-      <Button $buttonType="contentButton" $size="xs">
+      <Button $buttonType="socialButton" $size="xs">
         <Facebook />
       </Button>
-      <Button $buttonType="contentButton" $size="xs">
+      <Button $buttonType="socialButton" $size="xs">
         <Instagram />
       </Button>
-      <Button $buttonType="contentButton" $size="xs">
+      <Button $buttonType="socialButton" $size="xs">
         <Twitter />
       </Button>
-      <Button $buttonType="contentButton" $size="xs">
+      <Button $buttonType="socialButton" $size="xs">
         <Linkedin />
       </Button>
     </StyledSocialIcons>

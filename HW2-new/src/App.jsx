@@ -12,9 +12,21 @@ const App = () => {
   const [categoriesForMen, setCategoriesForMen] = useState([])
   const [categoriesForWonen, setCategoriesForWomen] = useState([])
   const [topBrands, setTopBrands] = useState([])
+
   const [productList, setProductList] = useState([])
   const [openModalCart, setOpenModalCart] = useState(false)
   const [productInfoForModalCart, setProductInfoForModalCart] = useState({})
+  const [addToCartArticle, setAddToCartArticle] = useState(null)
+
+  const [favoriteItems, setFavoriteItems] = useState(() => {
+    const storedFavoriteItems = localStorage.getItem('favoriteItems')
+    return storedFavoriteItems ? JSON.parse(storedFavoriteItems) : []
+  })
+
+  const [shoppingCartItems, setShoppingCartItems] = useState(() => {
+    const storedShoppingCartItems = localStorage.getItem('shoppingCartItems')
+    return storedShoppingCartItems ? JSON.parse(storedShoppingCartItems) : []
+  })
 
   const fetchData = (url, setData) => {
     sendRequest(url)
@@ -42,9 +54,90 @@ const App = () => {
     fetchData('data.json', setProductList)
   }, [])
 
+  useEffect(() => {
+    const restoreDataFromLocalStorage = () => {
+      const favoriteItems = localStorage.getItem('favoriteItems')
+      const shoppingCartItems = localStorage.getItem('shoppingCartItems')
+
+      if (favoriteItems) {
+        setFavoriteItems(JSON.parse(favoriteItems))
+      }
+
+      if (shoppingCartItems) {
+        setShoppingCartItems(JSON.parse(shoppingCartItems))
+      }
+    }
+
+    restoreDataFromLocalStorage()
+  }, [])
+
+  useEffect(() => {
+    const saveDataToLocalStorage = () => {
+      localStorage.setItem('favoriteItems', JSON.stringify(favoriteItems))
+      localStorage.setItem(
+        'shoppingCartItems',
+        JSON.stringify(shoppingCartItems)
+      )
+    }
+
+    saveDataToLocalStorage()
+  }, [favoriteItems, shoppingCartItems])
+
+  // const saveFavoriteItemsToLocalStorage = () => {
+  //   localStorage.setItem('favoriteItems', JSON.stringify(favoriteItems))
+  // }
+
+  // const restoreFavoriteItemsFromLocalStorage = () => {
+  //   const favoriteItems =
+  //     JSON.parse(localStorage.getItem('favoriteItems')) || []
+  //   setFavoriteItems(favoriteItems)
+  // }
+
   const modalCartHandler = (img, name, price, article) => {
     setOpenModalCart(!openModalCart)
     showProductInModalCart(img, name, price)
+    setAddToCartArticle(article)
+  }
+
+  const addItemToShoppingCartHandler = (article) => {
+    const isAlreadyAdded = shoppingCartItems.some(
+      (item) => item.article === addToCartArticle
+    )
+
+    if (!isAlreadyAdded) {
+      const selectedItem = productList.find(
+        (item) => item.article === addToCartArticle
+      )
+
+      if (selectedItem) {
+        setShoppingCartItems((prevState) => [...prevState, selectedItem])
+      }
+    }
+
+    modalCartHandler()
+  }
+
+  const addProductToFavorite = (article) => {
+    const isAlreadyAdded = favoriteItems.some(
+      (item) => item.article === article
+    )
+
+    if (isAlreadyAdded) {
+      const updatedFavoriteItems = favoriteItems.filter(
+        (item) => item.article !== article
+      )
+      setFavoriteItems(updatedFavoriteItems)
+    } else {
+      const selectedItem = productList.find((item) => item.article === article)
+
+      if (selectedItem) {
+        setFavoriteItems((prevState) => [...prevState, selectedItem])
+      }
+    }
+  }
+
+  const isItemInFavorites = (article) => {
+    return favoriteItems.some((item) => item.article === article)
   }
 
   const showProductInModalCart = (img, name, price) => {
@@ -65,13 +158,18 @@ const App = () => {
     <Theme>
       <Flex $direction="column" $justify="center" $align="center">
         <PageWrapper>
-          <Header />
+          <Header
+            favoriteItems={favoriteItems}
+            shoppingCartItems={shoppingCartItems}
+          />
           <Content
             categoriesForMen={categoriesForMen}
             categoriesForWonen={categoriesForWonen}
             topBrands={topBrands}
             productList={productList}
             openModalCart={modalCartHandler}
+            addToFavorite={addProductToFavorite}
+            isItemInFavorites={isItemInFavorites}
           />
           <Footer />
         </PageWrapper>
@@ -83,7 +181,7 @@ const App = () => {
           text={`${productName} - $${productPrice}`}
           image={productImage}
           firstButtonText="Yes, add"
-          firstButtonClick={modalCartHandler}
+          firstButtonClick={addItemToShoppingCartHandler}
           secondButtonText="No, cancel"
           secondButtonClick={modalCartHandler}
           closeModal={modalCartHandler}

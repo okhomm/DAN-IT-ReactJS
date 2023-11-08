@@ -9,14 +9,27 @@ import {
   FavoriteButtonBox,
 } from './ProductItemStyles'
 
-const ProductItem = ({ img, name, brand, price, article, openModalCart }) => {
+const ProductItem = ({
+  img,
+  name,
+  brand,
+  price,
+  article,
+  openModalCart,
+  addToFavorite,
+  isItemInFavorites,
+}) => {
+  const favoriteIcon = isItemInFavorites(article)
+    ? 'favoriteButton'
+    : 'circleButton'
+
   return (
     <StyledProductItem>
       <FavoriteButtonBox>
         <Button
-          $buttonType="circleButton"
+          $buttonType={favoriteIcon}
           $size="s"
-          onClick={() => console.log(`Add to favorite item ${article}`)}
+          onClick={() => addToFavorite(article)}
         >
           <Heart />
         </Button>

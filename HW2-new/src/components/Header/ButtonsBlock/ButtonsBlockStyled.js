@@ -10,7 +10,7 @@ export const StyledButtonsBlock = styled.div`
 export const FavoriteItemsIndicator = styled.div`
   position: absolute;
   top: -10px;
-  right: -10px;
+  right: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +25,7 @@ export const FavoriteItemsIndicator = styled.div`
 export const CartItemsIndicator = styled.div`
   position: absolute;
   top: -10px;
-  right: 45px;
+  right: -10px;
   display: flex;
   align-items: center;
   justify-content: center;

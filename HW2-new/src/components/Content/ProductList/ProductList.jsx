@@ -10,22 +10,23 @@ const StyledProductList = styled.div`
 `
 
 const ProductList = (props) => {
-  const data = props.data;
-  const openModalCart = props.openModalCart;
+  const { data, openModalCart, addToFavorite, isItemInFavorites } = props
 
   const productsGrid = data.map((product, index) => {
     const { name, brand, price, article, image, ...rest } =
       product
     return (
-        <ProductItem
-          key={index}
-          img={image}
-          price={price}
-          name={name}
-          brand={brand}
-          article={article}
-          openModalCart={openModalCart}
-        />
+      <ProductItem
+        key={index}
+        img={image}
+        price={price}
+        name={name}
+        brand={brand}
+        article={article}
+        openModalCart={openModalCart}
+        addToFavorite={addToFavorite}
+        isItemInFavorites={isItemInFavorites}
+      />
     )
   })
   return <StyledProductList>{productsGrid}</StyledProductList>

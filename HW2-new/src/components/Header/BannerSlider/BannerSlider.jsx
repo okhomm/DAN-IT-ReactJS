@@ -23,7 +23,7 @@ const BannerSlider = () => {
           <h5>T-shirt / Tops</h5>
           <h1>Summer Value Pack</h1>
           <h4>cool / colorful / comfy</h4>
-          <Button $buttonType="standartButton" $size="l">
+          <Button $buttonType="primaryButton" $size="l">
             Shop Now
           </Button>
         </StyledBannerText>
