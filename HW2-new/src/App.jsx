@@ -43,21 +43,6 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const restoreDataFromLocalStorage = () => {
-      const favoriteItems = localStorage.getItem('favoriteItems')
-      const shoppingCartItems = localStorage.getItem('shoppingCartItems')
-      if (favoriteItems) {
-        setFavoriteItems(JSON.parse(favoriteItems))
-      }
-      if (shoppingCartItems) {
-        setShoppingCartItems(JSON.parse(shoppingCartItems))
-      }
-    }
-
-    restoreDataFromLocalStorage()
-  }, []);
-
-  useEffect(() => {
     const saveDataToLocalStorage = () => {
       localStorage.setItem('favoriteItems', JSON.stringify(favoriteItems))
       localStorage.setItem(
