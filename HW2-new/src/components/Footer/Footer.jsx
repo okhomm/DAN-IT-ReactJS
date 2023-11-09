@@ -1,7 +1,7 @@
-import Container from '../../styles/Container'
-import FooterMenu from './FooterMenu'
-import SocialIcons from './SocialIcons'
-import { FooterWraper, StyledFooterContent } from './FooterStyled'
+import FooterMenu from './FooterMenu';
+import SocialIcons from './SocialIcons';
+import Container from '../../styles/Container';
+import { FooterWraper, StyledFooterContent } from './FooterStyled';
 
 const Footer = () => {
   return (
@@ -16,7 +16,7 @@ const Footer = () => {
         </StyledFooterContent>
       </Container>
     </FooterWraper>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

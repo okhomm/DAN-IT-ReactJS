@@ -38,11 +38,11 @@ export const StyledCategoryItem = styled.div`
     font-weight: 500;
     letter-spacing: -0.536px;
   }
-`
+`;
 
 export const StyledArrowRightLong = styled.div`
   position: absolute;
   right: 0;
   bottom: 12px;
   cursor: pointer;
-`
+`;

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
   width: 100%;
@@ -6,8 +6,7 @@ export const StyledHeader = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  /* background-color: green; */
-`
+`;
 
 export const TopMenuBlock = styled.div`
   display: flex;
@@ -15,4 +14,4 @@ export const TopMenuBlock = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 32px 102px;
-`
+`;

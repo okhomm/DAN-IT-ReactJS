@@ -1,4 +1,4 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const Global = createGlobalStyle`
 
@@ -58,7 +58,6 @@ const Global = createGlobalStyle`
   font-style: normal;
 }
 
-
   * {
     margin: 0;
     padding: 0;
@@ -82,12 +81,7 @@ const Global = createGlobalStyle`
   outline: none;
   border:  none;
   }
-
-  :focus {
-  outline: none;
-  border: 1px solid #6620C1;
-}
-`
+`;
 
 const theme = {
   colorStyles: {
@@ -100,7 +94,7 @@ const theme = {
     disabledColor: '#EAEAEA',
     offColor: '#FAF8FC',
   },
-}
+};
 
 const Theme = ({ children }) => {
   return (
@@ -109,6 +103,6 @@ const Theme = ({ children }) => {
       {children}
     </ThemeProvider>
   )
-}
+};
 
-export default Theme
+export default Theme;

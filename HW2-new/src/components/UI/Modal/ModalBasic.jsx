@@ -1,8 +1,8 @@
-import { Modal, ModalWrapper, ModalBody, ModalFooter } from './components/index'
-import { TitleInModal, TextInModal } from './components/ModalDefaultStyles'
+import { Modal, ModalWrapper, ModalBody, ModalFooter } from './components/index';
+import { TitleInModal, TextInModal } from './components/ModalDefaultStyles';
 
 const ModalBasic = (props) => {
-  const { title, text, buttonText, buttonClick, closeModal } = props
+  const { title, text, buttonText, buttonClick, closeModal } = props;
   return (
     <>
       <ModalWrapper closeModal={closeModal}>
@@ -16,6 +16,6 @@ const ModalBasic = (props) => {
       </ModalWrapper>
     </>
   )
-}
+};
 
-export default ModalBasic
+export default ModalBasic;

@@ -6,7 +6,6 @@ export const PageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   align-items: center;
-  /* width: 1440px; */
   width: 100%;
   background-color: ${({ theme }) => theme.colorStyles.title};
 `

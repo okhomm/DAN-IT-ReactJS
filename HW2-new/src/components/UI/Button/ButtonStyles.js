@@ -13,7 +13,7 @@ export const StyledButton = styled.button`
     switch ($buttonType) {
       case 'circleButton':
       case 'favoriteButton':
-        return '50px'
+        return '50%'
       default:
         return '8px'
     }
@@ -110,22 +110,20 @@ export const StyledButton = styled.button`
   border: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
       case 'primaryButton':
-      case 'favoriteButton':
+
         return `1px solid ${theme.colorStyles.activeColor}`
       case 'secondaryButton':
         return `1px solid ${theme.colorStyles.primaryColor}`
-      case 'textButton':
-        return `1px solid transparent`
       case 'elevatedButton':
         return `1px solid ${theme.colorStyles.lightColor}`
-      case 'standartButton':
-        return `1px solid transparent`
       case 'contentButton':
       case 'socialButton':
         return `1px solid ${theme.colorStyles.shadowColor}`
+      case 'textButton':
+      case 'standartButton':
       case 'circleButton':
       case 'favoriteButton':
-        return 'none'
+        return `1px solid transparent`
       default:
         return `1px solid ${theme.colorStyles.activeColor}`
     }
@@ -150,23 +148,16 @@ export const StyledButton = styled.button`
       return 'none'
     default:
       return theme.colorStyles.secondaryColor
+          }
+      }}
   }
-      }};
-  }
-  
-  }
-
- 
-  
+};
 
   &:hover {
      svg {
     & path {
       fill: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
-      // case 'circleButton':
-      // case 'favoriteButton':
-        // return 'red'
       default:
         return theme.colorStyles.hoverColor
     }
@@ -174,17 +165,14 @@ export const StyledButton = styled.button`
          
       stroke: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
-      // case 'circleButton':
-      // case 'favoriteButton':
-        // return 'red'
       case 'socialButton':
         return 'none'
       default:
         return theme.colorStyles.hoverColor
+         }
+      }}
     }
-  }};
-  }
-  }
+  };
 
     color: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
@@ -215,7 +203,8 @@ export const StyledButton = styled.button`
       case 'circleButton':
         return 'none'
       case 'standartButton':
-        return theme.colorStyles.activeColor
+        // return theme.colorStyles.hoverColor
+        return 'red'
       default:
         return theme.colorStyles.hoverColor
     }
@@ -249,14 +238,9 @@ export const StyledButton = styled.button`
         return 'none'
     }
   }};
-  }
+  
 
   &:focus {
-    /* svg {
-    & path {
-      fill: ${({ theme }) => theme.colorStyles.hoverColor};
-      stroke: ${({ theme }) => theme.colorStyles.hoverColor};
-  } */
   }
     background-color: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
@@ -275,18 +259,6 @@ export const StyledButton = styled.button`
     }
   }};
 
-    /* color: ${({ $buttonType, theme }) => {
-    switch ($buttonType) {
-      case 'standartButton':
-        return theme.colorStyles.lightColor
-      case 'circleButton':
-      case 'favoriteButton':
-        return 'none'
-      default:
-        return theme.colorStyles.hoverColor
-    }
-  }}; */
-
     box-shadow: ${({ $buttonType }) => {
     switch ($buttonType) {
       case 'textButton':
@@ -297,17 +269,6 @@ export const StyledButton = styled.button`
       case 'favoriteButton':
       default:
         return 'none'
-    }
-  }};
-
-    border: ${({ $buttonType, theme }) => {
-    switch ($buttonType) {
-      case 'secondaryButton':
-        return `1px solid ${theme.colorStyles.activeColor}`
-      case 'circleButton':
-      case 'favoriteButton':
-      default:
-        return `1px solid transparent`
     }
   }};
   
@@ -338,4 +299,4 @@ export const StyledButton = styled.button`
     }
   }};
   }
-`
+  }`;

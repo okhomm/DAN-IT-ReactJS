@@ -1,11 +1,11 @@
-import Button from '../../UI/Button/Button'
-import Favorite from '../../../assets/svg/heart.svg?react'
-import Cart from '../../../assets/svg/cart.svg?react'
+import Button from '../../UI/Button/Button';
+import Favorite from '../../../assets/svg/heart.svg?react';
+import Cart from '../../../assets/svg/cart.svg?react';
 import {
   StyledButtonsBlock,
   FavoriteItemsIndicator,
   CartItemsIndicator,
-} from './ButtonsBlockStyled'
+} from './ButtonsBlockStyled';
 
 const ButtonsBlock = ({ favoriteItems, shoppingCartItems }) => {
   return (
@@ -24,6 +24,6 @@ const ButtonsBlock = ({ favoriteItems, shoppingCartItems }) => {
       )}
     </StyledButtonsBlock>
   )
-}
+};
 
-export default ButtonsBlock
+export default ButtonsBlock;

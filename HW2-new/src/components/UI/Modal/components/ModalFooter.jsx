@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import Button from "../../Button"
+import styled from "styled-components";
+import Button from "../../Button";
 
 const Footer = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ const Footer = styled.div`
   justify-content: center;
   width: 100%;
   gap: 64px;
-`
+`;
 
 const ModalFooter = (props) => {
   const {firstText, secondaryText, firstClick, secondaryClick} = props
@@ -25,6 +25,6 @@ const ModalFooter = (props) => {
       )}
     </Footer>
   )
-}
+};
 
-export default ModalFooter
+export default ModalFooter;

@@ -57,4 +57,4 @@ export const StyledTopBrands = styled.div`
   & figure:last-child {
     margin-right: 0;
   }
-`
+`;

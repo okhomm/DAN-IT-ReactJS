@@ -1,16 +1,16 @@
-import styled from 'styled-components'
-import ContentTitle from './ContentTitle'
-import CategoryList from './CategoryList'
-import TopBrands from './TopBrands/TopBrands'
-import Flex from '../../styles/Flex'
-import Container from '../../styles/Container'
-import ProductList from './ProductList'
+import styled from 'styled-components';
+import ContentTitle from './ContentTitle';
+import CategoryList from './CategoryList';
+import ProductList from './ProductList';
+import TopBrands from './TopBrands';
+import Flex from '../../styles/Flex';
+import Container from '../../styles/Container';
 
 const StyledMain = styled.main`
   width: 100%;
   padding: 100px;
   padding-bottom: 0;
-`
+`;
 
 const Content = ({
   categoriesForMen,
@@ -27,7 +27,7 @@ const Content = ({
         <img src={image} />
       </figure>
     )
-  })
+  });
 
   return (
     <Container>
@@ -57,4 +57,4 @@ const Content = ({
   )
 }
 
-export default Content
+export default Content;

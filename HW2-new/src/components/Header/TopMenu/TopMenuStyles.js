@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ItemList = styled.ul`
   list-style: none;
@@ -26,4 +26,4 @@ export const ItemList = styled.ul`
   & a:hover {
     color: ${({ theme }) => theme.colorStyles.primaryColor};
   }
-`
+`;

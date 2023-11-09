@@ -1,10 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const FooterWraper = styled.footer`
   width: 100%;
   background-color: #3c4242;
   color: #ffffff;
-`
+`;
+
 export const StyledFooterContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,4 +20,4 @@ export const StyledFooterContent = styled.div`
     font-weight: 700;
     line-height: 200%;
   }
-`
+`;

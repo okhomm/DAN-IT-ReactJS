@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledSearchBar = styled.div`
   position: relative;
@@ -24,10 +24,10 @@ export const StyledSearchBar = styled.div`
     border: 1px solid ${({ theme }) => theme.colorStyles.hoverColor};
 
   }
-`
+`;
 
 export const StyledSearchIconBox = styled.div`
   position: absolute;
   top: 12px;
   left: 20px;
-`
+`;

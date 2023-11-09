@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledButtonsBlock = styled.div`
   position: relative;
@@ -6,7 +6,8 @@ export const StyledButtonsBlock = styled.div`
   align-items: center;
   justify-content: center;
   gap: 12px;
-`
+`;
+
 export const FavoriteItemsIndicator = styled.div`
   position: absolute;
   top: -10px;
@@ -20,7 +21,7 @@ export const FavoriteItemsIndicator = styled.div`
   width: 24px;
   height: 24px;
   font-size:13px;
-`
+`;
 
 export const CartItemsIndicator = styled.div`
   position: absolute;
@@ -35,4 +36,4 @@ export const CartItemsIndicator = styled.div`
   width: 24px;
   height: 24px;
   font-size: 13px;
-`
+`;

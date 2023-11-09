@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { TitleInModal, TextInModal } from './components/ModalDefaultStyles'
+import styled from 'styled-components';
+import { TitleInModal, TextInModal } from './components/ModalDefaultStyles';
 import {
   Modal,
   ModalWrapper,
@@ -7,15 +7,11 @@ import {
   ModalFooter,
   ModalClose,
   ModalHeader,
-} from './components/index'
+} from './components/index';
 
 const Image = styled.img`
-
- 
-
   height: 140px;
-
-`
+`;
 
 const ModalCart = ({
   title,
@@ -47,6 +43,6 @@ const ModalCart = ({
       </Modal>
     </ModalWrapper>
   )
-}
+};
 
-export default ModalCart
+export default ModalCart;

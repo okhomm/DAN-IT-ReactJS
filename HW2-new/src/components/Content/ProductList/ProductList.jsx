@@ -1,5 +1,5 @@
-import ProductItem from '../ProductItem'
-import styled from 'styled-components'
+import ProductItem from '../ProductItem';
+import styled from 'styled-components';
 
 const StyledProductList = styled.div`
   display: grid;
@@ -7,11 +7,11 @@ const StyledProductList = styled.div`
   gap: 36px;
   padding-top: 70px;
   padding-bottom: 100px;
-`
+`;
+
 
 const ProductList = (props) => {
   const { data, openModalCart, addToFavorite, isItemInFavorites } = props
-
   const productsGrid = data.map((product, index) => {
     const { name, brand, price, article, image, ...rest } =
       product
@@ -28,8 +28,8 @@ const ProductList = (props) => {
         isItemInFavorites={isItemInFavorites}
       />
     )
-  })
+  });
   return <StyledProductList>{productsGrid}</StyledProductList>
 }
 
-export default ProductList
+export default ProductList;

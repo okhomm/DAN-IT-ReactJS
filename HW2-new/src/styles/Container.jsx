@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const StyledContainer = styled.div`
   position: relative;
@@ -6,8 +6,7 @@ const StyledContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 1440px;
-
-`
+`;
 
 const Container = ({children}) => {
   return <StyledContainer>{children}</StyledContainer>

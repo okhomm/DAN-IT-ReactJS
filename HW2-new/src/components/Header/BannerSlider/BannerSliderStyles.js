@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import slide1 from '../../../assets/img/slide-1.jpg'
+import slide1 from '../../../assets/img/slide-1.jpg';
 
 export const StyledBannerSlider = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ export const StyledBannerSlider = styled.div`
   width: 100%;
   background-image: url(${slide1});
   background-size:cover;
-`
+`;
 
 export const StyledBannerText = styled.div`
   display: flex;
@@ -41,8 +41,7 @@ export const StyledBannerText = styled.div`
     letter-spacing: 0.157px;
     text-transform: capitalize;
   }
-
-`
+`;
 
 export const StyledArrowLeft = styled.div`
   position: absolute;
@@ -50,7 +49,7 @@ export const StyledArrowLeft = styled.div`
   left: 40px;
   transform: translateY(-50%);
   cursor: pointer;
-`
+`;
 
 export const StyledArrowRight = styled.div`
   position: absolute;
@@ -58,7 +57,7 @@ export const StyledArrowRight = styled.div`
   right: 40px;
   transform: translateY(-50%);
   cursor: pointer;
-`
+`;
 
 export const StyledCarouselIndicator = styled.div`
   display: flex;
@@ -67,4 +66,4 @@ export const StyledCarouselIndicator = styled.div`
   left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
-`
+`;

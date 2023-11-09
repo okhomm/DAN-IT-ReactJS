@@ -1,5 +1,5 @@
-import Button from '../../UI/Button/Button'
-import Heart from '../../../assets/svg/heart.svg?react'
+import Button from '../../UI/Button/Button';
+import Heart from '../../../assets/svg/heart.svg?react';
 import {
   StyledProductItem,
   StyledCartBox,
@@ -7,7 +7,7 @@ import {
   StyledProductTitleLink,
   StyledButtonText,
   FavoriteButtonBox,
-} from './ProductItemStyles'
+} from './ProductItemStyles';
 
 const ProductItem = ({
   img,
@@ -46,6 +46,7 @@ const ProductItem = ({
             <span>{`${brand}'s Brand`}</span>
           </StyledBrandLink>
         </div>
+        
         <Button
           $buttonType="contentButton"
           $size="s"
@@ -56,6 +57,6 @@ const ProductItem = ({
       </StyledCartBox>
     </StyledProductItem>
   )
-}
+};
 
-export default ProductItem
+export default ProductItem;

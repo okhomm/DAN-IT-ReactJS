@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledProductItem = styled.div`
   position: relative;
@@ -29,7 +29,7 @@ export const StyledProductItem = styled.div`
     font-weight: 500;
     line-height: normal;
   }
-`
+`;
 
 export const StyledCartBox = styled.div`
   margin-top: 30px;
@@ -37,7 +37,7 @@ export const StyledCartBox = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-`
+`;
 
 export const StyledBrandLink = styled.a`
   text-decoration: none;
@@ -46,7 +46,7 @@ export const StyledBrandLink = styled.a`
   &:hover {
     text-decoration: underline;
   }
-`
+`;
 
 export const StyledProductTitleLink = styled.a`
   color: #3c4242;
@@ -61,12 +61,12 @@ export const StyledProductTitleLink = styled.a`
     color: #6620c1;
     text-decoration: underline;
   }
-`
+`;
 
 export const StyledButtonText = styled.span`
   padding-left: 10px;
   padding-right: 10px;
-`
+`;
 
 export const FavoriteButtonBox = styled.div`
   position: absolute;
@@ -75,4 +75,4 @@ export const FavoriteButtonBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;

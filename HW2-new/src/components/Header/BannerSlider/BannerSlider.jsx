@@ -1,8 +1,8 @@
-import Button from '../../UI/Button/Button'
-import ArrowLeft from '../../../assets/svg/arrow-left.svg?react'
-import ArrowRight from '../../../assets/svg/arrow-right.svg?react'
-import CarouselIndicator from '../../../assets/svg/carousel-indicator.svg?react'
-import Container from '../../../styles/Container'
+import Button from '../../UI/Button/Button';
+import ArrowLeft from '../../../assets/svg/arrow-left.svg?react';
+import ArrowRight from '../../../assets/svg/arrow-right.svg?react';
+import CarouselIndicator from '../../../assets/svg/carousel-indicator.svg?react';
+import Container from '../../../styles/Container';
 
 import {
   StyledBannerSlider,
@@ -10,7 +10,7 @@ import {
   StyledArrowLeft,
   StyledArrowRight,
   StyledCarouselIndicator,
-} from './BannerSliderStyles'
+} from './BannerSliderStyles';
 
 const BannerSlider = () => {
   return (
@@ -19,6 +19,7 @@ const BannerSlider = () => {
         <StyledArrowLeft>
           <ArrowLeft />
         </StyledArrowLeft>
+        
         <StyledBannerText>
           <h5>T-shirt / Tops</h5>
           <h1>Summer Value Pack</h1>
@@ -38,6 +39,6 @@ const BannerSlider = () => {
       </Container>
     </StyledBannerSlider>
   )
-}
+};
 
-export default BannerSlider
+export default BannerSlider;

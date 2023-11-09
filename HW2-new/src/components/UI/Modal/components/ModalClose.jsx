@@ -1,14 +1,15 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const CloseButton = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
-`
+`;
+
 const SvgIcon = styled.svg`
   pointer-events: none;
-`
+`;
 
 const ModalClose = ({onClick}) => {
   return (
@@ -20,4 +21,4 @@ const ModalClose = ({onClick}) => {
   )
 }
 
-export default ModalClose
+export default ModalClose;

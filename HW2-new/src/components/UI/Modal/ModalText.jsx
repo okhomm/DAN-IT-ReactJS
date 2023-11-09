@@ -1,4 +1,4 @@
-import { TitleInModal, TextInModal } from './components/ModalDefaultStyles'
+import { TitleInModal, TextInModal } from './components/ModalDefaultStyles';
 import {
   Modal,
   ModalWrapper,
@@ -6,7 +6,7 @@ import {
   ModalFooter,
   ModalClose,
   ModalHeader,
-} from './components/index'
+} from './components/index';
 
 const ModalText = ({ title, text, buttonText, buttonClick, closeModal }) => {
   return (
@@ -23,6 +23,6 @@ const ModalText = ({ title, text, buttonText, buttonClick, closeModal }) => {
       </Modal>
     </ModalWrapper>
   )
-}
+};
 
-export default ModalText
+export default ModalText;

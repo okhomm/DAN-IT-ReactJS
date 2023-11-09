@@ -1,10 +1,10 @@
-import TopMenu from './TopMenu'
-import SearchBar from './SearchBar'
-import ButtonsBlock from './ButtonsBlock'
-import BannerSlider from './BannerSlider'
-import Container from '../../styles/Container'
-import { StyledHeader, TopMenuBlock } from './HeaderStyles'
-import Logo from '../../assets/svg/logo.svg?react'
+import TopMenu from './TopMenu';
+import SearchBar from './SearchBar';
+import ButtonsBlock from './ButtonsBlock';
+import BannerSlider from './BannerSlider';
+import Logo from '../../assets/svg/logo.svg?react';
+import Container from '../../styles/Container';
+import { StyledHeader, TopMenuBlock } from './HeaderStyles';
 
 const Header = ({ favoriteItems, shoppingCartItems }) => {
   return (
@@ -26,6 +26,6 @@ const Header = ({ favoriteItems, shoppingCartItems }) => {
       <BannerSlider />
     </StyledHeader>
   )
-}
+};
 
-export default Header
+export default Header;

@@ -10,7 +10,7 @@ const TextInModal = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-`
+`;
 
 const TitleInModal = styled.h4`
   margin-bottom: 35px;
@@ -20,6 +20,6 @@ const TitleInModal = styled.h4`
   font-weight: 400;
   line-height: normal;
   color: #191919;
-`
+`;
 
-export { TitleInModal, TextInModal }
+export { TitleInModal, TextInModal };

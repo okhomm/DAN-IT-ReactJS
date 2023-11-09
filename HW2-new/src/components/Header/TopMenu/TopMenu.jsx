@@ -1,4 +1,4 @@
-import { ItemList } from './TopMenuStyles'
+import { ItemList } from './TopMenuStyles';
 
 const TopMenu = () => {
   return (
@@ -20,6 +20,6 @@ const TopMenu = () => {
       </li>
     </ItemList>
   )
-}
+};
 
-export default TopMenu
+export default TopMenu;

@@ -1,5 +1,5 @@
 const ModalBody = ({children}) => {
   return <>{children}</>
-}
+};
 
-export default ModalBody
+export default ModalBody;

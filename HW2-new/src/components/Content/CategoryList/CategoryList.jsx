@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import CategoryItem from '../CategoryItem'
+import styled from 'styled-components';
+import CategoryItem from '../CategoryItem';
 
 const StyledCategoryList = styled.div`
   display: grid;
@@ -7,10 +7,9 @@ const StyledCategoryList = styled.div`
   gap: 50px;
   padding-top: 70px;
   padding-bottom: 100px;
-`
+`;
 
 const CategoryList = ({ data }) => {
-
   const categoryItems = data.map(({ name, image }, index) => (
     <CategoryItem key={index}>
       <img src={image} alt={name} />
@@ -19,6 +18,6 @@ const CategoryList = ({ data }) => {
   ))
 
   return <StyledCategoryList>{categoryItems}</StyledCategoryList>
-}
+};
 
-export default CategoryList
+export default CategoryList;
