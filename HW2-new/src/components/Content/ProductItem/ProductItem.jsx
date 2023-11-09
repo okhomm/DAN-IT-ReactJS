@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Button from '../../UI/Button/Button';
 import Heart from '../../../assets/svg/heart.svg?react';
 import {
@@ -58,5 +59,24 @@ const ProductItem = ({
     </StyledProductItem>
   )
 };
+
+ProductItem.propTypes = {
+  img: PropTypes.string,
+  name: PropTypes.string,
+  brand: PropTypes.string,
+  price: PropTypes.number,
+  article: PropTypes.string,
+  openModalCart: PropTypes.func.isRequired,
+  addToFavorite: PropTypes.func.isRequired,
+  isItemInFavorites: PropTypes.func.isRequired,
+}
+
+ProductItem.defaultProps = {
+  img: 'Product image',
+  name: 'Product name',
+  brand: 'Product brand',
+  price: 0,
+  article: 'Product article',
+}
 
 export default ProductItem;

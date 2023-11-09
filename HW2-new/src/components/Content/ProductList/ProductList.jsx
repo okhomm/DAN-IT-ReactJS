@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import ProductItem from '../ProductItem';
 import styled from 'styled-components';
 
@@ -11,10 +12,10 @@ const StyledProductList = styled.div`
 
 
 const ProductList = (props) => {
-  const { data, openModalCart, addToFavorite, isItemInFavorites } = props
+  const { data, openModalCart, addToFavorite, isItemInFavorites } = props;
   const productsGrid = data.map((product, index) => {
     const { name, brand, price, article, image, ...rest } =
-      product
+      product;
     return (
       <ProductItem
         key={index}
@@ -31,5 +32,12 @@ const ProductList = (props) => {
   });
   return <StyledProductList>{productsGrid}</StyledProductList>
 }
+
+ProductList.propTypes = {
+  data: PropTypes.array.isRequired,
+  openModalCart: PropTypes.func.isRequired,
+  addToFavorite: PropTypes.func.isRequired,
+  isItemInFavorites: PropTypes.func.isRequired,
+};
 
 export default ProductList;

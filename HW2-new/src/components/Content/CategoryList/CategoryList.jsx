@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from 'styled-components';
 import CategoryItem from '../CategoryItem';
 
@@ -19,5 +20,9 @@ const CategoryList = ({ data }) => {
 
   return <StyledCategoryList>{categoryItems}</StyledCategoryList>
 };
+
+CategoryList.propTypes = {
+  data: PropTypes.array.isRequired,
+}
 
 export default CategoryList;

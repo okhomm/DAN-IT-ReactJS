@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Button from '../../UI/Button/Button';
 import Favorite from '../../../assets/svg/heart.svg?react';
 import Cart from '../../../assets/svg/cart.svg?react';
@@ -24,6 +25,11 @@ const ButtonsBlock = ({ favoriteItems, shoppingCartItems }) => {
       )}
     </StyledButtonsBlock>
   )
+};
+
+ButtonsBlock.propTypes = {
+  favoriteItems: PropTypes.array.isRequired,
+  shoppingCartItems: PropTypes.array.isRequired,
 };
 
 export default ButtonsBlock;

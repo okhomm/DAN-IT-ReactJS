@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import TopMenu from './TopMenu';
 import SearchBar from './SearchBar';
 import ButtonsBlock from './ButtonsBlock';
@@ -26,6 +27,11 @@ const Header = ({ favoriteItems, shoppingCartItems }) => {
       <BannerSlider />
     </StyledHeader>
   )
+};
+
+Header.propTypes = {
+  favoriteItems: PropTypes.array.isRequired,
+  shoppingCartItems: PropTypes.array.isRequired,
 };
 
 export default Header;

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import Button from "../../Button";
 
@@ -10,7 +11,7 @@ const Footer = styled.div`
 `;
 
 const ModalFooter = (props) => {
-  const {firstText, secondaryText, firstClick, secondaryClick} = props
+  const {firstText, secondaryText, firstClick, secondaryClick} = props;
   return (
     <Footer>
       {firstText && (
@@ -25,6 +26,18 @@ const ModalFooter = (props) => {
       )}
     </Footer>
   )
+};
+
+ModalFooter.propTypes = {
+  firstText: PropTypes.string,
+  secondaryText: PropTypes.string,
+  firstClick: PropTypes.func.isRequired,
+  secondaryClick: PropTypes.func.isRequired,
+};
+
+ModalFooter.defaultProps = {
+  firstText: 'First button text',
+  secondaryText: 'Second button text',
 };
 
 export default ModalFooter;

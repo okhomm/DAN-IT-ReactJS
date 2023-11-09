@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from 'styled-components';
 import ContentTitle from './ContentTitle';
 import CategoryList from './CategoryList';
@@ -56,5 +57,15 @@ const Content = ({
     </Container>
   )
 }
+
+Content.propTypes = {
+  categoriesForMen: PropTypes.array.isRequired,
+  categoriesForWonen: PropTypes.array.isRequired,
+  topBrands: PropTypes.array.isRequired,
+  productList: PropTypes.array.isRequired,
+  openModalCart: PropTypes.func.isRequired,
+  addToFavorite: PropTypes.func.isRequired,
+  isItemInFavorites: PropTypes.func.isRequired,
+};
 
 export default Content;

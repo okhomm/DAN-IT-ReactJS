@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from 'styled-components';
 import { TitleInModal, TextInModal } from './components/ModalDefaultStyles';
 import {
@@ -43,6 +44,24 @@ const ModalCart = ({
       </Modal>
     </ModalWrapper>
   )
+};
+
+ModalCart.propTypes = {
+  title: PropTypes.string,
+  text: PropTypes.string,
+  image: PropTypes.string,
+  firstButtonText: PropTypes.string,
+  firstButtonClick: PropTypes.func,
+  secondButtonText: PropTypes.string,
+  secondButtonClick: PropTypes.func,
+  closeModal: PropTypes.func,
+};
+
+ModalCart.defaultProps = {
+  title: 'Modal title',
+  text: 'Modal text',
+  image: 'Modal image',
+  buttonText: 'Button text',
 };
 
 export default ModalCart;

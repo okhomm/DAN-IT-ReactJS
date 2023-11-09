@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { TitleInModal, TextInModal } from './components/ModalDefaultStyles';
 import {
   Modal,
@@ -23,6 +24,20 @@ const ModalText = ({ title, text, buttonText, buttonClick, closeModal }) => {
       </Modal>
     </ModalWrapper>
   )
+};
+
+ModalText.propTypes = {
+  title: PropTypes.string,
+  text: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonClick: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};
+
+ModalText.defaultProps = {
+  title: 'Modal title',
+  text: 'Modal text',
+  buttonText: 'Button text',
 };
 
 export default ModalText;
