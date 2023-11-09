@@ -10,7 +10,7 @@ import { PageWrapper } from './AppStyles';
 
 const App = () => {
   const [categoriesForMen, setCategoriesForMen] = useState([]);
-  const [categoriesForWonen, setCategoriesForWomen] = useState([]);
+  const [categoriesForWomen, setCategoriesForWomen] = useState([]);
   const [topBrands, setTopBrands] = useState([]);
   const [productList, setProductList] = useState([]);
   const [openModalCart, setOpenModalCart] = useState(false);
@@ -121,7 +121,7 @@ const App = () => {
           />
           <Content
             categoriesForMen={categoriesForMen}
-            categoriesForWonen={categoriesForWonen}
+            categoriesForWomen={categoriesForWomen}
             topBrands={topBrands}
             productList={productList}
             openModalCart={modalCartHandler}

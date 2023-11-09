@@ -15,7 +15,7 @@ const StyledMain = styled.main`
 
 const Content = ({
   categoriesForMen,
-  categoriesForWonen,
+  categoriesForWomen,
   topBrands,
   productList,
   openModalCart,
@@ -36,7 +36,7 @@ const Content = ({
         <ContentTitle>Categories For Men</ContentTitle>
         <CategoryList data={categoriesForMen} />
         <ContentTitle>Categories For Women</ContentTitle>
-        <CategoryList data={categoriesForWonen} />
+        <CategoryList data={categoriesForWomen} />
         <TopBrands>
           <h2>Top Brands Deal</h2>
           <p>
@@ -60,7 +60,7 @@ const Content = ({
 
 Content.propTypes = {
   categoriesForMen: PropTypes.array.isRequired,
-  categoriesForWonen: PropTypes.array.isRequired,
+  categoriesForWomen: PropTypes.array.isRequired,
   topBrands: PropTypes.array.isRequired,
   productList: PropTypes.array.isRequired,
   openModalCart: PropTypes.func.isRequired,
