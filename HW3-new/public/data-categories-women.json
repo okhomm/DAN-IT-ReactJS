@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Hoodies & Sweetshirt",
+    "image": "./src/assets/img/categories-for-women/01-hoodies-sweetshirt.png"
+  },
+  {
+    "name": "Coats & Parkas",
+    "image": "./src/assets/img/categories-for-women/02-coats-parkas.png"
+  },
+  {
+    "name": "Tees & T-Shirt",
+    "image": "./src/assets/img/categories-for-women/03-tees-t-shirt.png"
+  },
+  {
+    "name": "Polo T-Shirt",
+    "image": "./src/assets/img/categories-for-women/04-boxers.png"
+  }
+]
