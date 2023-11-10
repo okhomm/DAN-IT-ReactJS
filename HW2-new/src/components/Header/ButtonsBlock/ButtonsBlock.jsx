@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Button from '../../UI/Button/Button';
+import Button from "../../Button";
 import Favorite from '../../../assets/svg/heart.svg?react';
 import Cart from '../../../assets/svg/cart.svg?react';
 import {

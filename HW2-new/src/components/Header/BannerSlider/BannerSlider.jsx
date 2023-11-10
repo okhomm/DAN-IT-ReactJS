@@ -1,4 +1,4 @@
-import Button from '../../UI/Button/Button';
+import Button from '../../Button';
 import ArrowLeft from '../../../assets/svg/arrow-left.svg?react';
 import ArrowRight from '../../../assets/svg/arrow-right.svg?react';
 import CarouselIndicator from '../../../assets/svg/carousel-indicator.svg?react';
