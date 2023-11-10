@@ -1,2 +1,1 @@
-import BannerSlider from "./BannerSlider";
-export default BannerSlider;
+export {default} from "./BannerSlider";
