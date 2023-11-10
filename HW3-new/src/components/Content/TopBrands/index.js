@@ -1,2 +1,1 @@
-import TopBrands from "./TopBrands";
-export default TopBrands;
+export {default} from "./TopBrands";

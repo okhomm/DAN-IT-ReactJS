@@ -1,23 +1,15 @@
 import PropTypes from "prop-types";
-import styled from 'styled-components';
 import CategoryItem from '../CategoryItem';
-
-const StyledCategoryList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
-  padding-top: 70px;
-  padding-bottom: 100px;
-`;
+import {StyledCategoryList, StyledProductImage, StyledProductLink} from './CategoryListStyles';
 
 const CategoryList = ({ data }) => {
   const categoryItems = data.map(({ name, image }, index) => (
     <CategoryItem key={index}>
-      <img src={image} alt={name} />
-      <a href="/">{name}</a>
+      <StyledProductImage src={image} alt={name} />
+      <StyledProductLink href="/">{name}</StyledProductLink>
     </CategoryItem>
   ))
-
+  
   return <StyledCategoryList>{categoryItems}</StyledCategoryList>
 };
 

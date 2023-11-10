@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const PageWrapper = styled.div`
   display: flex;
@@ -8,4 +8,4 @@ export const PageWrapper = styled.div`
   align-items: center;
   width: 100%;
   background-color: ${({ theme }) => theme.colorStyles.title};
-`;
+`

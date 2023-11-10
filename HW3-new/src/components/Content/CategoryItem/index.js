@@ -1,2 +1,1 @@
-import CategoryItem from "./CategoryItem";
-export default CategoryItem;
+export {default} from "./CategoryItem";

@@ -1,5 +1,5 @@
 import Search from '../../../assets/svg/search.svg?react';
-import { StyledSearchBar, StyledSearchIconBox } from './SearchBarStyles';
+import { StyledSearchBar, StyledSearchIconBox, StyledSearchBarInput } from './SearchBarStyles';
 
 const SearchBar = () => {
   return (
@@ -7,7 +7,7 @@ const SearchBar = () => {
       <StyledSearchIconBox>
         <Search />
       </StyledSearchIconBox>
-      <input type="text" placeholder="Search" />
+      <StyledSearchBarInput type="text" placeholder="Search" />
     </StyledSearchBar>
   )
 };

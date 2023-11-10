@@ -1,2 +1,1 @@
-import FooterMenu from "./FooterMenu";
-export default FooterMenu;
+export {default} from "./FooterMenu";
