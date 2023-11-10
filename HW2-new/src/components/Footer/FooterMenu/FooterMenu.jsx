@@ -1,78 +1,83 @@
-import { StyledFooterMenu } from './FooterMenuStyled'
+import {
+  StyledFooterMenu, 
+  StyledMenuSectionTitle, 
+  StyledMenuItemsList, 
+  StyledMenuLink 
+} from './FooterMenuStyled';
 
 const FooterMenu = () => {
   return (
     <StyledFooterMenu>
       <div>
-        <h6>Need Help</h6>
-        <ul>
+        <StyledMenuSectionTitle>Need Help</StyledMenuSectionTitle>
+        <StyledMenuItemsList>
           <li>
-            <a href="/">Contact Us</a>
+            <StyledMenuLink href="/">Contact Us</StyledMenuLink>
           </li>
           <li>
-            <a href="/">Track Order</a>
+            <StyledMenuLink href="/">Track Order</StyledMenuLink>
           </li>
           <li>
-            <a href="/">Returns & Refunds</a>
+            <StyledMenuLink href="/">Returns & Refunds</StyledMenuLink>
           </li>
           <li>
-            <a href="/">FAQ's</a>
+            <StyledMenuLink href="/">FAQ's</StyledMenuLink>
           </li>
-        </ul>
+        </StyledMenuItemsList>
       </div>
 
       <div>
-        <h6>Company</h6>
-        <ul>
+        <StyledMenuSectionTitle>Company</StyledMenuSectionTitle>
+        <StyledMenuItemsList>
           <li>
-            <a href="/">About Us</a>
+            <StyledMenuLink href="/">About Us</StyledMenuLink>
           </li>
           <li>
-            <a href="/">euphoria Blog</a>
+            <StyledMenuLink href="/">euphoria Blog</StyledMenuLink>
           </li>
           <li>
-            <a href="/">euphoriastan</a>
+            <StyledMenuLink href="/">euphoriastan</StyledMenuLink>
           </li>
           <li>
-            <a href="/">Collaboration</a>
+            <StyledMenuLink href="/">Collaboration</StyledMenuLink>
           </li>
           <li>
-            <a href="/">Media</a>
+            <StyledMenuLink href="/">Media</StyledMenuLink>
           </li>
-        </ul>
+        </StyledMenuItemsList>
       </div>
 
       <div>
-        <h6>More Info</h6>
-        <ul>
+        <StyledMenuSectionTitle>More Info</StyledMenuSectionTitle>
+        <StyledMenuItemsList>
           <li>
-            <a href="/">Term and Conditions</a>
+            <StyledMenuLink href="/">Term and Conditions</StyledMenuLink>
           </li>
           <li>
-            <a href="/">Privacy Policy</a>
+            <StyledMenuLink href="/">Privacy Policy</StyledMenuLink>
           </li>
           <li>
-            <a href="/">Shipping Policy</a>
+            <StyledMenuLink href="/">Shipping Policy</StyledMenuLink>
           </li>
           <li>
-            <a href="/">Sitemap</a>
+            <StyledMenuLink href="/">Sitemap</StyledMenuLink>
           </li>
-        </ul>
+        </StyledMenuItemsList>
       </div>
 
       <div>
-        <h6>Location</h6>
-        <ul>
+        <StyledMenuSectionTitle>Location</StyledMenuSectionTitle>
+        <StyledMenuItemsList>
           <li>
-            <a href="/">support@euphoria.in</a>
+            <StyledMenuLink href="/">support@euphoria.in</StyledMenuLink>
           </li>
           <li>
-            <a href="/">Eklingpura Chouraha, Ahmedabad Main Road</a>
+            <StyledMenuLink href="/">Eklingpura Chouraha, Ahmedabad Main Road</StyledMenuLink>
           </li>
           <li>
-            <a href="/">(NH 8- Near Mahadev Hotel) Udaipur, India- 313002</a>
+            <StyledMenuLink href="/">(NH 8- Near Mahadev Hotel) Udaipur, India- 313002</StyledMenuLink>
           </li>
-        </ul>
+        </StyledMenuItemsList>
       </div>
     </StyledFooterMenu>
   )

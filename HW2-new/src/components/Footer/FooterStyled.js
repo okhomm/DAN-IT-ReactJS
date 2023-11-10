@@ -10,14 +10,14 @@ export const StyledFooterContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 60px 186px;
+`;
 
-  & span {
-    text-align: center;
-    color: #fff;
-    font-family: 'Causten', sans-serif;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 200%;
-  }
+export const StyledCopyright = styled.span`
+text-align: center;
+color: #fff;
+font-family: 'Causten', sans-serif;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 200%;
 `;

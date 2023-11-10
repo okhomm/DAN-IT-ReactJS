@@ -8,6 +8,9 @@ import {
   StyledProductTitleLink,
   StyledButtonText,
   FavoriteButtonBox,
+  StyledProductTitle,
+  StyledProductImage,
+  StyledProductBrand
 } from './ProductItemStyles';
 
 const ProductItem = ({
@@ -36,15 +39,15 @@ const ProductItem = ({
         </Button>
       </FavoriteButtonBox>
 
-      <img src={img} alt={name} />
+      <StyledProductImage src={img} alt={name} />
 
       <StyledCartBox>
         <div>
           <StyledProductTitleLink href="">
-            <h6>{name}</h6>
+            <StyledProductTitle>{name}</StyledProductTitle>
           </StyledProductTitleLink>
           <StyledBrandLink href="/">
-            <span>{`${brand}'s Brand`}</span>
+            <StyledProductBrand>{`${brand}'s Brand`}</StyledProductBrand>
           </StyledBrandLink>
         </div>
         

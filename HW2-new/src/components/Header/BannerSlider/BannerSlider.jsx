@@ -10,6 +10,9 @@ import {
   StyledArrowLeft,
   StyledArrowRight,
   StyledCarouselIndicator,
+  StyledBannerSubtitle,
+  StyledBannerTitle,
+  StyledBannerDescription,
 } from './BannerSliderStyles';
 
 const BannerSlider = () => {
@@ -21,9 +24,9 @@ const BannerSlider = () => {
         </StyledArrowLeft>
         
         <StyledBannerText>
-          <h5>T-shirt / Tops</h5>
-          <h1>Summer Value Pack</h1>
-          <h4>cool / colorful / comfy</h4>
+          <StyledBannerSubtitle>T-shirt / Tops</StyledBannerSubtitle>
+          <StyledBannerTitle>Summer Value Pack</StyledBannerTitle>
+          <StyledBannerDescription>cool / colorful / comfy</StyledBannerDescription>
           <Button $buttonType="primaryButton" $size="l">
             Shop Now
           </Button>

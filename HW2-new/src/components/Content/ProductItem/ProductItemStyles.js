@@ -6,29 +6,29 @@ export const StyledProductItem = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+`;
 
-  & img {
+export const StyledProductTitle = styled.h6`
+font-family: 'Causten', sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+`;
+
+export const StyledProductImage = styled.img`
     width: 100%;
     height: 370px;
     border-radius: 12px;
     cursor: pointer;
-  }
+`;
 
-  & h6 {
-    font-family: 'Causten', sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
-
-  & span {
-    font-family: 'Causten', sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-  }
+export const StyledProductBrand = styled.span`
+font-family: 'Causten', sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
 `;
 
 export const StyledCartBox = styled.div`

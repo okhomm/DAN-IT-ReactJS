@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
-import styled from 'styled-components';
 import ContentTitle from './ContentTitle';
 import CategoryList from './CategoryList';
 import ProductList from './ProductList';
 import TopBrands from './TopBrands';
 import Flex from '../../styles/Flex';
 import Container from '../../styles/Container';
-
-const StyledMain = styled.main`
-  width: 100%;
-  padding: 100px;
-  padding-bottom: 0;
-`;
+import {
+  StyledMain, 
+  StyledTopBrandsTitle, 
+  StyledTopBrandsText, 
+  StyledTopBrandsSelectedText,
+  TopBransImageBox
+} from './ContentStyles';
 
 const Content = ({
   categoriesForMen,
@@ -24,9 +24,9 @@ const Content = ({
 }) => {
   const topBransImages = topBrands.map(({ image }, index) => {
     return (
-      <figure key={index}>
+      <TopBransImageBox key={index}>
         <img src={image} />
-      </figure>
+      </TopBransImageBox>
     )
   });
 
@@ -38,10 +38,10 @@ const Content = ({
         <ContentTitle>Categories For Women</ContentTitle>
         <CategoryList data={categoriesForWomen} />
         <TopBrands>
-          <h2>Top Brands Deal</h2>
-          <p>
-            Up To <span>60%</span> off on brands
-          </p>
+          <StyledTopBrandsTitle>Top Brands Deal</StyledTopBrandsTitle>
+          <StyledTopBrandsText>
+            Up To <StyledTopBrandsSelectedText>60%</StyledTopBrandsSelectedText> off on brands
+          </StyledTopBrandsText>
           <Flex $justify="center" $align="center">
             {topBransImages}
           </Flex>

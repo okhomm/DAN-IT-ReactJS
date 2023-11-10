@@ -1,30 +1,7 @@
 import styled from "styled-components";
 
 export const StyledCategoryItem = styled.div`
-  position: relative;
-
-  & img {
-    margin-bottom: 16px;
-    cursor: pointer;
-  }
-
-  & a {
-    display: inline-block;
-    color: #2a2f2f;
-    font-family: 'Causten', sans-serif;
-    font-size: 17.875px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 27.93px;
-    letter-spacing: -0.715px;
-    margin-bottom: 15px;
-    text-decoration: none;
-  }
-
-  & a:hover {
-    color: #6620c1;
-    text-decoration: underline;
-  }
+  position: relative;  
 
   &::before {
     content: 'Explore Now!';
