@@ -8,6 +8,10 @@ import Theme from './styles/Theme';
 import Flex from './styles/Flex';
 import { PageWrapper } from './AppStyles';
 
+// TODO: this
+// FIXME: This
+console.log("🚀 ~ file: App.jsx:16 ~ App ~ categoriesForMen:", categoriesForMen)
+
 const App = () => {
   const [categoriesForMen, setCategoriesForMen] = useState([]);
   const [categoriesForWomen, setCategoriesForWomen] = useState([]);
