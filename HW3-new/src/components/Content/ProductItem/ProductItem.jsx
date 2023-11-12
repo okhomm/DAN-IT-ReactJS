@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import Button from "../../Button";
-import Heart from '../../../assets/svg/heart.svg?react';
+import PropTypes from 'prop-types'
+import Button from '../../Button'
+import Heart from '../../../assets/svg/heart.svg?react'
 import {
   StyledProductItem,
   StyledCartBox,
@@ -10,8 +10,8 @@ import {
   FavoriteButtonBox,
   StyledProductTitle,
   StyledProductImage,
-  StyledProductBrand
-} from './ProductItemStyles';
+  StyledProductBrand,
+} from './ProductItemStyles'
 
 const ProductItem = ({
   img,
@@ -50,7 +50,7 @@ const ProductItem = ({
             <StyledProductBrand>{`${brand}'s Brand`}</StyledProductBrand>
           </StyledBrandLink>
         </div>
-        
+
         <Button
           $buttonType="contentButton"
           $size="s"
@@ -61,7 +61,7 @@ const ProductItem = ({
       </StyledCartBox>
     </StyledProductItem>
   )
-};
+}
 
 ProductItem.propTypes = {
   img: PropTypes.string,
@@ -82,4 +82,4 @@ ProductItem.defaultProps = {
   article: 'Product article',
 }
 
-export default ProductItem;
+export default ProductItem

@@ -1,11 +1,11 @@
-import PropTypes from "prop-types";
-import {Link} from 'react-router-dom'
-import TopMenu from './TopMenu';
-import SearchBar from './SearchBar';
-import ButtonsBlock from './ButtonsBlock';
-import Logo from '../../assets/svg/logo.svg?react';
-import Container from '../../styles/Container';
-import { StyledHeader, TopMenuBlock } from './HeaderStyles';
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import TopMenu from './TopMenu'
+import SearchBar from './SearchBar'
+import ButtonsBlock from './ButtonsBlock'
+import Logo from '../../assets/svg/logo.svg?react'
+import Container from '../../styles/Container'
+import { StyledHeader, TopMenuBlock } from './HeaderStyles'
 
 const Header = ({ favoriteItems, shoppingCartItems }) => {
   return (
@@ -25,11 +25,11 @@ const Header = ({ favoriteItems, shoppingCartItems }) => {
       </Container>
     </StyledHeader>
   )
-};
+}
 
 Header.propTypes = {
   favoriteItems: PropTypes.array.isRequired,
   shoppingCartItems: PropTypes.array.isRequired,
-};
+}
 
-export default Header;
+export default Header

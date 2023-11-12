@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import ProductItem from '../ProductItem';
-import styled from 'styled-components';
+import PropTypes from 'prop-types'
+import ProductItem from '../ProductItem'
+import styled from 'styled-components'
 
 const StyledProductList = styled.div`
   display: grid;
@@ -8,14 +8,12 @@ const StyledProductList = styled.div`
   gap: 36px;
   padding-top: 70px;
   padding-bottom: 100px;
-`;
-
+`
 
 const ProductList = (props) => {
-  const { data, openModalCart, addToFavorite, isItemInFavorites } = props;
+  const { data, openModalCart, addToFavorite, isItemInFavorites } = props
   const productsGrid = data.map((product, index) => {
-    const { name, brand, price, article, image, ...rest } =
-      product;
+    const { name, brand, price, article, image, ...rest } = product
     return (
       <ProductItem
         key={index}
@@ -29,7 +27,7 @@ const ProductList = (props) => {
         isItemInFavorites={isItemInFavorites}
       />
     )
-  });
+  })
   return <StyledProductList>{productsGrid}</StyledProductList>
 }
 
@@ -38,6 +36,6 @@ ProductList.propTypes = {
   openModalCart: PropTypes.func.isRequired,
   addToFavorite: PropTypes.func.isRequired,
   isItemInFavorites: PropTypes.func.isRequired,
-};
+}
 
-export default ProductList;
+export default ProductList

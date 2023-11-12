@@ -134,21 +134,25 @@ export const StyledButton = styled.button`
     switch ($buttonType) {
       case 'favoriteButton':
         return theme.colorStyles.lightColor
+      case 'hoverButton':
+        return theme.colorStyles.lightColor
       default:
         return theme.colorStyles.secondaryColor
     }
   }};
          
       stroke: ${({ $buttonType, theme }) => {
-  switch ($buttonType) {
-    case 'favoriteButton':
-      return theme.colorStyles.lightColor
-    case 'socialButton':
-      return 'none'
-    default:
-      return theme.colorStyles.secondaryColor
-          }
-      }}
+    switch ($buttonType) {
+      case 'favoriteButton':
+        return theme.colorStyles.lightColor
+      case 'hoverButton':
+        return theme.colorStyles.lightColor
+      case 'socialButton':
+        return 'none'
+      default:
+        return theme.colorStyles.secondaryColor
+    }
+  }}
   }
 };
 
@@ -168,8 +172,8 @@ export const StyledButton = styled.button`
         return 'none'
       default:
         return theme.colorStyles.hoverColor
-         }
-      }}
+    }
+  }}
     }
   };
 
@@ -202,7 +206,6 @@ export const StyledButton = styled.button`
       case 'circleButton':
         return 'none'
       case 'standartButton':
-        // return theme.colorStyles.hoverColor
         return 'red'
       default:
         return theme.colorStyles.hoverColor

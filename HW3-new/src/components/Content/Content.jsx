@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from '../../pages/HomePage'
-import FavoriteProducts from '../../pages/FavoriteProducts'
+import FavoriteProducts from '../../pages/FavoriteProducts/FavoriteProducts'
 import ShoppingCart from '../../pages/ShoppingCart'
 import NotFoundPage from '../../pages/NotFoundPage'
 
@@ -13,6 +13,7 @@ const Content = ({
   openModalCart,
   addToFavorite,
   isItemInFavorites,
+  favoriteItems,
 }) => {
   return (
     <Routes>
@@ -30,9 +31,17 @@ const Content = ({
           />
         }
       />
-      <Route path="/favorite" element={<FavoriteProducts />}></Route>
-      <Route path="/cart" element={<ShoppingCart />}></Route>
-      <Route path="*" element={<NotFoundPage />}></Route>
+      <Route
+        path="/favorite"
+        element={
+          <FavoriteProducts
+            favoriteItems={favoriteItems}
+            addToFavorite={addToFavorite}
+          />
+        }
+      />
+      <Route path="/cart" element={<ShoppingCart />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }
