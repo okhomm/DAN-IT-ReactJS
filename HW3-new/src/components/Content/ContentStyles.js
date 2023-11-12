@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 export const StyledMain = styled.main`
   width: 100%;
-  padding: 100px;
-  padding-bottom: 0;
+  padding-top: 100px;
 `;
 
 export const StyledTopBrandsTitle = styled.h2`

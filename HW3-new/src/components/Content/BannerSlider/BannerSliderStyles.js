@@ -15,7 +15,7 @@ export const StyledBannerText = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 130px 800px 130px 200px;
+  padding: 130px 700px 130px 87px;
   color: #ffffff;
   font-family: 'Core Sans C', sans-serif;
   font-style: normal;  
@@ -46,7 +46,7 @@ letter-spacing: 0.315px;
 export const StyledArrowLeft = styled.div`
   position: absolute;
   top: 50%;
-  left: 40px;
+  left: -42px;
   transform: translateY(-50%);
   cursor: pointer;
 `;
@@ -54,7 +54,7 @@ export const StyledArrowLeft = styled.div`
 export const StyledArrowRight = styled.div`
   position: absolute;
   top: 50%;
-  right: 40px;
+  right: -42px;
   transform: translateY(-50%);
   cursor: pointer;
 `;

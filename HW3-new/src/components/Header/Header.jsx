@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
+import {Link} from 'react-router-dom'
 import TopMenu from './TopMenu';
 import SearchBar from './SearchBar';
 import ButtonsBlock from './ButtonsBlock';
-import BannerSlider from './BannerSlider';
 import Logo from '../../assets/svg/logo.svg?react';
 import Container from '../../styles/Container';
 import { StyledHeader, TopMenuBlock } from './HeaderStyles';
@@ -12,9 +12,9 @@ const Header = ({ favoriteItems, shoppingCartItems }) => {
     <StyledHeader>
       <Container>
         <TopMenuBlock>
-          <a href="/">
+          <Link to="/">
             <Logo />
-          </a>
+          </Link>
           <TopMenu />
           <SearchBar />
           <ButtonsBlock
@@ -23,8 +23,6 @@ const Header = ({ favoriteItems, shoppingCartItems }) => {
           />
         </TopMenuBlock>
       </Container>
-
-      <BannerSlider />
     </StyledHeader>
   )
 };

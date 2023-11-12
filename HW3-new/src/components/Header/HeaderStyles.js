@@ -6,6 +6,7 @@ export const StyledHeader = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid #BEBCBD;
 `;
 
 export const TopMenuBlock = styled.div`
@@ -13,5 +14,5 @@ export const TopMenuBlock = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 32px 102px;
+  padding: 32px 0;
 `;

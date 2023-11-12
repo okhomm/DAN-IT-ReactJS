@@ -5,7 +5,8 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 1440px;
+  width: 1240px;
+  //padding: 0 102px ;
 `;
 
 const Container = ({children}) => {

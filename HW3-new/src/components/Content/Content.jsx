@@ -1,17 +1,9 @@
-import PropTypes from "prop-types";
-import ContentTitle from './ContentTitle';
-import CategoryList from './CategoryList';
-import ProductList from './ProductList';
-import TopBrands from './TopBrands';
-import Flex from '../../styles/Flex';
-import Container from '../../styles/Container';
-import {
-  StyledMain, 
-  StyledTopBrandsTitle, 
-  StyledTopBrandsText, 
-  StyledTopBrandsSelectedText,
-  TopBransImageBox
-} from './ContentStyles';
+import PropTypes from 'prop-types'
+import { Routes, Route } from 'react-router-dom'
+import HomePage from '../../pages/HomePage'
+import FavoriteProducts from '../../pages/FavoriteProducts'
+import ShoppingCart from '../../pages/ShoppingCart'
+import NotFoundPage from '../../pages/NotFoundPage'
 
 const Content = ({
   categoriesForMen,
@@ -22,39 +14,26 @@ const Content = ({
   addToFavorite,
   isItemInFavorites,
 }) => {
-  const topBransImages = topBrands.map(({ image }, index) => {
-    return (
-      <TopBransImageBox key={index}>
-        <img src={image} />
-      </TopBransImageBox>
-    )
-  });
-
   return (
-    <Container>
-      <StyledMain>
-        <ContentTitle>Categories For Men</ContentTitle>
-        <CategoryList data={categoriesForMen} />
-        <ContentTitle>Categories For Women</ContentTitle>
-        <CategoryList data={categoriesForWomen} />
-        <TopBrands>
-          <StyledTopBrandsTitle>Top Brands Deal</StyledTopBrandsTitle>
-          <StyledTopBrandsText>
-            Up To <StyledTopBrandsSelectedText>60%</StyledTopBrandsSelectedText> off on brands
-          </StyledTopBrandsText>
-          <Flex $justify="center" $align="center">
-            {topBransImages}
-          </Flex>
-        </TopBrands>
-        <ContentTitle>In The Limelight</ContentTitle>
-        <ProductList
-          data={productList}
-          openModalCart={openModalCart}
-          addToFavorite={addToFavorite}
-          isItemInFavorites={isItemInFavorites}
-        />
-      </StyledMain>
-    </Container>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <HomePage
+            categoriesForMen={categoriesForMen}
+            categoriesForWomen={categoriesForWomen}
+            topBrands={topBrands}
+            productList={productList}
+            openModalCart={openModalCart}
+            addToFavorite={addToFavorite}
+            isItemInFavorites={isItemInFavorites}
+          />
+        }
+      />
+      <Route path="/favorite" element={<FavoriteProducts />}></Route>
+      <Route path="/cart" element={<ShoppingCart />}></Route>
+      <Route path="*" element={<NotFoundPage />}></Route>
+    </Routes>
   )
 }
 
@@ -66,6 +45,6 @@ Content.propTypes = {
   openModalCart: PropTypes.func.isRequired,
   addToFavorite: PropTypes.func.isRequired,
   isItemInFavorites: PropTypes.func.isRequired,
-};
+}
 
-export default Content;
+export default Content
