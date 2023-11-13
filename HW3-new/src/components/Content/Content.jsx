@@ -14,6 +14,7 @@ const Content = ({
   addToFavorite,
   isItemInFavorites,
   favoriteItems,
+  shoppingCartItems,
 }) => {
   return (
     <Routes>
@@ -40,7 +41,10 @@ const Content = ({
           />
         }
       />
-      <Route path="/cart" element={<ShoppingCart />} />
+      <Route
+        path="/cart"
+        element={<ShoppingCart shoppingCartItems={shoppingCartItems} />}
+      />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )

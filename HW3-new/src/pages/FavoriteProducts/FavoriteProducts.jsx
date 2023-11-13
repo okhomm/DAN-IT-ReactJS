@@ -1,7 +1,7 @@
-import ContentSecondaryTitle from '../../components/Content/ContentSecondaryTitle/ContentSecondaryTitle.jsx'
-import Container from '../../styles/Container.jsx'
-import BreadCrumbs from '../../components/Content/BreadCrumbs/BreadCrumbs.jsx'
-import FavoriteProduct from '../../components/Content/FavoriteProduct/FavoriteProduct.jsx'
+import ContentSecondaryTitle from '../../components/Content/ContentSecondaryTitle'
+import Container from '../../styles/Container'
+import BreadCrumbs from '../../components/Content/BreadCrumbs'
+import FavoriteProduct from '../../components/Content/FavoriteProduct'
 import {
   StyledFavoriteProducts,
   StyledFavoriteContent,

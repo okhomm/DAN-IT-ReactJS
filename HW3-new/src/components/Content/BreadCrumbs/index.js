@@ -1,1 +1,1 @@
-export {default} from './BreadCrumbs.jsx';
+export {default} from './BreadCrumbs';

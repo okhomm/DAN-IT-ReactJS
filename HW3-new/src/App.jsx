@@ -111,9 +111,7 @@ const App = () => {
 
   //TODO: Привести увесь документ до однакового синтаксису
   //TODO: Розробити сторінку 404
-  //TODO: Підсвічування кнопки сторінки, на якій зараз перебуває користувач
   //TODO: Притиснути футер до нижньої частини сторінки
-  //TODO: Виправити колір кнопки на слайдері головної сторінки
   //TODO: у Wishlist добавити дію на кнопку Add to cart
   //TODO: перевірити чи прописані всі PropTypes та defaultProps
 
@@ -137,6 +135,7 @@ const App = () => {
               addToFavorite={addProductToFavorite}
               isItemInFavorites={isItemInFavorites}
               favoriteItems={favoriteItems}
+              shoppingCartItems={shoppingCartItems}
             />
             <Footer />
           </PageWrapper>
