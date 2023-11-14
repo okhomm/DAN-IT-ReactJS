@@ -1,25 +1,25 @@
-import { ItemList, StyledTopMenuItem, StyledTopMenuLink } from './TopMenuStyles';
+import { ItemList, StyledTopMenuItem, StyledTopMenuLink } from './TopMenuStyles'
 
 const TopMenu = () => {
   return (
     <ItemList>
       <StyledTopMenuItem>
-        <StyledTopMenuLink href="/">Shop</StyledTopMenuLink>
+        <StyledTopMenuLink to="/shop">Shop</StyledTopMenuLink>
       </StyledTopMenuItem>
       <StyledTopMenuItem>
-        <StyledTopMenuLink href="/">Man</StyledTopMenuLink>
+        <StyledTopMenuLink to="/shop/man">Man</StyledTopMenuLink>
       </StyledTopMenuItem>
       <StyledTopMenuItem>
-        <StyledTopMenuLink href="/">Woman</StyledTopMenuLink>
+        <StyledTopMenuLink to="/shop/woman">Woman</StyledTopMenuLink>
       </StyledTopMenuItem>
       <StyledTopMenuItem>
-        <StyledTopMenuLink href="/">Combos</StyledTopMenuLink>
+        <StyledTopMenuLink to="/shop/combos">Combos</StyledTopMenuLink>
       </StyledTopMenuItem>
       <StyledTopMenuItem>
-        <StyledTopMenuLink href="/">Joggers</StyledTopMenuLink>
+        <StyledTopMenuLink to="/shop/joggers">Joggers</StyledTopMenuLink>
       </StyledTopMenuItem>
     </ItemList>
   )
-};
+}
 
-export default TopMenu;
+export default TopMenu

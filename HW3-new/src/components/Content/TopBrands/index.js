@@ -1,1 +1,1 @@
-export {default} from "./TopBrands";
+export { default } from "./TopBrands";

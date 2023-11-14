@@ -18,7 +18,6 @@ const App = () => {
   const [productInfoForModalCart, setProductInfoForModalCart] = useState({})
   const [productInfoForModalDelete, setProductInfoForModalDelete] = useState({})
   const [addToCartArticle, setAddToCartArticle] = useState(null)
-
   const [favoriteItems, setFavoriteItems] = useState(() => {
     const storedFavoriteItems = localStorage.getItem('favoriteItems')
     return storedFavoriteItems ? JSON.parse(storedFavoriteItems) : []
@@ -133,13 +132,8 @@ const App = () => {
     price: productPrice,
   } = productInfoForModalCart
 
-  //TODO: Привести увесь документ до однакового синтаксису
-  //TODO: Розробити сторінку 404
-  //TODO: Притиснути футер до нижньої частини сторінки
-  //TODO: у Wishlist добавити дію на кнопку Add to cart
   //TODO: перевірити чи прописані всі PropTypes та defaultProps
-  //TODO: прописати клікабельні посилання для хлібних крихт (переписати компонент)
-  //TODO: перевірити посилання у верхньому меню
+
 
   return (
     <>

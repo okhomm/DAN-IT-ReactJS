@@ -1,35 +1,20 @@
-import styled from 'styled-components'
 import SmallArrowLeft from '../../../assets/svg/small-arrow-left .svg?react'
+import {
+  StyledBreadCrumbs,
+  StyledBreadCrumbsElement,
+  StyledBreadCrumbsSeparator,
+  StyledBreadCrumbsElementLink,
+} from './BreadCrumbsStyles'
 
-const StyledBreadCrumbs = styled.div`
-  display: flex;
-  gap: 15px;
-`
-const StyledBreadCrumbsElement = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #807d7e;
-  font-family: Causten;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-`
-
-const StyledBreadCrumbsSeparator = styled.div`
-  margin-right: 15px;
-`
-
-const BreadCrumbs = () => {
+const BreadCrumbs = ({ pageName }) => {
   return (
     <StyledBreadCrumbs>
-      <StyledBreadCrumbsElement>Home</StyledBreadCrumbsElement>
+      <StyledBreadCrumbsElementLink to="/">Home</StyledBreadCrumbsElementLink>
       <StyledBreadCrumbsElement>
         <StyledBreadCrumbsSeparator>
           <SmallArrowLeft />
         </StyledBreadCrumbsSeparator>
-        Wishlist
+        {pageName}
       </StyledBreadCrumbsElement>
     </StyledBreadCrumbs>
   )

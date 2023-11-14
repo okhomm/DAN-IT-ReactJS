@@ -1,5 +1,5 @@
 const Modal = ({ children }) => {
   return <>{children}</>
-};
+}
 
-export default Modal;
+export default Modal

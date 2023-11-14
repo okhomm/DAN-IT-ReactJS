@@ -1,7 +1,7 @@
-import { StyledCategoryItem, StyledArrowRightLong } from './CategoryItemStyles';
-import ArrowRightLong from '../../../assets/svg/arrow-right-long.svg?react';
+import { StyledCategoryItem, StyledArrowRightLong } from './CategoryItemStyles'
+import ArrowRightLong from '../../../assets/svg/arrow-right-long.svg?react'
 
-const CategoryItem = ({children}) => {
+const CategoryItem = ({ children }) => {
   return (
     <StyledCategoryItem>
       {children}
@@ -10,6 +10,6 @@ const CategoryItem = ({children}) => {
       </StyledArrowRightLong>
     </StyledCategoryItem>
   )
-};
+}
 
-export default CategoryItem;
+export default CategoryItem

@@ -1,5 +1,9 @@
-import Search from '../../../assets/svg/search.svg?react';
-import { StyledSearchBar, StyledSearchIconBox, StyledSearchBarInput } from './SearchBarStyles';
+import Search from '../../../assets/svg/search.svg?react'
+import {
+  StyledSearchBar,
+  StyledSearchIconBox,
+  StyledSearchBarInput,
+} from './SearchBarStyles'
 
 const SearchBar = () => {
   return (
@@ -10,6 +14,6 @@ const SearchBar = () => {
       <StyledSearchBarInput type="text" placeholder="Search" />
     </StyledSearchBar>
   )
-};
+}
 
-export default SearchBar;
+export default SearchBar

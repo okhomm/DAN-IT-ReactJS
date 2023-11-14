@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const StyledContentSecondaryTitle = styled.h3`
-  color: #3C4242;
+  color: #3c4242;
   font-family: 'Core Sans C', sans-serif;
   font-size: 28px;
   font-style: normal;

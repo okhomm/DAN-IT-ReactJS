@@ -1,10 +1,3 @@
-// import ContentTitle from '../ContentTitle'
-// import BannerSlider from '../components/Content/BannerSlider'
-// import CategoryList from '../CategoryList'
-// import ProductList from '../ProductList'
-// import TopBrands from '../TopBrands'
-// import Flex from '../../styles/Flex'
-// import Container from '../../styles/Container'
 import PropTypes from 'prop-types'
 import Flex from '../styles/Flex'
 import ContentTitle from '../components/Content/ContentTitle'
@@ -51,8 +44,9 @@ const HomePage = ({
           <TopBrands>
             <StyledTopBrandsTitle>Top Brands Deal</StyledTopBrandsTitle>
             <StyledTopBrandsText>
-              Up To <StyledTopBrandsSelectedText>60%</StyledTopBrandsSelectedText>{' '}
-              off on brands
+              Up To{' '}
+              <StyledTopBrandsSelectedText>60%</StyledTopBrandsSelectedText> off
+              on brands
             </StyledTopBrandsText>
             <Flex $justify="center" $align="center">
               {topBransImages}
@@ -68,8 +62,8 @@ const HomePage = ({
         </StyledMain>
       </Container>
     </>
-  );
-};
+  )
+}
 
 HomePage.propTypes = {
   categoriesForMen: PropTypes.array.isRequired,
@@ -81,4 +75,4 @@ HomePage.propTypes = {
   isItemInFavorites: PropTypes.func.isRequired,
 }
 
-export default HomePage;
+export default HomePage

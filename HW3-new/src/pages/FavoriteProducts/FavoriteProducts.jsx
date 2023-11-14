@@ -10,7 +10,8 @@ import {
 } from './FavoriteProductsStyles.js'
 
 const FavoriteProducts = (props) => {
-  const { favoriteItems, addToFavorite, shoppingCartItems, openModalCart } = props
+  const { favoriteItems, addToFavorite, shoppingCartItems, openModalCart } =
+    props
   const favoriteProductsList = favoriteItems.map((item) => {
     const { name, price, image, article, color } = item
     return (
@@ -31,7 +32,7 @@ const FavoriteProducts = (props) => {
   return (
     <Container>
       <StyledFavoriteProducts>
-        <BreadCrumbs />
+        <BreadCrumbs pageName="Wishlist" />
         <StyledFavoriteContentWrapper>
           <ContentSecondaryTitle>Wishlist</ContentSecondaryTitle>
           <StyledFavoriteContent>

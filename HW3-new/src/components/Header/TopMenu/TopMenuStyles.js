@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components';
 
 export const ItemList = styled.ul`
@@ -13,7 +14,7 @@ padding-right: 0;
 }
 `;
 
-export const StyledTopMenuLink = styled.a`
+export const StyledTopMenuLink = styled(Link)`
 text-decoration: none;
 color: ${({ theme }) => theme.colorStyles.secondaryColor};
 

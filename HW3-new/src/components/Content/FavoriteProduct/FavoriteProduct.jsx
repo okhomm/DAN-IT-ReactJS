@@ -18,7 +18,7 @@ const FavoriteProduct = ({
   addToFavorite,
   article,
   shoppingCartItems,
-  openModalCart
+  openModalCart,
 }) => {
   return (
     <StyledFavoriteProduct>

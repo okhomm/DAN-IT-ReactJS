@@ -1,6 +1,6 @@
-import PropTypes from "prop-types";
-import styled from 'styled-components';
-import { TitleInModal, TextInModal } from './components/ModalDefaultStyles';
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { TitleInModal, TextInModal } from './components/ModalDefaultStyles'
 import {
   Modal,
   ModalWrapper,
@@ -8,11 +8,11 @@ import {
   ModalFooter,
   ModalClose,
   ModalHeader,
-} from './components/index';
+} from './components/index'
 
 const Image = styled.img`
   height: 140px;
-`;
+`
 
 const ModalCart = ({
   title,
@@ -44,7 +44,7 @@ const ModalCart = ({
       </Modal>
     </ModalWrapper>
   )
-};
+}
 
 ModalCart.propTypes = {
   title: PropTypes.string,
@@ -55,13 +55,13 @@ ModalCart.propTypes = {
   secondButtonText: PropTypes.string,
   secondButtonClick: PropTypes.func,
   closeModal: PropTypes.func,
-};
+}
 
 ModalCart.defaultProps = {
   title: 'Modal title',
   text: 'Modal text',
   image: 'Modal image',
   buttonText: 'Button text',
-};
+}
 
-export default ModalCart;
+export default ModalCart

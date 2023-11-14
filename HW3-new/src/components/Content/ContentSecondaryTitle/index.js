@@ -1,1 +1,1 @@
-export {default} from "./ContentSecondaryTitle";
+export { default } from "./ContentSecondaryTitle";

@@ -1,11 +1,15 @@
-import FooterMenu from './FooterMenu';
-import SocialIcons from './SocialIcons';
-import Container from '../../styles/Container';
-import { FooterWraper, StyledFooterContent, StyledCopyright } from './FooterStyled';
+import FooterMenu from './FooterMenu'
+import SocialIcons from './SocialIcons'
+import Container from '../../styles/Container'
+import {
+  FooterWrapper,
+  StyledFooterContent,
+  StyledCopyright,
+} from './FooterStyled'
 
 const Footer = () => {
   return (
-    <FooterWraper>
+    <FooterWrapper>
       <Container>
         <StyledFooterContent>
           <FooterMenu />
@@ -15,8 +19,8 @@ const Footer = () => {
           </StyledCopyright>
         </StyledFooterContent>
       </Container>
-    </FooterWraper>
-  );
-};
+    </FooterWrapper>
+  )
+}
 
-export default Footer;
+export default Footer

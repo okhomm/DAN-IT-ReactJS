@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import HomePage from '../../pages/HomePage'
 import FavoriteProducts from '../../pages/FavoriteProducts/FavoriteProducts'
 import ShoppingCart from '../../pages/ShoppingCart'
-import NotFoundPage from '../../pages/NotFoundPage'
+import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage'
 
 const Content = ({
   categoriesForMen,
@@ -47,7 +47,13 @@ const Content = ({
       />
       <Route
         path="/cart"
-        element={<ShoppingCart shoppingCartItems={shoppingCartItems} removeFromShoppingCart={removeFromShoppingCart} openModalDelete={openModalDelete} />}
+        element={
+          <ShoppingCart
+            shoppingCartItems={shoppingCartItems}
+            removeFromShoppingCart={removeFromShoppingCart}
+            openModalDelete={openModalDelete}
+          />
+        }
       />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

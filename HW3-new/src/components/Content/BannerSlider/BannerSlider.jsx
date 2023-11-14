@@ -1,8 +1,8 @@
-import Button from '../../Button';
-import ArrowLeft from '../../../assets/svg/arrow-left.svg?react';
-import ArrowRight from '../../../assets/svg/arrow-right.svg?react';
-import CarouselIndicator from '../../../assets/svg/carousel-indicator.svg?react';
-import Container from '../../../styles/Container';
+import Button from '../../Button'
+import ArrowLeft from '../../../assets/svg/arrow-left.svg?react'
+import ArrowRight from '../../../assets/svg/arrow-right.svg?react'
+import CarouselIndicator from '../../../assets/svg/carousel-indicator.svg?react'
+import Container from '../../../styles/Container'
 
 import {
   StyledBannerSlider,
@@ -13,7 +13,7 @@ import {
   StyledBannerSubtitle,
   StyledBannerTitle,
   StyledBannerDescription,
-} from './BannerSliderStyles';
+} from './BannerSliderStyles'
 
 const BannerSlider = () => {
   return (
@@ -22,11 +22,13 @@ const BannerSlider = () => {
         <StyledArrowLeft>
           <ArrowLeft />
         </StyledArrowLeft>
-        
+
         <StyledBannerText>
           <StyledBannerSubtitle>T-shirt / Tops</StyledBannerSubtitle>
           <StyledBannerTitle>Summer Value Pack</StyledBannerTitle>
-          <StyledBannerDescription>cool / colorful / comfy</StyledBannerDescription>
+          <StyledBannerDescription>
+            cool / colorful / comfy
+          </StyledBannerDescription>
           <Button $buttonType="primaryButton" $size="l">
             Shop Now
           </Button>
@@ -42,6 +44,6 @@ const BannerSlider = () => {
       </Container>
     </StyledBannerSlider>
   )
-};
+}
 
-export default BannerSlider;
+export default BannerSlider

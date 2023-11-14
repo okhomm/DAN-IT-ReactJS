@@ -1,4 +1,4 @@
-import sendRequest from './sendRequest';
+import sendRequest from './sendRequest'
 
 const fetchData = (url, setData) => {
   sendRequest(url)
@@ -10,4 +10,4 @@ const fetchData = (url, setData) => {
     })
 }
 
-export default fetchData;
+export default fetchData

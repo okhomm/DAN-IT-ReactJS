@@ -21,4 +21,4 @@ export const StyledTitle = styled.h2`
     border-radius: 10px;
     background-color: #8a33fd;
   }
-`
+`;

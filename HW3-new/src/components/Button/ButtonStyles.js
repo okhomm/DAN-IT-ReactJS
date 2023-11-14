@@ -99,7 +99,7 @@ export const StyledButton = styled.button`
       case 'contentButton':
       case 'socialButton':
       case 'circleButton':
-        case 'standartButton':
+      case 'standartButton':
         return theme.colorStyles.primaryColor
       default:
         return theme.colorStyles.lightColor

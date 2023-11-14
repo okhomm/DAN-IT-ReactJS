@@ -6,17 +6,18 @@ export const StyledFavoriteProducts = styled.div`
   width: 100%;
   padding-top: 23px;
   padding-bottom: 100px;
-`
+`;
 export const StyledFavoriteContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
-`
+`;
+
 export const StyledFavoriteContentWrapper = styled.div`
   padding-top: 52px;
-`
+`;
 
 export const StyledEmptyList = styled.span`
   padding-top: 100px;
@@ -28,4 +29,4 @@ export const StyledEmptyList = styled.span`
   font-weight: 600;
   line-height: 33.5px;
   letter-spacing: 0.56px;
-`
+`;

@@ -1,9 +1,9 @@
 import {
-  StyledFooterMenu, 
-  StyledMenuSectionTitle, 
-  StyledMenuItemsList, 
-  StyledMenuLink 
-} from './FooterMenuStyled';
+  StyledFooterMenu,
+  StyledMenuSectionTitle,
+  StyledMenuItemsList,
+  StyledMenuLink,
+} from './FooterMenuStyled'
 
 const FooterMenu = () => {
   return (
@@ -72,15 +72,19 @@ const FooterMenu = () => {
             <StyledMenuLink href="/">support@euphoria.in</StyledMenuLink>
           </li>
           <li>
-            <StyledMenuLink href="/">Eklingpura Chouraha, Ahmedabad Main Road</StyledMenuLink>
+            <StyledMenuLink href="/">
+              Eklingpura Chouraha, Ahmedabad Main Road
+            </StyledMenuLink>
           </li>
           <li>
-            <StyledMenuLink href="/">(NH 8- Near Mahadev Hotel) Udaipur, India- 313002</StyledMenuLink>
+            <StyledMenuLink href="/">
+              (NH 8- Near Mahadev Hotel) Udaipur, India- 313002
+            </StyledMenuLink>
           </li>
         </StyledMenuItemsList>
       </div>
     </StyledFooterMenu>
   )
-};
+}
 
-export default FooterMenu;
+export default FooterMenu
