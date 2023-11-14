@@ -68,6 +68,10 @@ Content.propTypes = {
   openModalCart: PropTypes.func.isRequired,
   addToFavorite: PropTypes.func.isRequired,
   isItemInFavorites: PropTypes.func.isRequired,
+  favoriteItems: PropTypes.array.isRequired,
+  shoppingCartItems: PropTypes.array.isRequired,
+  removeFromShoppingCart: PropTypes.func.isRequired,
+  openModalDelete: PropTypes.func.isRequired
 }
 
 export default Content

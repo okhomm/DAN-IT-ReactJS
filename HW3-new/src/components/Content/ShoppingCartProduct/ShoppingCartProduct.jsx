@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import {
   StyledShoppingCartProduct,
   StyledProductInfoBox,
@@ -50,6 +51,25 @@ const ShoppingCartProduct = ({
       </td>
     </StyledShoppingCartProduct>
   )
+}
+
+ShoppingCartProduct.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  price: PropTypes.number,
+  color: PropTypes.string,
+  brand: PropTypes.string,
+  article: PropTypes.string,
+  openModalDelete: PropTypes.func.isRequired,
+}
+
+ShoppingCartProduct.defaultProps = {
+  name: 'Product name',
+  image: 'Product image',
+  price: 0,
+  color: 'Product color',
+  brand: 'Product brand',
+  article: 'Product article',
 }
 
 export default ShoppingCartProduct

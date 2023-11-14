@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types'
 import ContentSecondaryTitle from '../../components/Content/ContentSecondaryTitle'
-import Container from '../../styles/Container'
 import BreadCrumbs from '../../components/Content/BreadCrumbs'
 import FavoriteProduct from '../../components/Content/FavoriteProduct'
+import Container from '../../styles/Container'
 import {
   StyledFavoriteProducts,
   StyledFavoriteContent,
@@ -46,6 +47,13 @@ const FavoriteProducts = (props) => {
       </StyledFavoriteProducts>
     </Container>
   )
+}
+
+FavoriteProducts.propTypes = {
+  favoriteItems: PropTypes.array.isRequired,
+  addToFavorite: PropTypes.func.isRequired,
+  shoppingCartItems: PropTypes.array.isRequired,
+  openModalCart: PropTypes.func.isRequired,
 }
 
 export default FavoriteProducts

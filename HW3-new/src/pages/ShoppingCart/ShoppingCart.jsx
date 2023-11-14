@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types'
 import BreadCrumbs from '../../components/Content/BreadCrumbs'
 import Container from '../../styles/Container'
 import Button from '../../components/Button'
 import ShoppingCartProduct from '../../components/Content/ShoppingCartProduct'
-
 import {
   StyledShoppingCart,
   StyledShoppingCartHeader,
@@ -144,6 +144,12 @@ const ShoppingCart = ({
       </StyledShoppingCart>
     </>
   )
+}
+
+ShoppingCart.propTypes = {
+  shoppingCartItems: PropTypes.array.isRequired,
+  removeFromShoppingCart: PropTypes.func.isRequired,
+  openModalDelete: PropTypes.func.isRequired,
 }
 
 export default ShoppingCart

@@ -132,9 +132,6 @@ const App = () => {
     price: productPrice,
   } = productInfoForModalCart
 
-  //TODO: перевірити чи прописані всі PropTypes та defaultProps
-
-
   return (
     <>
       <Theme>

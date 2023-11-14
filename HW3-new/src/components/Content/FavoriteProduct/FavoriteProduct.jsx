@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import Delete from '../../../assets/svg/close.svg?react'
 import Button from '../../Button'
 import {
@@ -17,7 +18,6 @@ const FavoriteProduct = ({
   color,
   addToFavorite,
   article,
-  shoppingCartItems,
   openModalCart,
 }) => {
   return (
@@ -45,6 +45,23 @@ const FavoriteProduct = ({
       </Button>
     </StyledFavoriteProduct>
   )
+}
+
+FavoriteProduct.propTypes = {
+  name: PropTypes.string,
+  price: PropTypes.number,
+  image: PropTypes.string,
+  color: PropTypes.string,
+  addToFavorite: PropTypes.func.isRequired,
+  article: PropTypes.string,
+  openModalCart: PropTypes.func.isRequired,
+}
+
+FavoriteProduct.defaultProps = {
+  price: 0,
+  image: 'Product image',
+  color: 'Product color',
+  article: 'Product article',
 }
 
 export default FavoriteProduct

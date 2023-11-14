@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import SmallArrowLeft from '../../../assets/svg/small-arrow-left .svg?react'
 import {
   StyledBreadCrumbs,
@@ -18,6 +19,14 @@ const BreadCrumbs = ({ pageName }) => {
       </StyledBreadCrumbsElement>
     </StyledBreadCrumbs>
   )
+}
+
+BreadCrumbs.propTypes = {
+  pageName: PropTypes.string,
+}
+
+BreadCrumbs.defaultProps = {
+  pageName: 'Page name',
 }
 
 export default BreadCrumbs
