@@ -81,6 +81,25 @@ const Global = createGlobalStyle`
   outline: none;
   border:  none;
   }
+
+  table, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-spacing: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+td, th {
+  padding: 0;
+  margin: 0;
+  width: auto;
+  height: auto;
+  line-height: 1;
+  border: none;
+}
 `
 
 const theme = {

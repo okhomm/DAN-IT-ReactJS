@@ -10,7 +10,7 @@ import {
 } from './FavoriteProductsStyles.js'
 
 const FavoriteProducts = (props) => {
-  const { favoriteItems, addToFavorite } = props
+  const { favoriteItems, addToFavorite, shoppingCartItems, openModalCart } = props
   const favoriteProductsList = favoriteItems.map((item) => {
     const { name, price, image, article, color } = item
     return (
@@ -22,6 +22,8 @@ const FavoriteProducts = (props) => {
         color={color}
         addToFavorite={addToFavorite}
         article={article}
+        shoppingCartItems={shoppingCartItems}
+        openModalCart={openModalCart}
       />
     )
   })

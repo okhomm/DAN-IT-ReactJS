@@ -15,6 +15,8 @@ const Content = ({
   isItemInFavorites,
   favoriteItems,
   shoppingCartItems,
+  removeFromShoppingCart,
+  openModalDelete,
 }) => {
   return (
     <Routes>
@@ -38,12 +40,14 @@ const Content = ({
           <FavoriteProducts
             favoriteItems={favoriteItems}
             addToFavorite={addToFavorite}
+            shoppingCartItems={shoppingCartItems}
+            openModalCart={openModalCart}
           />
         }
       />
       <Route
         path="/cart"
-        element={<ShoppingCart shoppingCartItems={shoppingCartItems} />}
+        element={<ShoppingCart shoppingCartItems={shoppingCartItems} removeFromShoppingCart={removeFromShoppingCart} openModalDelete={openModalDelete} />}
       />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

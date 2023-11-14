@@ -9,7 +9,7 @@ import {
   ModalHeader,
 } from './components/index';
 
-const ModalText = ({ title, text, buttonText, buttonClick, closeModal }) => {
+const ModalText = ({ title, text, buttonText, buttonClick, buttonText2, buttonClick2, closeModal }) => {
   return (
     <ModalWrapper closeModal={closeModal}>
       <Modal>
@@ -20,7 +20,7 @@ const ModalText = ({ title, text, buttonText, buttonClick, closeModal }) => {
           <TitleInModal>{title}</TitleInModal>
           <TextInModal>{text}</TextInModal>
         </ModalBody>
-        <ModalFooter firstText={buttonText} firstClick={buttonClick} />
+        <ModalFooter firstText={buttonText} firstClick={buttonClick} secondaryText={buttonText2} secondaryClick={buttonClick2} />
       </Modal>
     </ModalWrapper>
   )

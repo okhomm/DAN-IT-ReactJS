@@ -91,7 +91,6 @@ export const StyledButton = styled.button`
   color: ${({ $buttonType, theme }) => {
     switch ($buttonType) {
       case 'primaryButton':
-      case 'standartButton':
         return theme.colorStyles.lightColor
       case 'secondaryButton':
       case 'textButton':
@@ -100,6 +99,7 @@ export const StyledButton = styled.button`
       case 'contentButton':
       case 'socialButton':
       case 'circleButton':
+        case 'standartButton':
         return theme.colorStyles.primaryColor
       default:
         return theme.colorStyles.lightColor
@@ -120,6 +120,7 @@ export const StyledButton = styled.button`
         return `1px solid ${theme.colorStyles.shadowColor}`
       case 'textButton':
       case 'standartButton':
+        return ` 1px solid #BEBCBD`
       case 'circleButton':
       case 'favoriteButton':
         return `1px solid transparent`

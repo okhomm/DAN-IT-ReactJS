@@ -14,7 +14,9 @@ const App = () => {
   const [topBrands, setTopBrands] = useState([])
   const [productList, setProductList] = useState([])
   const [openModalCart, setOpenModalCart] = useState(false)
+  const [openModalDelete, setOpenModalDelete] = useState(false)
   const [productInfoForModalCart, setProductInfoForModalCart] = useState({})
+  const [productInfoForModalDelete, setProductInfoForModalDelete] = useState({})
   const [addToCartArticle, setAddToCartArticle] = useState(null)
 
   const [favoriteItems, setFavoriteItems] = useState(() => {
@@ -59,6 +61,21 @@ const App = () => {
     setAddToCartArticle(article)
   }
 
+  const modalDeleteHandler = (image, name, price, article) => {
+    setOpenModalDelete(!openModalDelete)
+    setProductInfoForModalDelete({
+      image,
+      name,
+      price,
+      article,
+    })
+  }
+
+  const deleteItemFromCartFromModal = (article) => {
+    removeItemFromShoppingCartHandler(article)
+    setOpenModalDelete(!openModalDelete)
+  }
+
   const addItemToShoppingCartHandler = () => {
     const isAlreadyAdded = shoppingCartItems.some(
       (item) => item.article === addToCartArticle
@@ -72,6 +89,13 @@ const App = () => {
       }
     }
     modalCartHandler()
+  }
+
+  const removeItemFromShoppingCartHandler = (article) => {
+    const updatedShoppingCartItems = shoppingCartItems.filter(
+      (item) => item.article !== article
+    )
+    setShoppingCartItems(updatedShoppingCartItems)
   }
 
   const addProductToFavorite = (article) => {
@@ -114,7 +138,8 @@ const App = () => {
   //TODO: Притиснути футер до нижньої частини сторінки
   //TODO: у Wishlist добавити дію на кнопку Add to cart
   //TODO: перевірити чи прописані всі PropTypes та defaultProps
-
+  //TODO: прописати клікабельні посилання для хлібних крихт (переписати компонент)
+  //TODO: перевірити посилання у верхньому меню
 
   return (
     <>
@@ -132,10 +157,12 @@ const App = () => {
               topBrands={topBrands}
               productList={productList}
               openModalCart={modalCartHandler}
+              openModalDelete={modalDeleteHandler}
               addToFavorite={addProductToFavorite}
               isItemInFavorites={isItemInFavorites}
               favoriteItems={favoriteItems}
               shoppingCartItems={shoppingCartItems}
+              removeFromShoppingCart={removeItemFromShoppingCartHandler}
             />
             <Footer />
           </PageWrapper>
@@ -146,11 +173,26 @@ const App = () => {
             title="Add this product to your cart?"
             text={`${productName} - $${productPrice}`}
             image={productImage}
-            firstButtonText="Yes, add"
+            firstButtonText="YES, ADD"
             firstButtonClick={addItemToShoppingCartHandler}
-            secondButtonText="No, cancel"
+            secondButtonText="NO, CANCEL"
             secondButtonClick={modalCartHandler}
             closeModal={modalCartHandler}
+          />
+        )}
+
+        {openModalDelete && (
+          <ModalCart
+            title="Product Delete!"
+            text={`${productInfoForModalDelete.name} - $${productInfoForModalDelete.price}`}
+            image={productInfoForModalDelete.image}
+            firstButtonText="NO, CANCEL"
+            firstButtonClick={modalDeleteHandler}
+            secondButtonText="YES, DELETE"
+            secondButtonClick={() =>
+              deleteItemFromCartFromModal(productInfoForModalDelete.article)
+            }
+            closeModal={modalDeleteHandler}
           />
         )}
       </Theme>

@@ -17,6 +17,8 @@ const FavoriteProduct = ({
   color,
   addToFavorite,
   article,
+  shoppingCartItems,
+  openModalCart
 }) => {
   return (
     <StyledFavoriteProduct>
@@ -37,7 +39,7 @@ const FavoriteProduct = ({
       <Button
         $buttonType="primaryButton"
         $size="m"
-        onClick={() => console.log('Work')}
+        onClick={() => openModalCart(image, name, price, article)}
       >
         Add to cart
       </Button>
