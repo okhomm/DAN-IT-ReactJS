@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react'
 import fetchData from './helpers/fetchData'
+
+import { useDispatch } from 'react-redux'
+import {
+  actionFetchProducts,
+  actionFetchCategoriesForMen,
+  actionFetchCategoriesForWomen,
+  actionFetchTopBrands,
+} from './store/actions'
+
 import ModalCart from './components/Modal/ModalCart'
 import Header from './components/Header'
 import Content from './components/Content'
@@ -9,10 +18,6 @@ import Flex from './styles/Flex'
 import { PageWrapper } from './AppStyles'
 
 const App = () => {
-  const [categoriesForMen, setCategoriesForMen] = useState([])
-  const [categoriesForWomen, setCategoriesForWomen] = useState([])
-  const [topBrands, setTopBrands] = useState([])
-  const [productList, setProductList] = useState([])
   const [openModalCart, setOpenModalCart] = useState(false)
   const [openModalDelete, setOpenModalDelete] = useState(false)
   const [productInfoForModalCart, setProductInfoForModalCart] = useState({})
@@ -27,20 +32,13 @@ const App = () => {
     return storedShoppingCartItems ? JSON.parse(storedShoppingCartItems) : []
   })
 
-  useEffect(() => {
-    fetchData('data-categories-men.json', setCategoriesForMen)
-  }, [])
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    fetchData('data-categories-women.json', setCategoriesForWomen)
-  }, [])
-
-  useEffect(() => {
-    fetchData('top-brands.json', setTopBrands)
-  }, [])
-
-  useEffect(() => {
-    fetchData('data.json', setProductList)
+    dispatch(actionFetchProducts())
+    dispatch(actionFetchCategoriesForMen())
+    dispatch(actionFetchCategoriesForWomen())
+    dispatch(actionFetchTopBrands())
   }, [])
 
   useEffect(() => {
@@ -143,10 +141,6 @@ const App = () => {
             />
 
             <Content
-              categoriesForMen={categoriesForMen}
-              categoriesForWomen={categoriesForWomen}
-              topBrands={topBrands}
-              productList={productList}
               openModalCart={modalCartHandler}
               openModalDelete={modalDeleteHandler}
               addToFavorite={addProductToFavorite}

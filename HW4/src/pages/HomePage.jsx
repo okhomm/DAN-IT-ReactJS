@@ -7,6 +7,10 @@ import ProductList from '../components/Content/ProductList'
 import TopBrands from '../components/Content/TopBrands'
 import Container from '../styles/Container'
 
+import {selectCategoriesForMen, selectCategoriesForWomen, selectTopBrands} from '../store/selectors'
+import {useSelector} from "react-redux"
+
+
 import {
   StyledMain,
   StyledTopBrandsTitle,
@@ -16,14 +20,15 @@ import {
 } from '../components/Content/ContentStyles'
 
 const HomePage = ({
-  categoriesForMen,
-  categoriesForWomen,
-  topBrands,
-  productList,
   openModalCart,
   addToFavorite,
   isItemInFavorites,
 }) => {
+
+  const categoriesForMen = useSelector(selectCategoriesForMen)
+  const categoriesForWomen = useSelector(selectCategoriesForWomen)
+  const topBrands = useSelector(selectTopBrands)
+
   const topBransImages = topBrands.map(({ image }, index) => {
     return (
       <TopBransImageBox key={index}>
@@ -31,6 +36,8 @@ const HomePage = ({
       </TopBransImageBox>
     )
   })
+
+ 
 
   return (
     <>
@@ -54,7 +61,6 @@ const HomePage = ({
           </TopBrands>
           <ContentTitle>In The Limelight</ContentTitle>
           <ProductList
-            data={productList}
             openModalCart={openModalCart}
             addToFavorite={addToFavorite}
             isItemInFavorites={isItemInFavorites}
@@ -66,10 +72,6 @@ const HomePage = ({
 }
 
 HomePage.propTypes = {
-  categoriesForMen: PropTypes.array.isRequired,
-  categoriesForWomen: PropTypes.array.isRequired,
-  topBrands: PropTypes.array.isRequired,
-  productList: PropTypes.array.isRequired,
   openModalCart: PropTypes.func.isRequired,
   addToFavorite: PropTypes.func.isRequired,
   isItemInFavorites: PropTypes.func.isRequired,
