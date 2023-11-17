@@ -7,7 +7,7 @@ import Logo from '../../assets/svg/logo.svg?react'
 import Container from '../../styles/Container'
 import { StyledHeader, TopMenuBlock } from './HeaderStyles'
 
-const Header = ({ favoriteItems, shoppingCartItems }) => {
+const Header = ({ shoppingCartItems }) => {
   return (
     <StyledHeader>
       <Container>
@@ -18,7 +18,6 @@ const Header = ({ favoriteItems, shoppingCartItems }) => {
           <TopMenu />
           <SearchBar />
           <ButtonsBlock
-            favoriteItems={favoriteItems}
             shoppingCartItems={shoppingCartItems}
           />
         </TopMenuBlock>
@@ -28,7 +27,6 @@ const Header = ({ favoriteItems, shoppingCartItems }) => {
 }
 
 Header.propTypes = {
-  favoriteItems: PropTypes.array.isRequired,
   shoppingCartItems: PropTypes.array.isRequired,
 }
 

@@ -4,3 +4,4 @@ export const selectCategoriesForWomen = (state) => state.categoriesForWomen
 export const selectTopBrands= (state) => state.topBrands
 export const selectOpenModalCart= (state) => state.openModalCart
 export const selectProductInfoForModalCart= (state) => state.productInfoForModalCart
+export const selectFavoritesItems = (state) => state.favoritesItems;

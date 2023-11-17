@@ -2,12 +2,15 @@ import { createReducer } from '@reduxjs/toolkit';
 import * as actions from './actions.js';
 
 const initialState = {
-  favorites: [],
+  shoppingCartItems: [],
+
+  favoritesItems: [],
   products: [],
   categoriesForMen: [],
   categoriesForWomen: [],
   topBrands: [],
   openModalCart: false,
+
   productInfoForModalCart: {}
 };
 
@@ -30,6 +33,12 @@ const productsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(actions.actionSetProductInfoForModalCart, (state, {payload}) => {
       state.productInfoForModalCart = payload;
+    })
+    .addCase(actions.actionAddToFavorite, (state, { payload }) => {
+      state.favoritesItems = [...state.favoritesItems, payload];
+    })
+    .addCase(actions.actionRemoveFromFavorite, (state, { payload }) => {
+      state.favoritesItems = state.favoritesItems.filter(item => item.article !== payload);
     });
 });
 

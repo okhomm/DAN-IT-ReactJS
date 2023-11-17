@@ -2,6 +2,9 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import { selectFavoritesItems } from '../../../store/selectors';
+
 import Button from '../../Button'
 import Favorite from '../../../assets/svg/heart.svg?react'
 import Cart from '../../../assets/svg/cart.svg?react'
@@ -11,7 +14,7 @@ import {
   CartItemsIndicator,
 } from './ButtonsBlockStyled'
 
-const ButtonsBlock = ({ favoriteItems, shoppingCartItems }) => {
+const ButtonsBlock = ({shoppingCartItems }) => {
   const location = useLocation()
   const [currentPath, setCurrentPath] = useState(location.pathname)
 
@@ -24,6 +27,9 @@ const ButtonsBlock = ({ favoriteItems, shoppingCartItems }) => {
   const determineCartIcon =
     currentPath === '/cart' ? 'hoverButton' : 'contentButton'
 
+    const favoritesItems = useSelector(selectFavoritesItems);
+  
+
   return (
     <StyledButtonsBlock>
       <Link to="/favorite">
@@ -31,8 +37,8 @@ const ButtonsBlock = ({ favoriteItems, shoppingCartItems }) => {
           <Favorite />
         </Button>
       </Link>
-      {favoriteItems.length > 0 && (
-        <FavoriteItemsIndicator>{favoriteItems.length}</FavoriteItemsIndicator>
+      {favoritesItems.length > 0 && (
+        <FavoriteItemsIndicator>{favoritesItems.length}</FavoriteItemsIndicator>
       )}
       <Link to="/cart">
         <Button $buttonType={determineCartIcon} $size="s">
@@ -47,7 +53,6 @@ const ButtonsBlock = ({ favoriteItems, shoppingCartItems }) => {
 }
 
 ButtonsBlock.propTypes = {
-  favoriteItems: PropTypes.array.isRequired,
   shoppingCartItems: PropTypes.array.isRequired,
 }
 

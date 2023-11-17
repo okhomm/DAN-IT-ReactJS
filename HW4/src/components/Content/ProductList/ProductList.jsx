@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types'
 import ProductItem from '../ProductItem'
 import styled from 'styled-components'
 
-import {selectProducts} from '../../../store/selectors'
-import {useSelector} from "react-redux"
+import { selectProducts } from '../../../store/selectors'
+import { useSelector } from 'react-redux'
 
 const StyledProductList = styled.div`
   display: grid;
@@ -13,11 +12,9 @@ const StyledProductList = styled.div`
   padding-bottom: 100px;
 `
 
-const ProductList = (props) => {
-
+const ProductList = () => {
   const products = useSelector(selectProducts)
 
-  const { addToFavorite, isItemInFavorites } = props
   const productsGrid = products.map((product, index) => {
     const { name, brand, price, article, image, ...rest } = product
 
@@ -29,17 +26,10 @@ const ProductList = (props) => {
         name={name}
         brand={brand}
         article={article}
-        addToFavorite={addToFavorite}
-        isItemInFavorites={isItemInFavorites}
       />
     )
   })
   return <StyledProductList>{productsGrid}</StyledProductList>
-}
-
-ProductList.propTypes = {
-  addToFavorite: PropTypes.func.isRequired,
-  isItemInFavorites: PropTypes.func.isRequired,
 }
 
 export default ProductList

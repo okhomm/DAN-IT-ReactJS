@@ -1,9 +1,14 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  actionAddToFavorite,
+  actionRemoveFromFavorite,
+} from '../../../store/actions';
+import { selectFavoritesItems } from '../../../store/selectors';
+import useModalCartHandler from '../../../hooks/useModalCartHandler';
 
-import useModalCartHandler from '../../../hooks/useModalCartHandler'
-
-import Button from '../../Button'
-import Heart from '../../../assets/svg/heart.svg?react'
+import Button from '../../Button';
+import Heart from '../../../assets/svg/heart.svg?react';
 import {
   StyledProductItem,
   StyledCartBox,
@@ -14,7 +19,7 @@ import {
   StyledProductTitle,
   StyledProductImage,
   StyledProductBrand,
-} from './ProductItemStyles'
+} from './ProductItemStyles';
 
 const ProductItem = ({
   img,
@@ -22,15 +27,26 @@ const ProductItem = ({
   brand,
   price,
   article,
-  addToFavorite,
-  isItemInFavorites,
 }) => {
+  const modalCartHandler = useModalCartHandler();
+  const favoritesItems = useSelector(selectFavoritesItems);
+  const dispatch = useDispatch();
+
+  const isItemInFavorites = (article) => {
+    return favoritesItems.some((item) => item.article === article);
+  };
+
+  const addToFavorite = () => {
+    if (isItemInFavorites(article)) {
+      dispatch(actionRemoveFromFavorite(article));
+    } else {
+      dispatch(actionAddToFavorite({ img, name, brand, price, article }));
+    }
+  };
+
   const favoriteIcon = isItemInFavorites(article)
     ? 'favoriteButton'
-    : 'circleButton'
-
-  const modalCartHandler = useModalCartHandler();
-
+    : 'circleButton';
 
   return (
     <StyledProductItem>
@@ -38,7 +54,7 @@ const ProductItem = ({
         <Button
           $buttonType={favoriteIcon}
           $size="s"
-          onClick={() => addToFavorite(article)}
+          onClick={addToFavorite}
         >
           <Heart />
         </Button>
@@ -65,8 +81,8 @@ const ProductItem = ({
         </Button>
       </StyledCartBox>
     </StyledProductItem>
-  )
-}
+  );
+};
 
 ProductItem.propTypes = {
   img: PropTypes.string,
@@ -74,9 +90,7 @@ ProductItem.propTypes = {
   brand: PropTypes.string,
   price: PropTypes.number,
   article: PropTypes.string,
-  addToFavorite: PropTypes.func.isRequired,
-  isItemInFavorites: PropTypes.func.isRequired,
-}
+};
 
 ProductItem.defaultProps = {
   img: 'Product image',
@@ -84,6 +98,6 @@ ProductItem.defaultProps = {
   brand: 'Product brand',
   price: 0,
   article: 'Product article',
-}
+};
 
-export default ProductItem
+export default ProductItem;

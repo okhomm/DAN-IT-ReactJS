@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import Flex from '../styles/Flex'
 import ContentTitle from '../components/Content/ContentTitle'
 import BannerSlider from '../components/Content/BannerSlider'
@@ -7,9 +6,12 @@ import ProductList from '../components/Content/ProductList'
 import TopBrands from '../components/Content/TopBrands'
 import Container from '../styles/Container'
 
-import {selectCategoriesForMen, selectCategoriesForWomen, selectTopBrands} from '../store/selectors'
-import {useSelector} from "react-redux"
-
+import {
+  selectCategoriesForMen,
+  selectCategoriesForWomen,
+  selectTopBrands,
+} from '../store/selectors'
+import { useSelector } from 'react-redux'
 
 import {
   StyledMain,
@@ -19,11 +21,7 @@ import {
   TopBransImageBox,
 } from '../components/Content/ContentStyles'
 
-const HomePage = ({
-  addToFavorite,
-  isItemInFavorites,
-}) => {
-
+const HomePage = () => {
   const categoriesForMen = useSelector(selectCategoriesForMen)
   const categoriesForWomen = useSelector(selectCategoriesForWomen)
   const topBrands = useSelector(selectTopBrands)
@@ -35,8 +33,6 @@ const HomePage = ({
       </TopBransImageBox>
     )
   })
-
- 
 
   return (
     <>
@@ -59,19 +55,11 @@ const HomePage = ({
             </Flex>
           </TopBrands>
           <ContentTitle>In The Limelight</ContentTitle>
-          <ProductList
-            addToFavorite={addToFavorite}
-            isItemInFavorites={isItemInFavorites}
-          />
+          <ProductList />
         </StyledMain>
       </Container>
     </>
   )
-}
-
-HomePage.propTypes = {
-  addToFavorite: PropTypes.func.isRequired,
-  isItemInFavorites: PropTypes.func.isRequired,
 }
 
 export default HomePage

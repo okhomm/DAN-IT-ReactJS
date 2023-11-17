@@ -6,36 +6,16 @@ import ShoppingCart from '../../pages/ShoppingCart'
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage'
 
 const Content = ({
-  addToFavorite,
-  isItemInFavorites,
-  favoriteItems,
   shoppingCartItems,
   removeFromShoppingCart,
   openModalDelete,
 }) => {
-
- 
-
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <HomePage
-            addToFavorite={addToFavorite}
-            isItemInFavorites={isItemInFavorites}
-          />
-        }
-      />
+      <Route path="/" element={<HomePage />} />
       <Route
         path="/favorite"
-        element={
-          <FavoriteProducts
-            favoriteItems={favoriteItems}
-            addToFavorite={addToFavorite}
-            shoppingCartItems={shoppingCartItems}
-          />
-        }
+        element={<FavoriteProducts shoppingCartItems={shoppingCartItems} />}
       />
       <Route
         path="/cart"
@@ -53,12 +33,9 @@ const Content = ({
 }
 
 Content.propTypes = {
-  addToFavorite: PropTypes.func.isRequired,
-  isItemInFavorites: PropTypes.func.isRequired,
-  favoriteItems: PropTypes.array.isRequired,
   shoppingCartItems: PropTypes.array.isRequired,
   removeFromShoppingCart: PropTypes.func.isRequired,
-  openModalDelete: PropTypes.func.isRequired
+  openModalDelete: PropTypes.func.isRequired,
 }
 
 export default Content

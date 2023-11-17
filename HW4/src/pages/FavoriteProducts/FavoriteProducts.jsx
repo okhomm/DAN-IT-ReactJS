@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+import { selectFavoritesItems } from '../../store/selectors.js'
 import ContentSecondaryTitle from '../../components/Content/ContentSecondaryTitle'
 import BreadCrumbs from '../../components/Content/BreadCrumbs'
 import FavoriteProduct from '../../components/Content/FavoriteProduct'
@@ -11,18 +13,19 @@ import {
 } from './FavoriteProductsStyles.js'
 
 const FavoriteProducts = (props) => {
-  const { favoriteItems, addToFavorite, shoppingCartItems } =
-    props
-  const favoriteProductsList = favoriteItems.map((item) => {
-    const { name, price, image, article, color } = item
+  const { shoppingCartItems } = props
+
+  const favoritesItems = useSelector(selectFavoritesItems)
+
+  const favoriteProductsList = favoritesItems.map((item) => {
+    const { name, price, img, article, color } = item
     return (
       <FavoriteProduct
         name={name}
         price={price}
-        image={image}
+        img={img}
         key={article}
         color={color}
-        addToFavorite={addToFavorite}
         article={article}
         shoppingCartItems={shoppingCartItems}
       />
@@ -36,7 +39,7 @@ const FavoriteProducts = (props) => {
         <StyledFavoriteContentWrapper>
           <ContentSecondaryTitle>Wishlist</ContentSecondaryTitle>
           <StyledFavoriteContent>
-            {favoriteItems.length > 0 ? (
+            {favoritesItems.length > 0 ? (
               favoriteProductsList
             ) : (
               <StyledEmptyList>No products</StyledEmptyList>
@@ -49,8 +52,6 @@ const FavoriteProducts = (props) => {
 }
 
 FavoriteProducts.propTypes = {
-  favoriteItems: PropTypes.array.isRequired,
-  addToFavorite: PropTypes.func.isRequired,
   shoppingCartItems: PropTypes.array.isRequired,
 }
 

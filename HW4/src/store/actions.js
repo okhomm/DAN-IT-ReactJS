@@ -2,12 +2,13 @@ import { createAction } from "@reduxjs/toolkit"
 import sendRequest from "../helpers/sendRequest"
 
 export const actionAddToFavorite = createAction("ACTION_ADD_TO_FAVORITE")
+export const actionRemoveFromFavorite = createAction("ACTION_REMOVE_FROM_FAVORITE");
 export const actionGetProducts = createAction("ACTION_GET_PRODUCTS")
 export const actionGetCategoriesForMen = createAction("ACTION_GET_CATEGORIES_FOR_MAN")
 export const actionGetCategoriesForWoman = createAction("ACTION_GET_CATEGORIES_FOR_WOMEN")
 export const actionGetTopBrands = createAction("ACTION_GET_TOP_BRANDS")
 export const actionOpenModalCart = createAction("ACTION_OPEN_MODAL_CART")
-export const actionSetProductInfoForModalCart = createAction("ACTION_SET_PRODUCT_INFO_FOR_MODAL_CART");
+export const actionSetProductInfoForModalCart = createAction("ACTION_SET_PRODUCT_INFO_FOR_MODAL_CART")
 
 
 export const actionFetchProducts = () => (dispatch) => {

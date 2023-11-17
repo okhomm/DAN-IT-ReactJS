@@ -8,8 +8,6 @@ const useModalCartHandler = () => {
 
     dispatch(actionSetProductInfoForModalCart({img, name, price, article}))
     dispatch(actionOpenModalCart());
-    // setOpenModalCart(!openModalCart)
-    // showProductInModalCart(img, name, price)
     // setAddToCartArticle(article)
 
   };
