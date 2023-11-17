@@ -20,7 +20,6 @@ import {
 } from '../components/Content/ContentStyles'
 
 const HomePage = ({
-  openModalCart,
   addToFavorite,
   isItemInFavorites,
 }) => {
@@ -61,7 +60,6 @@ const HomePage = ({
           </TopBrands>
           <ContentTitle>In The Limelight</ContentTitle>
           <ProductList
-            openModalCart={openModalCart}
             addToFavorite={addToFavorite}
             isItemInFavorites={isItemInFavorites}
           />
@@ -72,7 +70,6 @@ const HomePage = ({
 }
 
 HomePage.propTypes = {
-  openModalCart: PropTypes.func.isRequired,
   addToFavorite: PropTypes.func.isRequired,
   isItemInFavorites: PropTypes.func.isRequired,
 }

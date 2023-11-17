@@ -6,7 +6,6 @@ import ShoppingCart from '../../pages/ShoppingCart'
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage'
 
 const Content = ({
-  openModalCart,
   addToFavorite,
   isItemInFavorites,
   favoriteItems,
@@ -23,7 +22,6 @@ const Content = ({
         path="/"
         element={
           <HomePage
-            openModalCart={openModalCart}
             addToFavorite={addToFavorite}
             isItemInFavorites={isItemInFavorites}
           />
@@ -36,7 +34,6 @@ const Content = ({
             favoriteItems={favoriteItems}
             addToFavorite={addToFavorite}
             shoppingCartItems={shoppingCartItems}
-            openModalCart={openModalCart}
           />
         }
       />
@@ -56,7 +53,6 @@ const Content = ({
 }
 
 Content.propTypes = {
-  openModalCart: PropTypes.func.isRequired,
   addToFavorite: PropTypes.func.isRequired,
   isItemInFavorites: PropTypes.func.isRequired,
   favoriteItems: PropTypes.array.isRequired,

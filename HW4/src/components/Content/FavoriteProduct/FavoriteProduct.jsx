@@ -18,7 +18,6 @@ const FavoriteProduct = ({
   color,
   addToFavorite,
   article,
-  openModalCart,
 }) => {
   return (
     <StyledFavoriteProduct>
@@ -39,7 +38,7 @@ const FavoriteProduct = ({
       <Button
         $buttonType="primaryButton"
         $size="m"
-        onClick={() => openModalCart(image, name, price, article)}
+        // onClick={() => openModalCart(image, name, price, article)}
       >
         Add to cart
       </Button>
@@ -54,7 +53,6 @@ FavoriteProduct.propTypes = {
   color: PropTypes.string,
   addToFavorite: PropTypes.func.isRequired,
   article: PropTypes.string,
-  openModalCart: PropTypes.func.isRequired,
 }
 
 FavoriteProduct.defaultProps = {

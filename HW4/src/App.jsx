@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-import fetchData from './helpers/fetchData'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   actionFetchProducts,
   actionFetchCategoriesForMen,
@@ -9,20 +8,26 @@ import {
   actionFetchTopBrands,
 } from './store/actions'
 
+import { selectOpenModalCart, selectProductInfoForModalCart } from './store/selectors'
+
 import ModalCart from './components/Modal/ModalCart'
 import Header from './components/Header'
 import Content from './components/Content'
 import Footer from './components/Footer/Footer'
+import useModalCartHandler from './hooks/useModalCartHandler'
+
 import Theme from './styles/Theme'
 import Flex from './styles/Flex'
 import { PageWrapper } from './AppStyles'
 
 const App = () => {
-  const [openModalCart, setOpenModalCart] = useState(false)
-  const [openModalDelete, setOpenModalDelete] = useState(false)
-  const [productInfoForModalCart, setProductInfoForModalCart] = useState({})
-  const [productInfoForModalDelete, setProductInfoForModalDelete] = useState({})
+  // const [productInfoForModalCart, setProductInfoForModalCart] = useState({})
+  
   const [addToCartArticle, setAddToCartArticle] = useState(null)
+
+  const [openModalDelete, setOpenModalDelete] = useState(false)
+  const [productInfoForModalDelete, setProductInfoForModalDelete] = useState({})
+
   const [favoriteItems, setFavoriteItems] = useState(() => {
     const storedFavoriteItems = localStorage.getItem('favoriteItems')
     return storedFavoriteItems ? JSON.parse(storedFavoriteItems) : []
@@ -33,6 +38,17 @@ const App = () => {
   })
 
   const dispatch = useDispatch()
+  const OpenModalCart = useSelector(selectOpenModalCart)
+  const itemInfoForModalCart = useSelector(selectProductInfoForModalCart);
+
+  const {
+    img: productImage,
+    name: productName,
+    price: productPrice,
+  } = itemInfoForModalCart
+
+  const modalCartHandler = useModalCartHandler();
+
 
   useEffect(() => {
     dispatch(actionFetchProducts())
@@ -51,12 +67,6 @@ const App = () => {
     }
     saveDataToLocalStorage()
   }, [favoriteItems, shoppingCartItems])
-
-  const modalCartHandler = (img, name, price, article) => {
-    setOpenModalCart(!openModalCart)
-    showProductInModalCart(img, name, price)
-    setAddToCartArticle(article)
-  }
 
   const modalDeleteHandler = (image, name, price, article) => {
     setOpenModalDelete(!openModalDelete)
@@ -116,19 +126,13 @@ const App = () => {
     return favoriteItems.some((item) => item.article === article)
   }
 
-  const showProductInModalCart = (img, name, price) => {
-    setProductInfoForModalCart({
-      img,
-      name,
-      price,
-    })
-  }
-
-  const {
-    img: productImage,
-    name: productName,
-    price: productPrice,
-  } = productInfoForModalCart
+  // const showProductInModalCart = (img, name, price) => {
+  //   setProductInfoForModalCart({
+  //     img,
+  //     name,
+  //     price,
+  //   })
+  // }
 
   return (
     <>
@@ -141,7 +145,7 @@ const App = () => {
             />
 
             <Content
-              openModalCart={modalCartHandler}
+              // openModalCart={modalCartHandler}
               openModalDelete={modalDeleteHandler}
               addToFavorite={addProductToFavorite}
               isItemInFavorites={isItemInFavorites}
@@ -153,7 +157,7 @@ const App = () => {
           </PageWrapper>
         </Flex>
 
-        {openModalCart && (
+        {OpenModalCart && (
           <ModalCart
             title="Add this product to your cart?"
             text={`${productName} - $${productPrice}`}

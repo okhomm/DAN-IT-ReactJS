@@ -17,7 +17,7 @@ const ProductList = (props) => {
 
   const products = useSelector(selectProducts)
 
-  const { openModalCart, addToFavorite, isItemInFavorites } = props
+  const { addToFavorite, isItemInFavorites } = props
   const productsGrid = products.map((product, index) => {
     const { name, brand, price, article, image, ...rest } = product
 
@@ -29,7 +29,6 @@ const ProductList = (props) => {
         name={name}
         brand={brand}
         article={article}
-        openModalCart={openModalCart}
         addToFavorite={addToFavorite}
         isItemInFavorites={isItemInFavorites}
       />
@@ -39,7 +38,6 @@ const ProductList = (props) => {
 }
 
 ProductList.propTypes = {
-  openModalCart: PropTypes.func.isRequired,
   addToFavorite: PropTypes.func.isRequired,
   isItemInFavorites: PropTypes.func.isRequired,
 }

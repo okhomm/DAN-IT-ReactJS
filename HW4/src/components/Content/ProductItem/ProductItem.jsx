@@ -1,4 +1,7 @@
 import PropTypes from 'prop-types'
+
+import useModalCartHandler from '../../../hooks/useModalCartHandler'
+
 import Button from '../../Button'
 import Heart from '../../../assets/svg/heart.svg?react'
 import {
@@ -19,13 +22,15 @@ const ProductItem = ({
   brand,
   price,
   article,
-  openModalCart,
   addToFavorite,
   isItemInFavorites,
 }) => {
   const favoriteIcon = isItemInFavorites(article)
     ? 'favoriteButton'
     : 'circleButton'
+
+  const modalCartHandler = useModalCartHandler();
+
 
   return (
     <StyledProductItem>
@@ -54,7 +59,7 @@ const ProductItem = ({
         <Button
           $buttonType="contentButton"
           $size="s"
-          onClick={() => openModalCart(img, name, price, article)}
+          onClick={() => modalCartHandler(img, name, price, article)}
         >
           <StyledButtonText>{`$${price}`}</StyledButtonText>
         </Button>
@@ -69,7 +74,6 @@ ProductItem.propTypes = {
   brand: PropTypes.string,
   price: PropTypes.number,
   article: PropTypes.string,
-  openModalCart: PropTypes.func.isRequired,
   addToFavorite: PropTypes.func.isRequired,
   isItemInFavorites: PropTypes.func.isRequired,
 }

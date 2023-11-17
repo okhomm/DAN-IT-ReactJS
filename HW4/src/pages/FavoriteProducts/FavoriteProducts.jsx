@@ -11,7 +11,7 @@ import {
 } from './FavoriteProductsStyles.js'
 
 const FavoriteProducts = (props) => {
-  const { favoriteItems, addToFavorite, shoppingCartItems, openModalCart } =
+  const { favoriteItems, addToFavorite, shoppingCartItems } =
     props
   const favoriteProductsList = favoriteItems.map((item) => {
     const { name, price, image, article, color } = item
@@ -25,7 +25,6 @@ const FavoriteProducts = (props) => {
         addToFavorite={addToFavorite}
         article={article}
         shoppingCartItems={shoppingCartItems}
-        openModalCart={openModalCart}
       />
     )
   })
@@ -53,7 +52,6 @@ FavoriteProducts.propTypes = {
   favoriteItems: PropTypes.array.isRequired,
   addToFavorite: PropTypes.func.isRequired,
   shoppingCartItems: PropTypes.array.isRequired,
-  openModalCart: PropTypes.func.isRequired,
 }
 
 export default FavoriteProducts

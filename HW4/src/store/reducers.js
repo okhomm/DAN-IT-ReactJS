@@ -7,6 +7,8 @@ const initialState = {
   categoriesForMen: [],
   categoriesForWomen: [],
   topBrands: [],
+  openModalCart: false,
+  productInfoForModalCart: {}
 };
 
 const productsReducer = createReducer(initialState, (builder) => {
@@ -22,6 +24,12 @@ const productsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(actions.actionGetTopBrands, (state, { payload }) => {
       state.topBrands = payload;
+    })
+    .addCase(actions.actionOpenModalCart, (state) => {
+      state.openModalCart = !state.openModalCart;
+    })
+    .addCase(actions.actionSetProductInfoForModalCart, (state, {payload}) => {
+      state.productInfoForModalCart = payload;
     });
 });
 
