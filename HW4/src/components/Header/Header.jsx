@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import TopMenu from './TopMenu'
 import SearchBar from './SearchBar'
@@ -7,7 +6,7 @@ import Logo from '../../assets/svg/logo.svg?react'
 import Container from '../../styles/Container'
 import { StyledHeader, TopMenuBlock } from './HeaderStyles'
 
-const Header = ({ shoppingCartItems }) => {
+const Header = () => {
   return (
     <StyledHeader>
       <Container>
@@ -17,17 +16,11 @@ const Header = ({ shoppingCartItems }) => {
           </Link>
           <TopMenu />
           <SearchBar />
-          <ButtonsBlock
-            shoppingCartItems={shoppingCartItems}
-          />
+          <ButtonsBlock />
         </TopMenuBlock>
       </Container>
     </StyledHeader>
   )
-}
-
-Header.propTypes = {
-  shoppingCartItems: PropTypes.array.isRequired,
 }
 
 export default Header

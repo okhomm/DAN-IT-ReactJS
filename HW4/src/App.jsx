@@ -15,22 +15,16 @@ import Header from './components/Header'
 import Content from './components/Content'
 import Footer from './components/Footer/Footer'
 import useModalCartHandler from './hooks/useModalCartHandler'
+import useAddItemToShoppingCartHandler from './hooks/useAddItemToShoppingCart'
 
 import Theme from './styles/Theme'
 import Flex from './styles/Flex'
 import { PageWrapper } from './AppStyles'
 
 const App = () => {
-  
-  const [addToCartArticle, setAddToCartArticle] = useState(null)
 
   const [openModalDelete, setOpenModalDelete] = useState(false)
   const [productInfoForModalDelete, setProductInfoForModalDelete] = useState({})
-
-  const [shoppingCartItems, setShoppingCartItems] = useState(() => {
-    const storedShoppingCartItems = localStorage.getItem('shoppingCartItems')
-    return storedShoppingCartItems ? JSON.parse(storedShoppingCartItems) : []
-  })
 
   const dispatch = useDispatch()
   const OpenModalCart = useSelector(selectOpenModalCart)
@@ -43,6 +37,8 @@ const App = () => {
   } = itemInfoForModalCart
 
   const modalCartHandler = useModalCartHandler();
+  const addToShoppingCartHandler = useAddItemToShoppingCartHandler();
+
 
   useEffect(() => {
     dispatch(actionFetchProducts())
@@ -66,21 +62,6 @@ const App = () => {
     setOpenModalDelete(!openModalDelete)
   }
 
-  const addItemToShoppingCartHandler = () => {
-    const isAlreadyAdded = shoppingCartItems.some(
-      (item) => item.article === addToCartArticle
-    )
-    if (!isAlreadyAdded) {
-      const selectedItem = productList.find(
-        (item) => item.article === addToCartArticle
-      )
-      if (selectedItem) {
-        setShoppingCartItems((prevState) => [...prevState, selectedItem])
-      }
-    }
-    modalCartHandler()
-  }
-
   const removeItemFromShoppingCartHandler = (article) => {
     const updatedShoppingCartItems = shoppingCartItems.filter(
       (item) => item.article !== article
@@ -94,12 +75,10 @@ const App = () => {
         <Flex $direction="column" $justify="center" $align="center">
           <PageWrapper>
             <Header
-              shoppingCartItems={shoppingCartItems}
             />
 
             <Content
               openModalDelete={modalDeleteHandler}
-              shoppingCartItems={shoppingCartItems}
               removeFromShoppingCart={removeItemFromShoppingCartHandler}
             />
             <Footer />
@@ -112,7 +91,7 @@ const App = () => {
             text={`${productName} - $${productPrice}`}
             image={productImage}
             firstButtonText="YES, ADD"
-            firstButtonClick={addItemToShoppingCartHandler}
+            firstButtonClick={addToShoppingCartHandler}
             secondButtonText="NO, CANCEL"
             secondButtonClick={modalCartHandler}
             closeModal={modalCartHandler}

@@ -15,7 +15,7 @@ const customDeserialize = (serializedData) => {
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['favoritesItems'],
+  whitelist: ['favoritesItems', 'shoppingCartItems'],
   serialize: customSerialize,
   deserialize: customDeserialize,
 };

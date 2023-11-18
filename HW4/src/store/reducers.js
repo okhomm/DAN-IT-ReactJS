@@ -2,9 +2,9 @@ import { createReducer } from '@reduxjs/toolkit';
 import * as actions from './actions.js';
 
 const initialState = {
-  shoppingCartItems: [],
-
   favoritesItems: [],
+  shoppingCartItems: [],
+  addToCartArticle: {},
   products: [],
   categoriesForMen: [],
   categoriesForWomen: [],
@@ -39,6 +39,12 @@ const productsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(actions.actionRemoveFromFavorite, (state, { payload }) => {
       state.favoritesItems = state.favoritesItems.filter(item => item.article !== payload);
+    })
+    .addCase(actions.actionAddToShoppingCart, (state, { payload }) => {
+      state.shoppingCartItems = [...state.shoppingCartItems, payload];
+    })
+    .addCase(actions.actionAddToCartArticle, (state, { payload }) => {
+      state.addToCartArticle = payload;
     });
 });
 

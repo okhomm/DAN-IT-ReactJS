@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
+import {useSelector} from 'react-redux'
 import BreadCrumbs from '../../components/Content/BreadCrumbs'
 import Container from '../../styles/Container'
 import Button from '../../components/Button'
 import ShoppingCartProduct from '../../components/Content/ShoppingCartProduct'
+import {selectShoppingCartItems} from '../../store/selectors'
 import {
   StyledShoppingCart,
   StyledShoppingCartHeader,
@@ -25,10 +27,11 @@ import {
 } from './ShoppingCartStyles'
 
 const ShoppingCart = ({
-  shoppingCartItems,
   removeFromShoppingCart,
   openModalDelete,
 }) => {
+  const shoppingCartItems = useSelector(selectShoppingCartItems)
+
   const shoppingCartItemsList = shoppingCartItems.map((item) => {
     const { name, image, price, color, brand, article } = item
     return (
@@ -147,7 +150,6 @@ const ShoppingCart = ({
 }
 
 ShoppingCart.propTypes = {
-  shoppingCartItems: PropTypes.array.isRequired,
   removeFromShoppingCart: PropTypes.func.isRequired,
   openModalDelete: PropTypes.func.isRequired,
 }

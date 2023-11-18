@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux';
-import { selectFavoritesItems } from '../../../store/selectors';
+import { selectFavoritesItems, selectShoppingCartItems } from '../../../store/selectors';
 
 import Button from '../../Button'
 import Favorite from '../../../assets/svg/heart.svg?react'
@@ -14,7 +13,7 @@ import {
   CartItemsIndicator,
 } from './ButtonsBlockStyled'
 
-const ButtonsBlock = ({shoppingCartItems }) => {
+const ButtonsBlock = () => {
   const location = useLocation()
   const [currentPath, setCurrentPath] = useState(location.pathname)
 
@@ -28,6 +27,7 @@ const ButtonsBlock = ({shoppingCartItems }) => {
     currentPath === '/cart' ? 'hoverButton' : 'contentButton'
 
     const favoritesItems = useSelector(selectFavoritesItems);
+    const shoppingCartItems = useSelector(selectShoppingCartItems);
   
 
   return (
@@ -50,10 +50,6 @@ const ButtonsBlock = ({shoppingCartItems }) => {
       )}
     </StyledButtonsBlock>
   )
-}
-
-ButtonsBlock.propTypes = {
-  shoppingCartItems: PropTypes.array.isRequired,
 }
 
 export default ButtonsBlock

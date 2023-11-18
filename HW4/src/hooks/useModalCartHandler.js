@@ -1,17 +1,14 @@
 import { useDispatch } from 'react-redux';
-import { actionOpenModalCart, actionSetProductInfoForModalCart } from '../store/actions';
+import { actionOpenModalCart, actionSetProductInfoForModalCart, actionAddToCartArticle } from '../store/actions';
 
 const useModalCartHandler = () => {
   const dispatch = useDispatch();
-
   const handleModalCart = (img, name, price, article) => {
 
     dispatch(actionSetProductInfoForModalCart({img, name, price, article}))
+    dispatch(actionAddToCartArticle({article}))
     dispatch(actionOpenModalCart());
-    // setAddToCartArticle(article)
-
   };
-
   return handleModalCart;
 };
 

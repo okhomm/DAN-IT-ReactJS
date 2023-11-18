@@ -6,7 +6,6 @@ import ShoppingCart from '../../pages/ShoppingCart'
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage'
 
 const Content = ({
-  shoppingCartItems,
   removeFromShoppingCart,
   openModalDelete,
 }) => {
@@ -15,13 +14,13 @@ const Content = ({
       <Route path="/" element={<HomePage />} />
       <Route
         path="/favorite"
-        element={<FavoriteProducts shoppingCartItems={shoppingCartItems} />}
+        element={<FavoriteProducts
+           />}
       />
       <Route
         path="/cart"
         element={
           <ShoppingCart
-            shoppingCartItems={shoppingCartItems}
             removeFromShoppingCart={removeFromShoppingCart}
             openModalDelete={openModalDelete}
           />
@@ -33,7 +32,6 @@ const Content = ({
 }
 
 Content.propTypes = {
-  shoppingCartItems: PropTypes.array.isRequired,
   removeFromShoppingCart: PropTypes.func.isRequired,
   openModalDelete: PropTypes.func.isRequired,
 }

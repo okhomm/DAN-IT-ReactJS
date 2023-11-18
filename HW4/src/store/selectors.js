@@ -5,3 +5,5 @@ export const selectTopBrands= (state) => state.topBrands
 export const selectOpenModalCart= (state) => state.openModalCart
 export const selectProductInfoForModalCart= (state) => state.productInfoForModalCart
 export const selectFavoritesItems = (state) => state.favoritesItems;
+export const selectShoppingCartItems = (state) => state.shoppingCartItems;
+export const selectAddToCartArticle = (state) => state.addToCartArticle;

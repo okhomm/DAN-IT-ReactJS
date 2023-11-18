@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-
+import useModalCartHandler from '../../../hooks/useModalCartHandler.js'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectFavoritesItems } from '../../../store/selectors.js'
 import {
@@ -21,6 +21,7 @@ import {
 
 const FavoriteProduct = ({ name, price, img, color, article }) => {
   const favoritesItems = useSelector(selectFavoritesItems)
+  const modalCartHandler = useModalCartHandler();
 
   const dispatch = useDispatch()
 
@@ -55,7 +56,7 @@ const FavoriteProduct = ({ name, price, img, color, article }) => {
       <Button
         $buttonType="primaryButton"
         $size="m"
-        // onClick={() => openModalCart(image, name, price, article)}
+        onClick={() => modalCartHandler(img, name, price, article)}
       >
         Add to cart
       </Button>
