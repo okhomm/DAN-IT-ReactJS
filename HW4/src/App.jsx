@@ -8,13 +8,14 @@ import {
   actionFetchTopBrands,
 } from './store/actions'
 
-import { selectOpenModalCart, selectProductInfoForModalCart } from './store/selectors'
+import { selectOpenModalCart, selectOpenModalDelete, selectProductInfoForModalCart } from './store/selectors'
 
 import ModalCart from './components/Modal/ModalCart'
 import Header from './components/Header'
 import Content from './components/Content'
 import Footer from './components/Footer/Footer'
 import useModalCartHandler from './hooks/useModalCartHandler'
+import useModalDeleteHandler from './hooks/useModalDeleteHandler'
 import useAddItemToShoppingCartHandler from './hooks/useAddItemToShoppingCart'
 
 import Theme from './styles/Theme'
@@ -22,21 +23,15 @@ import Flex from './styles/Flex'
 import { PageWrapper } from './AppStyles'
 
 const App = () => {
-
-  const [openModalDelete, setOpenModalDelete] = useState(false)
   const [productInfoForModalDelete, setProductInfoForModalDelete] = useState({})
 
   const dispatch = useDispatch()
-  const OpenModalCart = useSelector(selectOpenModalCart)
+  const openModalCart = useSelector(selectOpenModalCart)
+  const openModalDelete = useSelector(selectOpenModalDelete)
   const itemInfoForModalCart = useSelector(selectProductInfoForModalCart);
 
-  const {
-    img: productImage,
-    name: productName,
-    price: productPrice,
-  } = itemInfoForModalCart
-
   const modalCartHandler = useModalCartHandler();
+  const modalDeleteHandler = useModalDeleteHandler();
   const addToShoppingCartHandler = useAddItemToShoppingCartHandler();
 
 
@@ -46,16 +41,6 @@ const App = () => {
     dispatch(actionFetchCategoriesForWomen())
     dispatch(actionFetchTopBrands())
   }, [])
-
-  const modalDeleteHandler = (image, name, price, article) => {
-    setOpenModalDelete(!openModalDelete)
-    setProductInfoForModalDelete({
-      image,
-      name,
-      price,
-      article,
-    })
-  }
 
   const deleteItemFromCartFromModal = (article) => {
     removeItemFromShoppingCartHandler(article)
@@ -85,11 +70,11 @@ const App = () => {
           </PageWrapper>
         </Flex>
 
-        {OpenModalCart && (
+        {openModalCart && (
           <ModalCart
             title="Add this product to your cart?"
-            text={`${productName} - $${productPrice}`}
-            image={productImage}
+            text={`${itemInfoForModalCart.name} - $${itemInfoForModalCart.productPrice}`}
+            image={itemInfoForModalCart.img}
             firstButtonText="YES, ADD"
             firstButtonClick={addToShoppingCartHandler}
             secondButtonText="NO, CANCEL"
@@ -101,8 +86,8 @@ const App = () => {
         {openModalDelete && (
           <ModalCart
             title="Product Delete!"
-            text={`${productInfoForModalDelete.name} - $${productInfoForModalDelete.price}`}
-            image={productInfoForModalDelete.image}
+            text={`${itemInfoForModalCart.name} - $${itemInfoForModalCart.price}`}
+            image={itemInfoForModalCart.image}
             firstButtonText="NO, CANCEL"
             firstButtonClick={modalDeleteHandler}
             secondButtonText="YES, DELETE"

@@ -28,7 +28,6 @@ import {
 
 const ShoppingCart = ({
   removeFromShoppingCart,
-  openModalDelete,
 }) => {
   const shoppingCartItems = useSelector(selectShoppingCartItems)
 
@@ -44,7 +43,7 @@ const ShoppingCart = ({
         brand={brand}
         article={article}
         removeFromShoppingCart={removeFromShoppingCart}
-        openModalDelete={openModalDelete}
+        // openModalDelete={openModalDelete}
       />
     )
   })
@@ -151,7 +150,6 @@ const ShoppingCart = ({
 
 ShoppingCart.propTypes = {
   removeFromShoppingCart: PropTypes.func.isRequired,
-  openModalDelete: PropTypes.func.isRequired,
 }
 
 export default ShoppingCart

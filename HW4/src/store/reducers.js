@@ -10,7 +10,7 @@ const initialState = {
   categoriesForWomen: [],
   topBrands: [],
   openModalCart: false,
-
+  openModalDelete: false,
   productInfoForModalCart: {}
 };
 
@@ -45,6 +45,9 @@ const productsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(actions.actionAddToCartArticle, (state, { payload }) => {
       state.addToCartArticle = payload;
+    })
+    .addCase(actions.actionOpenModalDelete, (state) => {
+      state.openModalDelete = !state.openModalDelete;
     });
 });
 

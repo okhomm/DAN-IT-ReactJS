@@ -12,6 +12,7 @@ export const actionGetCategoriesForMen = createAction("ACTION_GET_CATEGORIES_FOR
 export const actionGetCategoriesForWoman = createAction("ACTION_GET_CATEGORIES_FOR_WOMEN")
 export const actionGetTopBrands = createAction("ACTION_GET_TOP_BRANDS")
 export const actionOpenModalCart = createAction("ACTION_OPEN_MODAL_CART")
+export const actionOpenModalDelete = createAction("ACTION_OPEN_MODAL_DELETE")
 export const actionSetProductInfoForModalCart = createAction("ACTION_SET_PRODUCT_INFO_FOR_MODAL_CART")
 
 

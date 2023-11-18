@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import useModalDeleteHandler from '../../../hooks/useModalDeleteHandler'
 import {
   StyledShoppingCartProduct,
   StyledProductInfoBox,
@@ -16,8 +17,10 @@ const ShoppingCartProduct = ({
   color,
   brand,
   article,
-  openModalDelete,
 }) => {
+
+  const openModalDelete = useModalDeleteHandler()
+
   return (
     <StyledShoppingCartProduct>
       <td>
@@ -60,7 +63,6 @@ ShoppingCartProduct.propTypes = {
   color: PropTypes.string,
   brand: PropTypes.string,
   article: PropTypes.string,
-  openModalDelete: PropTypes.func.isRequired,
 }
 
 ShoppingCartProduct.defaultProps = {
