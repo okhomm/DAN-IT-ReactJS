@@ -1,9 +1,9 @@
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
+import { selectShoppingCartItems } from '../../store/selectors'
 import BreadCrumbs from '../../components/Content/BreadCrumbs'
-import Container from '../../styles/Container'
 import Button from '../../components/Button'
 import ShoppingCartProduct from '../../components/Content/ShoppingCartProduct'
-import {selectShoppingCartItems} from '../../store/selectors'
+import Container from '../../styles/Container'
 import {
   StyledShoppingCart,
   StyledShoppingCartHeader,
@@ -25,8 +25,7 @@ import {
   StyledEmptyList,
 } from './ShoppingCartStyles'
 
-const ShoppingCart = ({
-}) => {
+const ShoppingCart = ({}) => {
   const shoppingCartItems = useSelector(selectShoppingCartItems)
 
   const shoppingCartItemsList = shoppingCartItems.map((item) => {

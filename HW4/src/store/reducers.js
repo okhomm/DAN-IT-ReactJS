@@ -1,5 +1,5 @@
-import { createReducer } from '@reduxjs/toolkit';
-import * as actions from './actions.js';
+import { createReducer } from '@reduxjs/toolkit'
+import * as actions from './actions.js'
 
 const initialState = {
   favoritesItems: [],

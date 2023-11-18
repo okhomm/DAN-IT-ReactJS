@@ -1,17 +1,18 @@
-import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
-import { useSelector } from 'react-redux';
-import { selectFavoritesItems, selectShoppingCartItems } from '../../../store/selectors';
-
+import { Link, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import {
+  selectFavoritesItems,
+  selectShoppingCartItems,
+} from '../../../store/selectors'
 import Button from '../../Button'
-import Favorite from '../../../assets/svg/heart.svg?react'
-import Cart from '../../../assets/svg/cart.svg?react'
 import {
   StyledButtonsBlock,
   FavoriteItemsIndicator,
   CartItemsIndicator,
 } from './ButtonsBlockStyled'
+import Favorite from '../../../assets/svg/heart.svg?react'
+import Cart from '../../../assets/svg/cart.svg?react'
 
 const ButtonsBlock = () => {
   const location = useLocation()
@@ -26,9 +27,8 @@ const ButtonsBlock = () => {
   const determineCartIcon =
     currentPath === '/cart' ? 'hoverButton' : 'contentButton'
 
-    const favoritesItems = useSelector(selectFavoritesItems);
-    const shoppingCartItems = useSelector(selectShoppingCartItems);
-  
+  const favoritesItems = useSelector(selectFavoritesItems)
+  const shoppingCartItems = useSelector(selectShoppingCartItems)
 
   return (
     <StyledButtonsBlock>

@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { actionOpenModalCart, actionAddToShoppingCart } from '../store/actions';
-import { selectSelectedItemArticle, selectProducts, selectShoppingCartItems } from '../store/selectors';
+import { useDispatch, useSelector } from 'react-redux'
+import { actionOpenModalCart, actionAddToShoppingCart } from '../store/actions'
+import { selectSelectedItemArticle, selectProducts, selectShoppingCartItems } from '../store/selectors'
 
 const useAddItemToShoppingCart = () => {
   const dispatch = useDispatch()
@@ -28,6 +28,6 @@ const useAddItemToShoppingCart = () => {
   };
 
   return handleModalCart;
-};
+}
 
 export default useAddItemToShoppingCart

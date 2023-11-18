@@ -41,7 +41,7 @@ export const StyledTextBox = styled.div`
 
   & h5 {
     color: #3c4242;
-    font-family: Causten;
+    font-family: 'Causten', sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -52,7 +52,7 @@ export const StyledTextBox = styled.div`
 
   & span {
     color: #807d7e;
-    font-family: Causten;
+    font-family: 'Causten', sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -67,7 +67,7 @@ export const StyledTextBox = styled.div`
 
 export const StyledShoppingInfo = styled.span`
   color: #3c4242;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -76,7 +76,7 @@ export const StyledShoppingInfo = styled.span`
 
 export const StyledShoppingInfoSelected = styled.span`
   color: #bebcbd;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;

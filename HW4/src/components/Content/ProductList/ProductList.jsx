@@ -1,8 +1,7 @@
-import ProductItem from '../ProductItem'
 import styled from 'styled-components'
-
-import { selectProducts } from '../../../store/selectors'
 import { useSelector } from 'react-redux'
+import { selectProducts } from '../../../store/selectors'
+import ProductItem from '../ProductItem'
 
 const StyledProductList = styled.div`
   display: grid;
@@ -10,7 +9,7 @@ const StyledProductList = styled.div`
   gap: 36px;
   padding-top: 70px;
   padding-bottom: 100px;
-`
+`;
 
 const ProductList = () => {
   const products = useSelector(selectProducts)

@@ -1,6 +1,6 @@
+import Container from '../../styles/Container'
 import FooterMenu from './FooterMenu'
 import SocialIcons from './SocialIcons'
-import Container from '../../styles/Container'
 import {
   FooterWrapper,
   StyledFooterContent,

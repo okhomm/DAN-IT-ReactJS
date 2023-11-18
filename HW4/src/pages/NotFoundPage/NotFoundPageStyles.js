@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 export const StyledNotFoundPage = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const StyledNotFoundPage = styled.div`
 
 export const StyledErrorText = styled.span`
   color: #ccc;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -21,7 +21,7 @@ export const StyledErrorText = styled.span`
 
 export const Styled404Text = styled.span`
   color: #ccc;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 104px;
   font-style: normal;
   font-weight: 600;

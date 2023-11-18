@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types'
-import useModalCartHandler from '../../../hooks/useModalCartHandler.js'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectFavoritesItems } from '../../../store/selectors.js'
 import {
   actionAddToFavorite,
   actionRemoveFromFavorite,
 } from '../../../store/actions.js'
-
-import Delete from '../../../assets/svg/close.svg?react'
+import useModalCartHandler from '../../../hooks/useModalCartHandler.js'
 import Button from '../../Button'
 import {
   StyledFavoriteProduct,
@@ -18,12 +16,12 @@ import {
   StyledProductPrice,
   StyledProductDeleteIconBox,
 } from './FavoriteProductStyles'
+import Delete from '../../../assets/svg/close.svg?react'
 
 const FavoriteProduct = ({ name, price, img, color, article }) => {
-  const favoritesItems = useSelector(selectFavoritesItems)
-  const modalCartHandler = useModalCartHandler();
-
   const dispatch = useDispatch()
+  const favoritesItems = useSelector(selectFavoritesItems)
+  const modalCartHandler = useModalCartHandler()
 
   const isItemInFavorites = (article) => {
     return favoritesItems.some((item) => item.article === article)
@@ -43,7 +41,7 @@ const FavoriteProduct = ({ name, price, img, color, article }) => {
         <Delete />
       </StyledProductDeleteIconBox>
       <StyledProductImageBox>
-        <StyledProductImage src={img} alt="" />
+        <StyledProductImage src={img} alt={name} />
       </StyledProductImageBox>
 
       <StyledProductInfoBox>
@@ -73,6 +71,7 @@ FavoriteProduct.propTypes = {
 }
 
 FavoriteProduct.defaultProps = {
+  mane: 'Product name',
   price: 0,
   image: 'Product image',
   color: 'Product color',

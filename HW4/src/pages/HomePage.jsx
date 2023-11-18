@@ -1,3 +1,9 @@
+import { useSelector } from 'react-redux'
+import {
+  selectCategoriesForMen,
+  selectCategoriesForWomen,
+  selectTopBrands,
+} from '../store/selectors'
 import Flex from '../styles/Flex'
 import ContentTitle from '../components/Content/ContentTitle'
 import BannerSlider from '../components/Content/BannerSlider'
@@ -5,14 +11,6 @@ import CategoryList from '../components/Content/CategoryList'
 import ProductList from '../components/Content/ProductList'
 import TopBrands from '../components/Content/TopBrands'
 import Container from '../styles/Container'
-
-import {
-  selectCategoriesForMen,
-  selectCategoriesForWomen,
-  selectTopBrands,
-} from '../store/selectors'
-import { useSelector } from 'react-redux'
-
 import {
   StyledMain,
   StyledTopBrandsTitle,
@@ -22,9 +20,9 @@ import {
 } from '../components/Content/ContentStyles'
 
 const HomePage = () => {
+  const topBrands = useSelector(selectTopBrands)
   const categoriesForMen = useSelector(selectCategoriesForMen)
   const categoriesForWomen = useSelector(selectCategoriesForWomen)
-  const topBrands = useSelector(selectTopBrands)
 
   const topBransImages = topBrands.map(({ image }, index) => {
     return (

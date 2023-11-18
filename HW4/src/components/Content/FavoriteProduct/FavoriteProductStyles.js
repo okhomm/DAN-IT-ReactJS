@@ -32,7 +32,7 @@ export const StyledProductInfoBox = styled.div`
   margin-right: 161px;
   gap: 12px;
   color: #3c4242;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -49,7 +49,7 @@ export const StyledProductPrice = styled.span`
   min-width: 90px;
   max-width: 90px;
   color: #807d7e;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;

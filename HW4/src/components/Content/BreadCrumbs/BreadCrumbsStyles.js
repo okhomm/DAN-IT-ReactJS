@@ -11,7 +11,7 @@ export const StyledBreadCrumbsElement = styled.span`
   align-items: center;
   justify-content: center;
   color: #3C4242;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -23,7 +23,7 @@ export const StyledBreadCrumbsElementLink = styled(Link)`
   align-items: center;
   justify-content: center;
   color: #807d7e;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;

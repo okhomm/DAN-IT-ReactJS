@@ -10,7 +10,6 @@ padding: 12px 20px 12px 52px;
 background-color: ${({ theme }) => theme.colorStyles.shadowColor};
 border-radius: 8px;
 border: none;
-
 color: #807d7e;
 font-family: 'Causten', sans-serif;
 font-size: 16px;

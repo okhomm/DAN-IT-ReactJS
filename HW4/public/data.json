@@ -4,7 +4,7 @@
     "brand": "Jhanvi",
     "price": 20.99,
     "image": "./src/assets/img/categories-for-men/03-plain-t-shirt.png",
-    "article": "SKU12345",
+    "article": "SKU123451",
     "color": "Black"
   },
   {
@@ -12,7 +12,7 @@
     "brand": "AS",
     "price": 34.99,
     "image": "./src/assets/img/categories-for-women/01-hoodies-sweetshirt.png",
-    "article": "SKU67890",
+    "article": "SKU678902",
     "color": "Blue"
   },
   {
@@ -20,7 +20,7 @@
     "brand": "MM",
     "price": 29.99,
     "image": "./src/assets/img/categories-for-women/02-coats-parkas.png",
-    "article": "SKU13579",
+    "article": "SKU135793",
     "color": "Gray"
   },
   {
@@ -28,7 +28,7 @@
     "brand": "Nike",
     "price": 45.99,
     "image": "./src/assets/img/categories-for-men/05-hoodies-sweetshirt.png",
-    "article": "SKU24680",
+    "article": "SKU246804",
     "color": "Red"
   },
   {
@@ -36,7 +36,7 @@
     "brand": "Tommy",
     "price": 149.99,
     "image": "./src/assets/img/categories-for-men/01-shirts.png",
-    "article": "SKU35791",
+    "article": "SKU357915",
     "color": "Navy"
   },
   {
@@ -44,7 +44,7 @@
     "brand": "Puma",
     "price": 79.99,
     "image": "./src/assets/img/categories-for-women/04-boxers.png",
-    "article": "SKU46802",
+    "article": "SKU468026",
     "color": "Black"
   },
   {
@@ -52,7 +52,7 @@
     "brand": "Nike",
     "price": 16.99,
     "image": "./src/assets/img/categories-for-women/03-tees-t-shirt.png",
-    "article": "SKU57913",
+    "article": "SKU579137",
     "color": "Gray"
   },
   {
@@ -60,7 +60,7 @@
     "brand": "Jhanvi",
     "price": 55.99,
     "image": "./src/assets/img/categories-for-men/07-activewear.png",
-    "article": "SKU68024",
+    "article": "SKU680248",
     "color": "Brown"
   },
   {
@@ -68,7 +68,7 @@
     "brand": "MM",
     "price": 12.99,
     "image": "./src/assets/img/categories-for-women/04-boxers.png",
-    "article": "SKU79135",
+    "article": "SKU791359",
     "color": "Navy"
   },
   {
@@ -76,7 +76,7 @@
     "brand": "AS",
     "price": 24.99,
     "image": "./src/assets/img/categories-for-men/08-boxers.png",
-    "article": "SKU80246",
+    "article": "SKU802460",
     "color": "Green"
   },
   {
@@ -84,7 +84,7 @@
     "brand": "Tommy",
     "price": 18.99,
     "image": "./src/assets/img/categories-for-men/02-printed-t-shirts.png",
-    "article": "SKU91357",
+    "article": "SKU913511",
     "color": "Black"
   },
     {
@@ -92,7 +92,7 @@
       "brand": "Puma",
       "price": 45.99,
       "image": "./src/assets/img/categories-for-men/04-polo-t-shirt.png",
-      "article": "SKU24680",
+      "article": "SKU246812",
       "color": "Red"
     }
 

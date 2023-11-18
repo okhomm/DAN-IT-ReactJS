@@ -7,5 +7,5 @@ export const PageWrapper = styled.div`
   align-items: center;
   align-items: center;
   width: 100%;
-  background-color: ${({ theme }) => theme.colorStyles.title};
-`
+  background-color: ${({ theme }) => theme.colorStyles.title}
+`;

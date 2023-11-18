@@ -31,7 +31,7 @@ export const StyledNotificationBlock = styled.div`
   flex-direction: column;
   padding: 30px 0 50px 0;
   color: #807d7e;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -57,7 +57,7 @@ export const StyledCartItemsTable = styled.table`
   & th {
     color: #fff;
     text-align: center;
-    font-family: Causten;
+    font-family: 'Causten', sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
@@ -104,7 +104,7 @@ export const StyledDiscountCodesBlock = styled.div`
 
   & h6 {
     color: #3c4242;
-    font-family: Causten;
+    font-family: 'Causten', sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -114,7 +114,7 @@ export const StyledDiscountCodesBlock = styled.div`
   & span {
     padding-top: 10px;
     color: #807d7e;
-    font-family: Causten;
+    font-family: 'Causten', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -135,7 +135,7 @@ export const StyledInput = styled.input`
   border: 1px solid #ccc;
   border-radius: 12px 0 0 12px;
   color: #807d7e;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -147,7 +147,7 @@ export const StyledButton = styled.button`
   padding: 12px 32px;
   background-color: #8a33fd;
   color: #fff;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -172,7 +172,7 @@ export const StyledTotalInfo = styled.div`
   display: flex;
   justify-content: space-between;
   color: #3c4242;
-  font-family: Causten;
+  font-family: 'Causten', sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 500;
@@ -185,7 +185,7 @@ export const StyledTotalInfo = styled.div`
   & h6 {
     margin-top: 25px;
     color: #3c4242;
-    font-family: Causten;
+    font-family: 'Causten', sans-serif;
     font-size: 22px;
     font-style: normal;
     font-weight: 700;

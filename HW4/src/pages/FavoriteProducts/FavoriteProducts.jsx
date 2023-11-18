@@ -4,6 +4,7 @@ import ContentSecondaryTitle from '../../components/Content/ContentSecondaryTitl
 import BreadCrumbs from '../../components/Content/BreadCrumbs'
 import FavoriteProduct from '../../components/Content/FavoriteProduct'
 import Container from '../../styles/Container'
+
 import {
   StyledFavoriteProducts,
   StyledFavoriteContent,

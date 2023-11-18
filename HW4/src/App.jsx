@@ -14,19 +14,20 @@ import {
   selectOpenModalDelete,
   selectProductInfoForModalCart,
 } from './store/selectors'
-import ModalCart from './components/Modal/ModalCart'
-import Header from './components/Header'
-import Content from './components/Content'
-import Footer from './components/Footer/Footer'
 import useModalCartHandler from './hooks/useModalCartHandler'
 import useModalDeleteHandler from './hooks/useModalDeleteHandler'
 import useAddItemToShoppingCartHandler from './hooks/useAddItemToShoppingCart'
+import Header from './components/Header'
+import Content from './components/Content'
+import Footer from './components/Footer/Footer'
+import ModalCart from './components/Modal/ModalCart'
 import Theme from './styles/Theme'
 import Flex from './styles/Flex'
 import { PageWrapper } from './AppStyles'
 
 const App = () => {
   const dispatch = useDispatch()
+
   const openModalCart = useSelector(selectOpenModalCart)
   const openModalDelete = useSelector(selectOpenModalDelete)
   const itemInfoForModalCart = useSelector(selectProductInfoForModalCart)

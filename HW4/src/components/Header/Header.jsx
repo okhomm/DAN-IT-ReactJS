@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
+import Container from '../../styles/Container'
 import TopMenu from './TopMenu'
 import SearchBar from './SearchBar'
 import ButtonsBlock from './ButtonsBlock'
 import Logo from '../../assets/svg/logo.svg?react'
-import Container from '../../styles/Container'
 import { StyledHeader, TopMenuBlock } from './HeaderStyles'
 
 const Header = () => {

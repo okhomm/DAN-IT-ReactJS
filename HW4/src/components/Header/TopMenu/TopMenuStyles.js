@@ -18,12 +18,11 @@ export const StyledTopMenuLink = styled(Link)`
 text-decoration: none;
 color: ${({ theme }) => theme.colorStyles.secondaryColor};
 
-font-family: Causten;
+font-family: 'Causten', sans-serif;
 font-size: 22px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-
 
 & a:hover {
 color: ${({ theme }) => theme.colorStyles.primaryColor};
