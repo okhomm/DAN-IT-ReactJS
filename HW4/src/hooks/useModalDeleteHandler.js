@@ -1,12 +1,11 @@
 import { useDispatch } from 'react-redux';
-import { actionOpenModalDelete, actionSetProductInfoForModalCart, actionAddToCartArticle } from '../store/actions';
+import { actionOpenModalDelete, actionSetProductInfoForModalCart, actionSelectedItemArticle } from '../store/actions';
 
 const useModalDeleteHandler = () => {
   const dispatch = useDispatch();
   const handleModalDelete = (image, name, price, article) => {
-
-    dispatch(actionSetProductInfoForModalCart({image, name, price, article}))
-    // dispatch(actionAddToCartArticle({article}))
+    dispatch(actionSelectedItemArticle({ article }))
+    dispatch(actionSetProductInfoForModalCart({ image, name, price, article }))
     dispatch(actionOpenModalDelete());
   };
   return handleModalDelete;

@@ -4,7 +4,7 @@ import * as actions from './actions.js';
 const initialState = {
   favoritesItems: [],
   shoppingCartItems: [],
-  addToCartArticle: {},
+  selectedItemArticle: {},
   products: [],
   categoriesForMen: [],
   categoriesForWomen: [],
@@ -43,8 +43,11 @@ const productsReducer = createReducer(initialState, (builder) => {
     .addCase(actions.actionAddToShoppingCart, (state, { payload }) => {
       state.shoppingCartItems = [...state.shoppingCartItems, payload];
     })
-    .addCase(actions.actionAddToCartArticle, (state, { payload }) => {
-      state.addToCartArticle = payload;
+    .addCase(actions.actionRemoveFromShoppingCart, (state, { payload }) => {
+      state.shoppingCartItems = state.shoppingCartItems.filter(item => item.article !== payload);
+    })
+    .addCase(actions.actionSelectedItemArticle, (state, { payload }) => {
+      state.selectedItemArticle = payload;
     })
     .addCase(actions.actionOpenModalDelete, (state) => {
       state.openModalDelete = !state.openModalDelete;

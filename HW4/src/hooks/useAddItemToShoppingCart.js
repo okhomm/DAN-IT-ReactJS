@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { actionOpenModalCart, actionAddToShoppingCart } from '../store/actions';
-import { selectAddToCartArticle, selectProducts, selectShoppingCartItems } from '../store/selectors';
+import { selectSelectedItemArticle, selectProducts, selectShoppingCartItems } from '../store/selectors';
 
 const useAddItemToShoppingCart = () => {
   const dispatch = useDispatch()
   const productList = useSelector(selectProducts)
   const shoppingCartItems = useSelector(selectShoppingCartItems)
-  const addToCartArticleObj = useSelector(selectAddToCartArticle)
+  const addToCartArticleObj = useSelector(selectSelectedItemArticle)
   const addToCartArticle = addToCartArticleObj.article
 
   const handleModalCart = () => {

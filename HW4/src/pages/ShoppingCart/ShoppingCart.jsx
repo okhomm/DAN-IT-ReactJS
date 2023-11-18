@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import {useSelector} from 'react-redux'
 import BreadCrumbs from '../../components/Content/BreadCrumbs'
 import Container from '../../styles/Container'
@@ -27,7 +26,6 @@ import {
 } from './ShoppingCartStyles'
 
 const ShoppingCart = ({
-  removeFromShoppingCart,
 }) => {
   const shoppingCartItems = useSelector(selectShoppingCartItems)
 
@@ -42,8 +40,6 @@ const ShoppingCart = ({
         color={color}
         brand={brand}
         article={article}
-        removeFromShoppingCart={removeFromShoppingCart}
-        // openModalDelete={openModalDelete}
       />
     )
   })
@@ -146,10 +142,6 @@ const ShoppingCart = ({
       </StyledShoppingCart>
     </>
   )
-}
-
-ShoppingCart.propTypes = {
-  removeFromShoppingCart: PropTypes.func.isRequired,
 }
 
 export default ShoppingCart

@@ -1,15 +1,19 @@
-import { useEffect, useState } from 'react'
-
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   actionFetchProducts,
   actionFetchCategoriesForMen,
   actionFetchCategoriesForWomen,
   actionFetchTopBrands,
+  actionRemoveFromShoppingCart,
+  actionOpenModalDelete,
 } from './store/actions'
-
-import { selectOpenModalCart, selectOpenModalDelete, selectProductInfoForModalCart } from './store/selectors'
-
+import {
+  selectSelectedItemArticle,
+  selectOpenModalCart,
+  selectOpenModalDelete,
+  selectProductInfoForModalCart,
+} from './store/selectors'
 import ModalCart from './components/Modal/ModalCart'
 import Header from './components/Header'
 import Content from './components/Content'
@@ -17,23 +21,20 @@ import Footer from './components/Footer/Footer'
 import useModalCartHandler from './hooks/useModalCartHandler'
 import useModalDeleteHandler from './hooks/useModalDeleteHandler'
 import useAddItemToShoppingCartHandler from './hooks/useAddItemToShoppingCart'
-
 import Theme from './styles/Theme'
 import Flex from './styles/Flex'
 import { PageWrapper } from './AppStyles'
 
 const App = () => {
-  const [productInfoForModalDelete, setProductInfoForModalDelete] = useState({})
-
   const dispatch = useDispatch()
   const openModalCart = useSelector(selectOpenModalCart)
   const openModalDelete = useSelector(selectOpenModalDelete)
-  const itemInfoForModalCart = useSelector(selectProductInfoForModalCart);
+  const itemInfoForModalCart = useSelector(selectProductInfoForModalCart)
+  const itemForRemoveFromShoppingCart = useSelector(selectSelectedItemArticle)
 
-  const modalCartHandler = useModalCartHandler();
-  const modalDeleteHandler = useModalDeleteHandler();
-  const addToShoppingCartHandler = useAddItemToShoppingCartHandler();
-
+  const modalCartHandler = useModalCartHandler()
+  const modalDeleteHandler = useModalDeleteHandler()
+  const addToShoppingCartHandler = useAddItemToShoppingCartHandler()
 
   useEffect(() => {
     dispatch(actionFetchProducts())
@@ -42,16 +43,10 @@ const App = () => {
     dispatch(actionFetchTopBrands())
   }, [])
 
-  const deleteItemFromCartFromModal = (article) => {
-    removeItemFromShoppingCartHandler(article)
-    setOpenModalDelete(!openModalDelete)
-  }
-
-  const removeItemFromShoppingCartHandler = (article) => {
-    const updatedShoppingCartItems = shoppingCartItems.filter(
-      (item) => item.article !== article
-    )
-    setShoppingCartItems(updatedShoppingCartItems)
+  const removeItemFromShoppingCartHandler = () => {
+    const article = itemForRemoveFromShoppingCart.article
+    dispatch(actionRemoveFromShoppingCart(article))
+    dispatch(actionOpenModalDelete())
   }
 
   return (
@@ -59,8 +54,7 @@ const App = () => {
       <Theme>
         <Flex $direction="column" $justify="center" $align="center">
           <PageWrapper>
-            <Header
-            />
+            <Header />
 
             <Content
               openModalDelete={modalDeleteHandler}
@@ -91,9 +85,7 @@ const App = () => {
             firstButtonText="NO, CANCEL"
             firstButtonClick={modalDeleteHandler}
             secondButtonText="YES, DELETE"
-            secondButtonClick={() =>
-              deleteItemFromCartFromModal(productInfoForModalDelete.article)
-            }
+            secondButtonClick={() => removeItemFromShoppingCartHandler()}
             closeModal={modalDeleteHandler}
           />
         )}
