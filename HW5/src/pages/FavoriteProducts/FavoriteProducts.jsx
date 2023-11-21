@@ -3,6 +3,7 @@ import { selectFavoritesItems } from '../../store/selectors.js'
 import ContentSecondaryTitle from '../../components/Content/ContentSecondaryTitle'
 import BreadCrumbs from '../../components/Content/BreadCrumbs'
 import FavoriteProduct from '../../components/Content/FavoriteProduct'
+import ModalAddToCart from '../../components/Modal/ModalAddToCart.jsx'
 import Container from '../../styles/Container'
 
 import {
@@ -30,21 +31,24 @@ const FavoriteProducts = () => {
   })
 
   return (
-    <Container>
-      <StyledFavoriteProducts>
-        <BreadCrumbs pageName="Wishlist" />
-        <StyledFavoriteContentWrapper>
-          <ContentSecondaryTitle>Wishlist</ContentSecondaryTitle>
-          <StyledFavoriteContent>
-            {favoritesItems.length > 0 ? (
-              favoriteProductsList
-            ) : (
-              <StyledEmptyList>No products</StyledEmptyList>
-            )}
-          </StyledFavoriteContent>
-        </StyledFavoriteContentWrapper>
-      </StyledFavoriteProducts>
-    </Container>
+    <>
+      <Container>
+        <StyledFavoriteProducts>
+          <BreadCrumbs pageName="Wishlist" />
+          <StyledFavoriteContentWrapper>
+            <ContentSecondaryTitle>Wishlist</ContentSecondaryTitle>
+            <StyledFavoriteContent>
+              {favoritesItems.length > 0 ? (
+                favoriteProductsList
+              ) : (
+                <StyledEmptyList>No products</StyledEmptyList>
+              )}
+            </StyledFavoriteContent>
+          </StyledFavoriteContentWrapper>
+        </StyledFavoriteProducts>
+      </Container>
+      <ModalAddToCart />
+    </>
   )
 }
 

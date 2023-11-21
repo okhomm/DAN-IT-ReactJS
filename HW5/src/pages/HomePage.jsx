@@ -1,15 +1,23 @@
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   selectCategoriesForMen,
   selectCategoriesForWomen,
   selectTopBrands,
 } from '../store/selectors'
+import {
+  actionFetchProducts,
+  actionFetchTopBrands,
+  actionFetchCategoriesForMen,
+  actionFetchCategoriesForWomen,
+} from '../store/actions'
 import Flex from '../styles/Flex'
 import ContentTitle from '../components/Content/ContentTitle'
 import BannerSlider from '../components/Content/BannerSlider'
 import CategoryList from '../components/Content/CategoryList'
 import ProductList from '../components/Content/ProductList'
 import TopBrands from '../components/Content/TopBrands'
+import ModalAddToCart from '../components/Modal/ModalAddToCart'
 import Container from '../styles/Container'
 import {
   StyledMain,
@@ -20,6 +28,15 @@ import {
 } from '../components/Content/ContentStyles'
 
 const HomePage = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(actionFetchProducts())
+    dispatch(actionFetchTopBrands())
+    dispatch(actionFetchCategoriesForMen())
+    dispatch(actionFetchCategoriesForWomen())
+  }, [])
+
   const topBrands = useSelector(selectTopBrands)
   const categoriesForMen = useSelector(selectCategoriesForMen)
   const categoriesForWomen = useSelector(selectCategoriesForWomen)
@@ -56,6 +73,7 @@ const HomePage = () => {
           <ProductList />
         </StyledMain>
       </Container>
+      <ModalAddToCart />
     </>
   )
 }

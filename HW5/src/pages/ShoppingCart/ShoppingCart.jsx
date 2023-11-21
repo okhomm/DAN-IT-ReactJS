@@ -4,6 +4,7 @@ import BreadCrumbs from '../../components/Content/BreadCrumbs'
 import Button from '../../components/Button'
 import ShoppingCartProduct from '../../components/Content/ShoppingCartProduct'
 import Container from '../../styles/Container'
+import ModalDeleteFromCart from '../../components/Modal/ModalDeleteFromCart'
 import {
   StyledShoppingCart,
   StyledShoppingCartHeader,
@@ -139,6 +140,7 @@ const ShoppingCart = ({}) => {
           </Container>
         </TableBottomBg>
       </StyledShoppingCart>
+      <ModalDeleteFromCart />
     </>
   )
 }
