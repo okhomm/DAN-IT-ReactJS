@@ -11,7 +11,19 @@ const initialState = {
   topBrands: [],
   openModalCart: false,
   openModalDelete: false,
-  productInfoForModalCart: {}
+  productInfoForModalCart: {},
+  checkout: {
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    countryRegion: 'Country / Region',
+    companyName: 'Company (optional)',
+    streetAddress: 'House number and street name',
+    aptSuiteUnit: 'apartment, suite, unit, etc. (optional)',
+    city: 'Town / City',
+    state: 'State',
+    postalCode: 'Postal Code',
+    phone: 'Phone'
+  }
 };
 
 const productsReducer = createReducer(initialState, (builder) => {

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectShoppingCartItems } from '../../store/selectors'
 import BreadCrumbs from '../../components/Content/BreadCrumbs'
@@ -131,9 +132,11 @@ const ShoppingCart = ({}) => {
                   </StyledTotalCost>
                 </StyledTotalInfo>
                 <StyledCostButtonBox>
-                  <Button $buttonType="primaryButton" $size="m">
-                    Proceed To Checkout
-                  </Button>
+                  <Link to="/checkout">
+                    <Button $buttonType="primaryButton" $size="m">
+                      Proceed To Checkout
+                    </Button>
+                  </Link>
                 </StyledCostButtonBox>
               </StyledTotalInfoBlock>
             </StyledUnionTableBottomBlock>

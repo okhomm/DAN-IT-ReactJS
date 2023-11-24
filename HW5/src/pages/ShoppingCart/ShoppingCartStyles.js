@@ -211,6 +211,10 @@ export const StyledCostButtonBox = styled.div`
   justify-content: center;
   align-items: center;
   padding: 50px 0;
+
+  & a {
+    text-decoration: none;
+  }
 `;
 
 export const StyledEmptyList = styled.div`
