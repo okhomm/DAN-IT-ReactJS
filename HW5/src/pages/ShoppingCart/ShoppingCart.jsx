@@ -27,7 +27,7 @@ import {
   StyledEmptyList,
 } from './ShoppingCartStyles'
 
-const ShoppingCart = ({}) => {
+const ShoppingCart = () => {
   const shoppingCartItems = useSelector(selectShoppingCartItems)
 
   const shoppingCartItemsList = shoppingCartItems.map((item) => {

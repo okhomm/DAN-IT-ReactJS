@@ -14,6 +14,7 @@ font-size: 28.579px;
 font-style: normal;
 font-weight: 700;
 line-height: 216.9%;
+
 `;
 
 export const StyledMenuItemsList = styled.ul`

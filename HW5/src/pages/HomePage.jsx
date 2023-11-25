@@ -17,7 +17,6 @@ import BannerSlider from '../components/Content/BannerSlider'
 import CategoryList from '../components/Content/CategoryList'
 import ProductList from '../components/Content/ProductList'
 import TopBrands from '../components/Content/TopBrands'
-import ModalAddToCart from '../components/Modal/ModalAddToCart'
 import Container from '../styles/Container'
 import {
   StyledMain,
@@ -73,7 +72,6 @@ const HomePage = () => {
           <ProductList />
         </StyledMain>
       </Container>
-      <ModalAddToCart />
     </>
   )
 }

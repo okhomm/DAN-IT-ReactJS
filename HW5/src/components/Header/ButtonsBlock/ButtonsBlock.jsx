@@ -24,8 +24,10 @@ const ButtonsBlock = () => {
 
   const determineFavoriteIcon =
     currentPath === '/favorite' ? 'hoverButton' : 'contentButton'
-  const determineCartIcon =
-    currentPath === '/cart' ? 'hoverButton' : 'contentButton'
+
+    const determineCartIcon = currentPath === '/cart' || currentPath === '/checkout'
+  ? 'hoverButton'
+  : 'contentButton';
 
   const favoritesItems = useSelector(selectFavoritesItems)
   const shoppingCartItems = useSelector(selectShoppingCartItems)

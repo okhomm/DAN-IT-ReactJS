@@ -58,6 +58,13 @@ const Global = createGlobalStyle`
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url('/src/assets/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
   * {
     margin: 0;
     padding: 0;
