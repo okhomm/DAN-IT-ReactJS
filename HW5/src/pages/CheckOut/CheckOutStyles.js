@@ -10,6 +10,7 @@ export const StyledCheckOutForm = styled.div`
 export const StyledContentBlock = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   margin-top: 20px;
 `;
 
@@ -17,9 +18,7 @@ export const StyledOrderSummary = styled.div`
   display: flex;
   flex-direction: column;
   padding: 40px 22px;
-  justify-content: center;
   width: 400px;
-  height: 720px;
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.05),
     -2px -2px 4px 0px rgba(0, 0, 0, 0.05);
 `;

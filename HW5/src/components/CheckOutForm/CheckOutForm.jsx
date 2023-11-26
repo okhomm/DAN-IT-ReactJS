@@ -1,15 +1,30 @@
 import { Formik, Form } from 'formik'
+import { useSelector, useDispatch } from 'react-redux'
+import { actionClearShoppingCart } from '../../store/actions'
+import { selectShoppingCartItems } from '../../store/selectors'
 import Input from './Input/'
 import Button from '../Button/'
 import ContentSecondaryTitle from '../Content/ContentSecondaryTitle'
+import MaskedInput from './MaskedInput/MaskedInput'
+import { validationSchema } from './validations'
 import {
   StyledCheckOutFormContainer,
   StyledFirstFormSection,
   StyledMiddleFormSection,
   StyledLastFormSection,
+  StyledButtonBox,
 } from './CheckOutFormStyles'
 
 const CheckOutForm = () => {
+  const dispatch = useDispatch()
+  const shoppingCartItems = useSelector(selectShoppingCartItems)
+
+  const sendData = (value) => {
+    console.log('Checkout user info:', value)
+    console.log('Checkout products:', shoppingCartItems)
+    dispatch(actionClearShoppingCart())
+  }
+
   return (
     <Formik
       initialValues={{
@@ -18,13 +33,14 @@ const CheckOutForm = () => {
         countryRegion: '',
         companyName: '',
         streetAddress: '',
-        aptSuiteUnit: '',
+        age: '',
         city: '',
         state: '',
         postalCode: '',
         phone: '',
       }}
-      onSubmit={(values) => console.log(JSON.stringify(values))}
+      onSubmit={(value) => sendData(value)}
+      validationSchema={validationSchema}
     >
       {({ errors, touched }) => (
         <StyledCheckOutFormContainer>
@@ -55,8 +71,8 @@ const CheckOutForm = () => {
               <Input
                 type="text"
                 name="companyName"
-                label="Company Name"
-                placeholder="Company (optional)"
+                label="Company Name*"
+                placeholder="Company"
                 error={errors.companyName && touched.companyName}
               />
               <Input
@@ -68,10 +84,10 @@ const CheckOutForm = () => {
               />
               <Input
                 type="text"
-                name="aptSuiteUnit"
-                label="Apt, suite, unit"
-                placeholder="apartment, suite, unit, etc. (optional)"
-                error={errors.aptSuiteUnit && touched.aptSuiteUnit}
+                name="age"
+                label="Age*"
+                placeholder="Your age"
+                error={errors.age && touched.age}
               />
             </StyledFirstFormSection>
             <StyledMiddleFormSection>
@@ -98,16 +114,18 @@ const CheckOutForm = () => {
               />
             </StyledMiddleFormSection>
             <StyledLastFormSection>
-              <Input
+              <MaskedInput
                 type="text"
                 name="phone"
                 label="Phone*"
-                placeholder="Phone"
-                error={errors.phone && touched.phone}
+                error={errors.phone && touched.phone ? errors.phone : undefined}
               />
-              <Button $buttonType="primaryButton" $size="m">
-                Continue to delivery
-              </Button>
+
+              <StyledButtonBox>
+                <Button type="submit" $buttonType="primaryButton" $size="m">
+                  Continue to delivery
+                </Button>
+              </StyledButtonBox>
               <label>
                 <input type="checkbox" /> Save my information for a faster
                 checkout

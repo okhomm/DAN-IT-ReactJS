@@ -45,3 +45,7 @@ export const StyledLastFormSection = styled.div`
     line-height: normal;
   }
 `;
+
+export const StyledButtonBox = styled.div`
+margin-top: 44px;
+`

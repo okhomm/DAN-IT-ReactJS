@@ -12,18 +12,6 @@ const initialState = {
   openModalCart: false,
   openModalDelete: false,
   productInfoForModalCart: {},
-  checkout: {
-    firstName: 'First Name',
-    lastName: 'Last Name',
-    countryRegion: 'Country / Region',
-    companyName: 'Company (optional)',
-    streetAddress: 'House number and street name',
-    aptSuiteUnit: 'apartment, suite, unit, etc. (optional)',
-    city: 'Town / City',
-    state: 'State',
-    postalCode: 'Postal Code',
-    phone: 'Phone'
-  }
 };
 
 const productsReducer = createReducer(initialState, (builder) => {
@@ -54,6 +42,9 @@ const productsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(actions.actionAddToShoppingCart, (state, { payload }) => {
       state.shoppingCartItems = [...state.shoppingCartItems, payload];
+    })
+    .addCase(actions.actionClearShoppingCart, (state, { }) => {
+      state.shoppingCartItems = [];
     })
     .addCase(actions.actionRemoveFromShoppingCart, (state, { payload }) => {
       state.shoppingCartItems = state.shoppingCartItems.filter(item => item.article !== payload);

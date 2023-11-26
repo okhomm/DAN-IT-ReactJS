@@ -1,8 +1,9 @@
-import { Field, ErrorMessage } from 'formik'
+import { Field } from 'formik'
 import PropTypes from 'prop-types'
-import { StyledInputTitle, StyledField } from './InputStyles'
+import { StyledInputTitle, StyledField, StyledErrorMessage } from './InputStyles'
 
 const Input = ({ type, placeholder, label, name, error, ...restProps }) => {
+
   return (
     <label>
       <StyledInputTitle>{label}</StyledInputTitle>
@@ -10,10 +11,11 @@ const Input = ({ type, placeholder, label, name, error, ...restProps }) => {
         as={Field}
         type={type}
         name={name}
+        $error={error}
         placeholder={placeholder}
         {...restProps}
       />
-      <ErrorMessage name={name} component="p" />
+      <StyledErrorMessage name={name} component="p" />
     </label>
   )
 }
@@ -27,7 +29,6 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
-  error: PropTypes.object,
 }
 
 export default Input

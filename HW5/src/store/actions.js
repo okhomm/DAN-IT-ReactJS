@@ -4,6 +4,7 @@ import sendRequest from "../helpers/sendRequest"
 export const actionAddToFavorite = createAction("ACTION_ADD_TO_FAVORITE")
 export const actionRemoveFromFavorite = createAction("ACTION_REMOVE_FROM_FAVORITE")
 export const actionAddToShoppingCart = createAction("ACTION_ADD_TO_SHOPPING_CART")
+export const actionClearShoppingCart = createAction("ACTION_CLEAR_SHOPPING_CART")
 export const actionRemoveFromShoppingCart = createAction("ACTION_REMOVE_FROM_SHOPPING_CART")
 export const actionSelectedItemArticle = createAction("ACTION_SELECTED_ITEM_ARTICLE")
 export const actionGetProducts = createAction("ACTION_GET_PRODUCTS")

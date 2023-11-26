@@ -1,5 +1,5 @@
-import { ErrorMessage } from 'formik'
-import styled, {css} from 'styled-components'
+import styled from 'styled-components';
+import { ErrorMessage } from 'formik';
 
 export const StyledInputTitle = styled.p`
   color: #3c4242;
@@ -9,7 +9,7 @@ export const StyledInputTitle = styled.p`
   line-height: normal;
   letter-spacing: 0.32px;
   padding-bottom: 10px;
-`
+`;
 
 export const StyledField = styled.input`
   padding: 16px 20px;
@@ -27,8 +27,7 @@ export const StyledField = styled.input`
   border: ${(props) => (props.$error ? '1px solid red' : 'none')};
 `;
 
-
 export const StyledErrorMessage = styled(ErrorMessage)`
   font-family: Roboto;
   color: red;
-`
+`;
