@@ -3,16 +3,19 @@ import * as yup from 'yup'
 export const validationSchema = yup.object({
   firstName: yup
     .string('Enter your First name')
+    .matches(/[а-яА-ЯёЁa-zA-Z]$/, 'Cannot have numeric values')
     .required('First name is required')
     .min(2, 'Too short First name')
     .max(60, 'Too long First name'),
   lastName: yup
     .string('Enter your Last name')
+    .matches(/[а-яА-ЯёЁa-zA-Z]$/, 'Cannot have numeric values')
     .required('Last name is required')
     .min(2, 'Too short Last name')
     .max(60, 'Too long Last name'),
   countryRegion: yup
     .string('Enter your Country/Region')
+    .matches(/[а-яА-ЯёЁa-zA-Z]$/, 'Cannot have numeric values')
     .required('Country/Region is required')
     .min(5, 'Too short Country/Region')
     .max(30, 'Too long Country/Region'),
@@ -35,11 +38,13 @@ export const validationSchema = yup.object({
     .max(120, 'Age must be at most 120'),
   city: yup
     .string('Enter your City')
+    .matches(/[а-яА-ЯёЁa-zA-Z]$/, 'Cannot have numeric values')
     .required('City is required')
     .min(2, 'Too short City')
     .max(60, 'Too long City'),
   state: yup
     .string('Enter your State')
+    .matches(/[а-яА-ЯёЁa-zA-Z]$/, 'Cannot have numeric values')
     .required('State is required')
     .min(2, 'Too short State')
     .max(60, 'Too long State'),
