@@ -18,16 +18,21 @@ import CategoryList from '../components/Content/CategoryList'
 import ProductList from '../components/Content/ProductList'
 import TopBrands from '../components/Content/TopBrands'
 import Container from '../styles/Container'
+import { useView } from '../contexts/ViewContext'
 import {
   StyledMain,
   StyledTopBrandsTitle,
   StyledTopBrandsText,
   StyledTopBrandsSelectedText,
   TopBransImageBox,
+  ItemsTitleBlock,
+  StyledLabel,
+  StyledSelect,
 } from '../components/Content/ContentStyles'
 
 const HomePage = () => {
   const dispatch = useDispatch()
+  const { view, changeView } = useView()
 
   useEffect(() => {
     dispatch(actionFetchProducts())
@@ -68,7 +73,19 @@ const HomePage = () => {
               {topBransImages}
             </Flex>
           </TopBrands>
-          <ContentTitle>In The Limelight</ContentTitle>
+          <ItemsTitleBlock>
+            <ContentTitle>In The Limelight</ContentTitle>
+            <div>
+              <StyledLabel>View:</StyledLabel>
+              <StyledSelect
+                value={view}
+                onChange={(e) => changeView(e.target.value)}
+              >
+                <option value="grid">Grid</option>
+                <option value="list">List</option>
+              </StyledSelect>
+            </div>
+          </ItemsTitleBlock>
           <ProductList />
         </StyledMain>
       </Container>

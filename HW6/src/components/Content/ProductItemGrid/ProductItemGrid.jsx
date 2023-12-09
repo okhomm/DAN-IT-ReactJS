@@ -18,10 +18,10 @@ import {
   StyledProductTitle,
   StyledProductImage,
   StyledProductBrand,
-} from './ProductItemStyles'
+} from './ProductItemGridStyles'
 import Heart from '../../../assets/svg/heart.svg?react'
 
-const ProductItem = ({ img, name, brand, price, article }) => {
+const ProductItemGrid = ({ img, name, brand, price, article }) => {
   const dispatch = useDispatch()
   const modalCartHandler = useModalCartHandler()
   const favoritesItems = useSelector(selectFavoritesItems)
@@ -74,7 +74,7 @@ const ProductItem = ({ img, name, brand, price, article }) => {
   )
 }
 
-ProductItem.propTypes = {
+ProductItemGrid.propTypes = {
   img: PropTypes.string,
   name: PropTypes.string,
   brand: PropTypes.string,
@@ -82,7 +82,7 @@ ProductItem.propTypes = {
   article: PropTypes.string,
 }
 
-ProductItem.defaultProps = {
+ProductItemGrid.defaultProps = {
   img: 'Product image',
   name: 'Product name',
   brand: 'Product brand',
@@ -90,4 +90,4 @@ ProductItem.defaultProps = {
   article: 'Product article',
 }
 
-export default ProductItem
+export default ProductItemGrid

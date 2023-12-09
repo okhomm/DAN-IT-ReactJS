@@ -49,3 +49,23 @@ export const TopBransImageBox = styled.figure`
     margin-right: 0;
   }
 `;
+
+export const ItemsTitleBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const StyledLabel = styled.label`
+  margin-right: 15px;
+  font-family: 'Causten', sans-serif;
+  font-size: 18px;
+`
+
+export const StyledSelect = styled.select`
+  font-family: 'Causten', sans-serif;
+  font-size: 16px;
+  border-radius: 5px;
+
+  padding: 5px;
+`
