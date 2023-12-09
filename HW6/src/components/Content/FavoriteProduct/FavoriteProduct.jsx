@@ -1,3 +1,4 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectFavoritesItems } from '../../../store/selectors.js'

@@ -1,3 +1,4 @@
+import React from 'react'
 import CheckOutForm from '../../components/CheckOutForm'
 import BreadCrumbs from '../../components/Content/BreadCrumbs'
 import Container from '../../styles/Container'

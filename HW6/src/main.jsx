@@ -18,12 +18,12 @@ const ScrollToTop = () => {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <ScrollToTop />
-      <ViewProvider>
+  <ViewProvider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ScrollToTop />
         <App />
-      </ViewProvider>
-    </BrowserRouter>
-  </Provider>
+      </BrowserRouter>
+    </Provider>
+  </ViewProvider>
 )

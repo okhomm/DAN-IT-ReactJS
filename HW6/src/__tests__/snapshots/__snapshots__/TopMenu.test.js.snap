@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders TopMenu component 1`] = `
+<div>
+  <ul
+    class="sc-bdnyFh eMYlAR"
+  >
+    <li
+      class="sc-gtsqUy fHxyKq"
+    >
+      <a
+        class="sc-dlniIP dzFmRf"
+        href="/shop"
+      >
+        Shop
+      </a>
+    </li>
+    <li
+      class="sc-gtsqUy fHxyKq"
+    >
+      <a
+        class="sc-dlniIP dzFmRf"
+        href="/shop/man"
+      >
+        Man
+      </a>
+    </li>
+    <li
+      class="sc-gtsqUy fHxyKq"
+    >
+      <a
+        class="sc-dlniIP dzFmRf"
+        href="/shop/woman"
+      >
+        Woman
+      </a>
+    </li>
+    <li
+      class="sc-gtsqUy fHxyKq"
+    >
+      <a
+        class="sc-dlniIP dzFmRf"
+        href="/shop/combos"
+      >
+        Combos
+      </a>
+    </li>
+    <li
+      class="sc-gtsqUy fHxyKq"
+    >
+      <a
+        class="sc-dlniIP dzFmRf"
+        href="/shop/joggers"
+      >
+        Joggers
+      </a>
+    </li>
+  </ul>
+</div>
+`;

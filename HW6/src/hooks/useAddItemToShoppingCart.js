@@ -7,7 +7,8 @@ const useAddItemToShoppingCart = () => {
   const productList = useSelector(selectProducts)
   const shoppingCartItems = useSelector(selectShoppingCartItems)
   const addToCartArticleObj = useSelector(selectSelectedItemArticle)
-  const addToCartArticle = addToCartArticleObj.article
+  const addToCartArticle = addToCartArticleObj?.article || 'defaultArticle';
+
 
   const handleModalCart = () => {
     const isAlreadyAdded = shoppingCartItems.some(

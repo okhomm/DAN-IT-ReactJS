@@ -1,3 +1,4 @@
+import React from 'react'
 import { ItemList, StyledTopMenuItem, StyledTopMenuLink } from './TopMenuStyles'
 
 const TopMenu = () => {

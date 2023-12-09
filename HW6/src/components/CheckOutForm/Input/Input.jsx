@@ -1,9 +1,13 @@
+import React from 'react'
 import { Field } from 'formik'
 import PropTypes from 'prop-types'
-import { StyledInputTitle, StyledField, StyledErrorMessage } from './InputStyles'
+import {
+  StyledInputTitle,
+  StyledField,
+  StyledErrorMessage,
+} from './InputStyles'
 
 const Input = ({ type, placeholder, label, name, error, ...restProps }) => {
-
   return (
     <label>
       <StyledInputTitle>{label}</StyledInputTitle>

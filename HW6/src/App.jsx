@@ -1,3 +1,4 @@
+import React from 'react'
 import Content from './components/Content'
 import Theme from './styles/Theme'
 import Flex from './styles/Flex'

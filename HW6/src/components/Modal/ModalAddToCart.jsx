@@ -1,3 +1,4 @@
+import React from 'react'
 import {useSelector } from 'react-redux'
 import {  selectOpenModalCart, selectProductInfoForModalCart } from '../../store/selectors'
 import ModalCart from '../../components/Modal/ModalCart'

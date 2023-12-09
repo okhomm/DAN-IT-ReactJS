@@ -1,3 +1,4 @@
+import React from 'react'
 import Container from '../../../styles/Container'
 import Button from '../../Button'
 import ArrowLeft from '../../../assets/svg/arrow-left.svg?react'

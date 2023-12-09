@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 import Button from '../../Button'
 import Facebook from '../../../assets/svg/social-buttons/facebook.svg?react'

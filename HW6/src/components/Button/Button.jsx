@@ -1,7 +1,9 @@
+import React from 'react'
 import { StyledButton } from './ButtonStyles'
 
 const Button = (props) => {
-  const { children, onClick, disabled, $buttonType, $size, ...restProps } = props
+  const { children, onClick, disabled, $buttonType, $size, ...restProps } =
+    props
   return (
     <div>
       <StyledButton

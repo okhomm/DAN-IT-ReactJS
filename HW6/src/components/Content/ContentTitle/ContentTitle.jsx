@@ -1,3 +1,4 @@
+import React from 'react'
 import { StyledTitle } from './ContentTitleStyles'
 
 const ContentTitle = ({ children }) => {

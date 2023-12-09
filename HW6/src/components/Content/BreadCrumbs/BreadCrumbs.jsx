@@ -1,3 +1,4 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import SmallArrowLeft from '../../../assets/svg/small-arrow-left .svg?react'
 import {

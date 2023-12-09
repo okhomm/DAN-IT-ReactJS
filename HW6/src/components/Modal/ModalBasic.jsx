@@ -1,3 +1,4 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Modal, ModalWrapper, ModalBody, ModalFooter } from './components/index'
 import { TitleInModal, TextInModal } from './components/ModalDefaultStyles'

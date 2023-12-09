@@ -1,3 +1,4 @@
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {selectOpenModalDelete, selectProductInfoForModalCart, selectSelectedItemArticle} from '../../store/selectors'
 import {actionRemoveFromShoppingCart} from '../../store/actions'
